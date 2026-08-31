@@ -228,3 +228,223 @@
 
 </body>
 </html>
+<!-- ========================================== -->
+<!-- CUSTOM AI CHATBOT WIDGET FOR JAMIL AHMAD   -->
+<!-- ========================================== -->
+<style>
+  /* Chatbot Floating Icon */
+  .ai-chat-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #1976D2, #E91E63);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .ai-chat-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.6);
+  }
+
+  /* Chat Box Window */
+  .ai-chat-window {
+    position: fixed;
+    bottom: 85px;
+    right: 25px;
+    width: 350px;
+    max-width: 90vw;
+    height: 480px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    border: 1px solid #e0e0e0;
+  }
+  .ai-chat-window.active {
+    display: flex;
+  }
+
+  /* Header */
+  .ai-chat-header {
+    background: #1976D2;
+    color: #ffffff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ai-chat-header h4 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .ai-chat-header .close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  /* Messages Body */
+  .ai-chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f7f8fb;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .chat-msg {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+  .chat-msg.bot {
+    background: #ffffff;
+    color: #262b36;
+    border-left: 3px solid #E91E63;
+    align-self: flex-start;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  .chat-msg.user {
+    background: #1976D2;
+    color: #ffffff;
+    align-self: flex-end;
+  }
+
+  /* Input Area */
+  .ai-chat-footer {
+    display: flex;
+    padding: 10px;
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+  }
+  .ai-chat-footer input {
+    flex: 1;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    outline: none;
+  }
+  .ai-chat-footer input:focus {
+    border-color: #1976D2;
+  }
+  .ai-chat-footer button {
+    background: #E91E63;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    margin-left: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .ai-chat-footer button:hover {
+    background: #d81b60;
+  }
+</style>
+
+<!-- Floating Button -->
+<button class="ai-chat-btn" onclick="toggleAiChat()">
+  <span>🤖 Ask Jamil's AI</span>
+</button>
+
+<!-- Chat Window -->
+<div class="ai-chat-window" id="aiChatWindow">
+  <div class="ai-chat-header">
+    <h4>Jamil's Virtual Assistant</h4>
+    <button class="close-btn" onclick="toggleAiChat()">&times;</button>
+  </div>
+  <div class="ai-chat-body" id="aiChatBody">
+    <div class="chat-msg bot">
+      Salam! Main Jamil Ahmad ka Virtual Assistant hoon. Aap mujh se unki Research, Education, YouTube content ya Journey ke baare mein poocha sakte hain!
+    </div>
+  </div>
+  <div class="ai-chat-footer">
+    <input type="text" id="aiChatInput" placeholder="Sawal poochein..." onkeypress="handleKeyPress(event)" />
+    <button onclick="sendAiMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function toggleAiChat() {
+    const win = document.getElementById('aiChatWindow');
+    win.classList.toggle('active');
+  }
+
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      sendAiMessage();
+    }
+  }
+
+  function sendAiMessage() {
+    const input = document.getElementById('aiChatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    // Display User Message
+    addMessage(msg, 'user');
+    input.value = '';
+
+    // Generate Bot Response
+    setTimeout(() => {
+      const response = getBotResponse(msg.toLowerCase());
+      addMessage(response, 'bot');
+    }, 500);
+  }
+
+  function addMessage(text, sender) {
+    const body = document.getElementById('aiChatBody');
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `chat-msg ${sender}`;
+    msgDiv.innerText = text;
+    body.appendChild(msgDiv);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  // Pre-configured Intelligent Responses
+  function getBotResponse(q) {
+    if (q.includes('research') || q.includes('thesis') || q.includes('asean') || q.includes('energy')) {
+      return "Jamil ki main research ASEAN mumalik (2000-2023) mein Political Stability aur Renewable Energy Consumption ke taaluq par hai.";
+    } 
+    else if (q.includes('education') || q.includes('degree') || q.includes('study') || q.includes('university')) {
+      return "Jamil ne BBA (Human Resource Management) University of Swat se kiya hai aur ab Universitas Islam Internasional Indonesia (UIII) se Master's in Sustainable Finance kar rahe hain.";
+    } 
+    else if (q.includes('experience') || q.includes('job') || q.includes('work') || q.includes('bank') || q.includes('teacher')) {
+      return "Jamil 2020 se Government Primary School Teacher hain, aur unke paas Meezan Bank mein 4 saal ka retail banking experience bhi hai.";
+    } 
+    else if (q.includes('youtube') || q.includes('vlog') || q.includes('video') || q.includes('media') || q.includes('instagram')) {
+      return "Jamil active content creator hain! Unka YouTube channel 'Jamil Ahmad Shayaan' hai jahan wo travel, food (jaise Jakarta vlogs), aur education se mutaliq videos banate hain.";
+    } 
+    else if (q.includes('contact') || q.includes('email') || q.includes('message') || q.includes('reach')) {
+      return "Aap Jamil se website ke 'Contact' page par ja kar directly email ya form ke zariye raabta kar sakte hain.";
+    } 
+    else if (q.includes('salam') || q.includes('hello') || q.includes('hi') || q.includes('hey')) {
+      return "Walaikum Assalam! Main aap ki kya madad kar sakta hoon?";
+    } 
+    else {
+      return "Yeh ek interesting sawal hai! Is baare mein mazed detail ke liye aap Jamil se Contact Page ke zariye raabta kar sakte hain.";
+    }
+  }
+</script>
