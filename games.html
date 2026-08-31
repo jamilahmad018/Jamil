@@ -3,129 +3,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Games — Jamil Ahmad</title>
+  <title>Interactive Games Zone — Jamil Ahmad</title>
   <link rel="stylesheet" href="css/style.css">
-  
   <style>
     .games-container {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 40px auto;
-      padding: 20px;
+      padding: 0 20px;
       font-family: Arial, sans-serif;
     }
-    
-    .game-tabs {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      margin-bottom: 30px;
-    }
-
-    .tab-btn {
-      padding: 12px 25px;
-      font-size: 1rem;
-      font-weight: bold;
-      border: 2px solid #1976D2;
+    .game-card {
       background: #ffffff;
-      color: #1976D2;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .tab-btn.active, .tab-btn:hover {
-      background: #1976D2;
-      color: #ffffff;
-    }
-
-    .game-section {
-      display: none;
-      background: #f9f9fb;
       border-radius: 12px;
       padding: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid #e0e0e0;
     }
-
-    .game-section.active {
-      display: block;
-    }
-
-    /* TETRIS GAME STYLES */
-    #tetris-canvas {
-      border: 3px solid #222;
-      background-color: #000;
-      display: block;
-      margin: 15px auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    .controls-btn-group {
+    .game-title {
+      color: #1976D2;
+      margin-top: 0;
       display: flex;
-      justify-content: center;
+      align-items: center;
       gap: 10px;
-      margin-top: 15px;
-    }
-
-    .ctrl-btn {
-      padding: 10px 18px;
-      font-size: 1.1rem;
-      background: #E91E63;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    /* A-Z PUZZLE STYLES */
-    .az-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-      max-width: 450px;
-      margin: 20px auto;
-    }
-
-    .az-tile {
-      background: #1976D2;
-      color: white;
       font-size: 1.4rem;
+    }
+    
+    /* Tic Tac Toe Styling */
+    .ttt-board {
+      display: grid;
+      grid-template-columns: repeat(3, 90px);
+      grid-gap: 8px;
+      margin: 20px 0;
+      justify-content: center;
+    }
+    .ttt-cell {
+      width: 90px;
+      height: 90px;
+      background: #f0f4f8;
+      border: 2px solid #1976D2;
+      border-radius: 8px;
+      font-size: 2.2rem;
       font-weight: bold;
-      padding: 15px 0;
+      color: #262b36;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .ttt-cell:hover {
+      background: #e3f2fd;
+    }
+    .game-status {
+      font-weight: bold;
+      color: #E91E63;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    /* Memory Game Styling */
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 70px);
+      grid-gap: 10px;
+      margin: 20px 0;
+      justify-content: center;
+    }
+    .memory-card {
+      width: 70px;
+      height: 70px;
+      background: #1976D2;
+      color: #fff;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 8px;
       cursor: pointer;
       user-select: none;
-      transition: transform 0.1s, background 0.2s;
+      transition: transform 0.3s;
+    }
+    .memory-card.flipped {
+      background: #ffffff;
+      border: 2px solid #1976D2;
     }
 
-    .az-tile:hover {
-      transform: scale(1.05);
-    }
-
-    .az-tile.correct {
-      background: #4CAF50;
-      cursor: default;
-    }
-
-    .stats-board {
-      font-size: 1.2rem;
-      margin: 15px 0;
+    /* Brainstorming Game Styling */
+    .scramble-box {
+      font-size: 2rem;
       font-weight: bold;
+      letter-spacing: 5px;
+      color: #E91E63;
+      background: #f0f4f8;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 15px 0;
+    }
+    .game-input-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .game-input {
+      padding: 10px 15px;
+      font-size: 1rem;
+      border: 2px solid #1976D2;
+      border-radius: 6px;
+      outline: none;
+      width: 60%;
+      max-width: 300px;
+    }
+
+    /* Speed Typing Styling */
+    .typing-text-display {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #1976D2;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 15px 0;
+      font-weight: 500;
+      color: #333;
+    }
+    .typing-textarea {
+      width: 100%;
+      height: 90px;
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      resize: none;
+      box-sizing: border-box;
+    }
+    .typing-textarea:focus {
+      border-color: #1976D2;
+      outline: none;
+    }
+    .typing-stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+      background: #e3f2fd;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn-action {
+      background: #1976D2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-action:hover {
+      background: #1565C0;
+    }
+    .btn-reset {
+      background: #E91E63;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      display: block;
+      margin: 15px auto 0 auto;
+    }
+    .btn-reset:hover {
+      background: #d81b60;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header / Nav -->
   <header class="site-header">
     <div class="wrap">
       <a class="wordmark" href="index.html">Jamil Ahmad</a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="experience.html">Experience</a></li>
           <li><a href="research.html">Research</a></li>
-          <li><a href="games.html" aria-current="page" style="color:#E91E63; font-weight:bold;">Games</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="games.html" aria-current="page" style="color: #E91E63; font-weight: bold;">Games 🎮</a></li>
+          <li><a href="content.html">Content & Media</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -133,296 +205,328 @@
   </header>
 
   <main class="games-container">
-    <h1 style="text-align: center; color: #1976D2;">🎮 Online Game Zone</h1>
-    <p style="text-align: center; margin-bottom: 25px;">Select a game below and enjoy!</p>
+    <h1 style="text-align: center; color: #1976D2; margin-bottom: 10px;">🎮 Interactive Game Zone</h1>
+    <p style="text-align: center; color: #666; margin-bottom: 30px;">Train your dimaag (brain) and typing speed with these fun challenges!</p>
 
-    <!-- Game Switch Tabs -->
-    <div class="game-tabs">
-      <button class="tab-btn active" onclick="switchGame('tetris')">🧩 Tetris (Block Game)</button>
-      <button class="tab-btn" onclick="switchGame('az-puzzle')">🔤 A-Z Alphabet Puzzle</button>
+    <!-- GAME 1: Brainstorming Word Unscramble -->
+    <div class="game-card">
+      <h2 class="game-title">🧠 Brainstorming Word Challenge</h2>
+      <p>Letters ko dhyaan se dekhein aur sahi word guess karein!</p>
+      
+      <div class="scramble-box" id="scrambledWord">LOADING...</div>
+      <p style="text-align: center; color: #666; font-size: 0.9rem;" id="wordHint">Hint: Loading hint...</p>
+      
+      <div class="game-input-group">
+        <input type="text" id="userWordInput" class="game-input" placeholder="Type correct word here..." onkeypress="handleBrainstormEnter(event)">
+        <button class="btn-action" onclick="checkScrambledWord()">Submit</button>
+      </div>
+      
+      <div class="game-status" id="brainstormStatus"></div>
+      <button class="btn-reset" onclick="nextBrainstormWord()">Next Word ➡</button>
     </div>
 
-    <!-- GAME 1: TETRIS -->
-    <div id="tetris-game" class="game-section active">
-      <h2>Tetris Block Puzzle</h2>
-      <p>Use Keyboard Arrow Keys (Left, Right, Down, Up to Rotate) or buttons below.</p>
+    <!-- GAME 2: Speed Typing Test -->
+    <div class="game-card">
+      <h2 class="game-title">⌨️ Keyboard Speed Typing Test</h2>
+      <p>Niche diye gaye sentence ko kitni jaldi aur sahi type kar sakte hain?</p>
       
-      <div class="stats-board">Score: <span id="tetris-score">0</span></div>
+      <div class="typing-text-display" id="sentenceDisplay">Loading text...</div>
       
-      <canvas id="tetris-canvas" width="240" height="400"></canvas>
+      <textarea id="typingInput" class="typing-textarea" placeholder="Start typing here when ready..." oninput="startTypingTest()"></textarea>
       
-      <div>
-        <button class="ctrl-btn" onclick="startTetris()">▶ Start / Restart Game</button>
+      <div class="typing-stats">
+        <div>Time: <span id="typingTimer" style="color:#E91E63;">0s</span></div>
+        <div>Speed: <span id="typingWPM" style="color:#1976D2;">0 WPM</span></div>
+        <div>Accuracy: <span id="typingAccuracy" style="color:#4CAF50;">100%</span></div>
       </div>
-
-      <!-- Mobile On-Screen Controls -->
-      <div class="controls-btn-group">
-        <button class="ctrl-btn" onclick="playerMove(-1)">⬅ Left</button>
-        <button class="ctrl-btn" onclick="playerRotate(1)">🔄 Rotate</button>
-        <button class="ctrl-btn" onclick="playerMove(1)">Right ➡</button>
-        <button class="ctrl-btn" onclick="playerDrop()">⬇ Down</button>
-      </div>
+      
+      <button class="btn-reset" onclick="resetTypingTest()">Try New Sentence 🔄</button>
     </div>
 
-    <!-- GAME 2: A-Z PUZZLE -->
-    <div id="az-game" class="game-section">
-      <h2>A-Z Alphabet Order Challenge</h2>
-      <p>Click the letters in correct alphabetical order from <strong>A to Z</strong> as fast as you can!</p>
-
-      <div class="stats-board">
-        Next Letter: <span id="next-letter" style="color:#E91E63;">A</span> | 
-        Time: <span id="az-timer">0.0</span>s
+    <!-- GAME 3: Tic Tac Toe vs AI -->
+    <div class="game-card">
+      <h2 class="game-title">❌ Tic-Tac-Toe (vs AI) ⭕</h2>
+      <p>Play against the computer. Can you win?</p>
+      <div class="ttt-board" id="tttBoard">
+        <div class="ttt-cell" onclick="makeMove(0)"></div>
+        <div class="ttt-cell" onclick="makeMove(1)"></div>
+        <div class="ttt-cell" onclick="makeMove(2)"></div>
+        <div class="ttt-cell" onclick="makeMove(3)"></div>
+        <div class="ttt-cell" onclick="makeMove(4)"></div>
+        <div class="ttt-cell" onclick="makeMove(5)"></div>
+        <div class="ttt-cell" onclick="makeMove(6)"></div>
+        <div class="ttt-cell" onclick="makeMove(7)"></div>
+        <div class="ttt-cell" onclick="makeMove(8)"></div>
       </div>
-
-      <div class="az-grid" id="az-grid"></div>
-
-      <button class="ctrl-btn" onclick="startAZGame()">🔄 Reset / Shuffle Letters</button>
+      <div class="game-status" id="tttStatus">Your turn! (You are X)</div>
+      <button class="btn-reset" onclick="resetTTT()">Restart Game</button>
     </div>
+
+    <!-- GAME 4: Emoji Memory Match -->
+    <div class="game-card">
+      <h2 class="game-title">🃏 Emoji Memory Match</h2>
+      <p>Match all pairs of emojis in as few moves as possible.</p>
+      <div class="memory-grid" id="memoryGrid"></div>
+      <div class="game-status" id="memoryStatus">Find matching pairs!</div>
+      <button class="btn-reset" onclick="resetMemoryGame()">Reset Cards</button>
+    </div>
+
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Jamil Ahmad. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
 
   <script>
     /* ========================================= */
-    /* TAB SWITCHING LOGIC                       */
+    /* GAME 1: BRAINSTORMING WORD GAME           */
     /* ========================================= */
-    function switchGame(gameType) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.game-section').forEach(sec => sec.classList.remove('active'));
+    const wordList = [
+      { word: "RESEARCH", hint: "Investigating new knowledge or thesis" },
+      { word: "FINANCE", hint: "Money management and economics" },
+      { word: "RENEWABLE", hint: "Solar, wind, and sustainable energy" },
+      { word: "STABILITY", hint: "Firmness and political balance" },
+      { word: "EDUCATION", hint: "Learning and teaching in classroom" },
+      { word: "PAKISTAN", hint: "Beautiful home country" },
+      { word: "INDONESIA", hint: "Land of ASEAN and UIII university" },
+      { word: "TEACHER", hint: "Guide who helps students learn" }
+    ];
 
-      if (gameType === 'tetris') {
-        event.target.classList.add('active');
-        document.getElementById('tetris-game').classList.add('active');
+    let currentWordObj = {};
+
+    function nextBrainstormWord() {
+      const randomIndex = Math.floor(Math.random() * wordList.length);
+      currentWordObj = wordList[randomIndex];
+      
+      let scrambled = currentWordObj.word.split('').sort(() => 0.5 - Math.random()).join('');
+      while (scrambled === currentWordObj.word) {
+        scrambled = currentWordObj.word.split('').sort(() => 0.5 - Math.random()).join('');
+      }
+
+      document.getElementById('scrambledWord').innerText = scrambled;
+      document.getElementById('wordHint').innerText = "💡 Hint: " + currentWordObj.hint;
+      document.getElementById('userWordInput').value = "";
+      document.getElementById('brainstormStatus').innerText = "";
+    }
+
+    function checkScrambledWord() {
+      const userInput = document.getElementById('userWordInput').value.trim().toUpperCase();
+      if (userInput === currentWordObj.word) {
+        document.getElementById('brainstormStatus').innerText = "🎉 Shaabash! Perfect Answer!";
+        document.getElementById('brainstormStatus').style.color = "#4CAF50";
       } else {
-        event.target.classList.add('active');
-        document.getElementById('az-game').classList.add('active');
-        startAZGame();
+        document.getElementById('brainstormStatus').innerText = "❌ Sahi nahi hai, dobara try karein!";
+        document.getElementById('brainstormStatus').style.color = "#E91E63";
       }
     }
+
+    function handleBrainstormEnter(e) {
+      if (e.key === 'Enter') checkScrambledWord();
+    }
+
+    nextBrainstormWord();
 
     /* ========================================= */
-    /* GAME 1: TETRIS GAME JAVASCRIPT            */
+    /* GAME 2: SPEED TYPING TEST                 */
     /* ========================================= */
-    const canvas = document.getElementById('tetris-canvas');
-    const context = canvas.getContext('2d');
-    context.scale(20, 20);
+    const typingSentences = [
+      "Sustainable finance promotes clean energy and green environment.",
+      "Education is the most powerful weapon to change the world.",
+      "Research shows political stability boosts renewable energy growth.",
+      "Jamil Ahmad is passionate about teaching and academic research.",
+      "Practice typing daily to improve your speed and keyboard accuracy."
+    ];
 
-    function arenaSweep() {
-      let rowCount = 1;
-      outer: for (let y = arena.length - 1; y > 0; --y) {
-        for (let x = 0; x < arena[y].length; ++x) {
-          if (arena[y][x] === 0) continue outer;
+    let currentSentence = "";
+    let typingTimer = null;
+    let timeElapsed = 0;
+    let isTypingStarted = false;
+
+    function resetTypingTest() {
+      clearInterval(typingTimer);
+      timeElapsed = 0;
+      isTypingStarted = false;
+      
+      currentSentence = typingSentences[Math.floor(Math.random() * typingSentences.length)];
+      document.getElementById('sentenceDisplay').innerText = currentSentence;
+      
+      const inputEl = document.getElementById('typingInput');
+      inputEl.value = "";
+      inputEl.disabled = false;
+      
+      document.getElementById('typingTimer').innerText = "0s";
+      document.getElementById('typingWPM').innerText = "0 WPM";
+      document.getElementById('typingAccuracy').innerText = "100%";
+    }
+
+    function startTypingTest() {
+      const typedValue = document.getElementById('typingInput').value;
+
+      if (!isTypingStarted && typedValue.length > 0) {
+        isTypingStarted = true;
+        typingTimer = setInterval(() => {
+          timeElapsed++;
+          document.getElementById('typingTimer').innerText = timeElapsed + "s";
+          calculateWPM(typedValue);
+        }, 100);
+      }
+
+      calculateAccuracy(typedValue);
+
+      if (typedValue === currentSentence) {
+        clearInterval(typingTimer);
+        document.getElementById('typingInput').disabled = true;
+        alert(`🎉 Great job! You finished typing in ${timeElapsed/10} seconds!`);
+      }
+    }
+
+    function calculateWPM(typedValue) {
+      const wordsTyped = typedValue.trim().split(/\s+/).length;
+      if (timeElapsed > 0 && wordsTyped > 0) {
+        const wpm = Math.round((wordsTyped / (timeElapsed / 10)) * 60);
+        document.getElementById('typingWPM').innerText = wpm + " WPM";
+      }
+    }
+
+    function calculateAccuracy(typedValue) {
+      let correctChars = 0;
+      for (let i = 0; i < typedValue.length; i++) {
+        if (typedValue[i] === currentSentence[i]) {
+          correctChars++;
         }
-        const row = arena.splice(y, 1)[0].fill(0);
-        arena.unshift(row);
-        ++y;
-        player.score += rowCount * 10;
-        rowCount *= 2;
       }
-      updateScore();
+      const accuracy = typedValue.length > 0 ? Math.round((correctChars / typedValue.length) * 100) : 100;
+      document.getElementById('typingAccuracy').innerText = accuracy + "%";
     }
 
-    function collide(arena, player) {
-      const [m, o] = [player.matrix, player.pos];
-      for (let y = 0; y < m.length; ++y) {
-        for (let x = 0; x < m[y].length; ++x) {
-          if (m[y][x] !== 0 && (arena[y + o.y] && arena[y + o.y][x + o.x]) !== 0) {
-            return true;
-          }
-        }
+    resetTypingTest();
+
+    /* ========================================= */
+    /* GAME 3: TIC TAC TOE CODE                  */
+    /* ========================================= */
+    let board = ["", "", "", "", "", "", "", "", ""];
+    let gameActive = true;
+
+    function makeMove(index) {
+      if (board[index] !== "" || !gameActive) return;
+      board[index] = "X";
+      updateTTTBoard();
+      
+      if (checkWin("X")) {
+        document.getElementById('tttStatus').innerText = "🎉 You Won!";
+        gameActive = false;
+        return;
       }
-      return false;
-    }
-
-    function createMatrix(w, h) {
-      const matrix = [];
-      while (h--) matrix.push(new Array(w).fill(0));
-      return matrix;
-    }
-
-    function createPiece(type) {
-      if (type === 'T') return [[0,0,0],[1,1,1],[0,1,0]];
-      else if (type === 'O') return [[2,2],[2,2]];
-      else if (type === 'L') return [[0,3,0],[0,3,0],[0,3,3]];
-      else if (type === 'J') return [[0,4,0],[0,4,0],[4,4,0]];
-      else if (type === 'I') return [[0,5,0,0],[0,5,0,0],[0,5,0,0],[0,5,0,0]];
-      else if (type === 'S') return [[0,6,6],[6,6,0],[0,0,0]];
-      else if (type === 'Z') return [[7,7,0],[0,7,7],[0,0,0]];
-    }
-
-    function draw() {
-      context.fillStyle = '#000';
-      context.fillRect(0, 0, canvas.width, canvas.height);
-      drawMatrix(arena, {x: 0, y: 0});
-      drawMatrix(player.matrix, player.pos);
-    }
-
-    const colors = [null, '#FF0D72', '#0DC2FF', '#0DFF72', '#F538FF', '#FF8E0D', '#FFE138', '#3877FF'];
-
-    function drawMatrix(matrix, offset) {
-      matrix.forEach((row, y) => {
-        row.forEach((value, x) => {
-          if (value !== 0) {
-            context.fillStyle = colors[value];
-            context.fillRect(x + offset.x, y + offset.y, 1, 1);
-          }
-        });
-      });
-    }
-
-    function merge(arena, player) {
-      player.matrix.forEach((row, y) => {
-        row.forEach((value, x) => {
-          if (value !== 0) arena[y + player.pos.y][x + player.pos.x] = value;
-        });
-      });
-    }
-
-    function playerDrop() {
-      player.pos.y++;
-      if (collide(arena, player)) {
-        player.pos.y--;
-        merge(arena, player);
-        playerReset();
-        arenaSweep();
+      if (board.every(cell => cell !== "")) {
+        document.getElementById('tttStatus').innerText = "It's a Tie!";
+        gameActive = false;
+        return;
       }
-      dropCounter = 0;
+
+      document.getElementById('tttStatus').innerText = "AI is thinking...";
+      setTimeout(aiMove, 300);
     }
 
-    function playerMove(dir) {
-      player.pos.x += dir;
-      if (collide(arena, player)) player.pos.x -= dir;
-    }
+    function aiMove() {
+      if (!gameActive) return;
+      let emptyIndices = board.map((val, idx) => val === "" ? idx : null).filter(val => val !== null);
+      if (emptyIndices.length > 0) {
+        let randomIndex = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+        board[randomIndex] = "O";
+        updateTTTBoard();
 
-    function playerReset() {
-      const pieces = 'ILJOTSZ';
-      player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
-      player.pos.y = 0;
-      player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
-      if (collide(arena, player)) {
-        arena.forEach(row => row.fill(0));
-        alert("Game Over! Final Score: " + player.score);
-        player.score = 0;
-        updateScore();
-      }
-    }
-
-    function playerRotate(dir) {
-      const pos = player.pos.x;
-      let offset = 1;
-      rotate(player.matrix, dir);
-      while (collide(arena, player)) {
-        player.pos.x += offset;
-        offset = -(offset + (offset > 0 ? 1 : -1));
-        if (offset > player.matrix[0].length) {
-          rotate(player.matrix, -dir);
-          player.pos.x = pos;
+        if (checkWin("O")) {
+          document.getElementById('tttStatus').innerText = "🤖 AI Won! Try again.";
+          gameActive = false;
           return;
         }
-      }
-    }
-
-    function rotate(matrix, dir) {
-      for (let y = 0; y < matrix.length; ++y) {
-        for (let x = 0; x < y; ++x) {
-          [matrix[x][y], matrix[y][x]] = [matrix[y][x], matrix[x][y]];
+        if (board.every(cell => cell !== "")) {
+          document.getElementById('tttStatus').innerText = "It's a Tie!";
+          gameActive = false;
+          return;
         }
+        document.getElementById('tttStatus').innerText = "Your turn! (You are X)";
       }
-      if (dir > 0) matrix.forEach(row => row.reverse());
-      else matrix.reverse();
     }
 
-    let dropCounter = 0;
-    let dropInterval = 1000;
-    let lastTime = 0;
-
-    function update(time = 0) {
-      const deltaTime = time - lastTime;
-      lastTime = time;
-      dropCounter += deltaTime;
-      if (dropCounter > dropInterval) playerDrop();
-      draw();
-      requestAnimationFrame(update);
+    function checkWin(player) {
+      const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+      return wins.some(comb => comb.every(idx => board[idx] === player));
     }
 
-    function updateScore() {
-      document.getElementById('tetris-score').innerText = player.score;
-    }
-
-    const arena = createMatrix(12, 20);
-    const player = { pos: {x: 0, y: 0}, matrix: null, score: 0 };
-
-    function startTetris() {
-      arena.forEach(row => row.fill(0));
-      player.score = 0;
-      updateScore();
-      playerReset();
-      update();
-    }
-
-    document.addEventListener('keydown', event => {
-      if (event.keyCode === 37) playerMove(-1);
-      else if (event.keyCode === 39) playerMove(1);
-      else if (event.keyCode === 40) playerDrop();
-      else if (event.keyCode === 38) playerRotate(1);
-    });
-
-    /* ========================================= */
-    /* GAME 2: A-Z PUZZLE JAVASCRIPT             */
-    /* ========================================= */
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    let currentTargetIndex = 0;
-    let timerInterval = null;
-    let startTime = null;
-
-    function startAZGame() {
-      currentTargetIndex = 0;
-      document.getElementById('next-letter').innerText = alphabet[currentTargetIndex];
-      document.getElementById('az-timer').innerText = "0.0";
-      
-      clearInterval(timerInterval);
-      startTime = null;
-
-      const shuffled = [...alphabet].sort(() => Math.random() - 0.5);
-      const grid = document.getElementById('az-grid');
-      grid.innerHTML = "";
-
-      shuffled.forEach(letter => {
-        const tile = document.createElement('div');
-        tile.className = 'az-tile';
-        tile.innerText = letter;
-        tile.onclick = () => handleTileClick(tile, letter);
-        grid.appendChild(tile);
+    function updateTTTBoard() {
+      const cells = document.querySelectorAll('.ttt-cell');
+      cells.forEach((cell, idx) => {
+        cell.innerText = board[idx];
+        if(board[idx] === 'X') cell.style.color = '#1976D2';
+        if(board[idx] === 'O') cell.style.color = '#E91E63';
       });
     }
 
-    function handleTileClick(tile, letter) {
-      if (letter === alphabet[currentTargetIndex]) {
-        // Start Timer on first correct click
-        if (currentTargetIndex === 0) {
-          startTime = Date.now();
-          timerInterval = setInterval(() => {
-            const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
-            document.getElementById('az-timer').innerText = elapsed;
-          }, 100);
-        }
+    function resetTTT() {
+      board = ["", "", "", "", "", "", "", "", ""];
+      gameActive = true;
+      document.getElementById('tttStatus').innerText = "Your turn! (You are X)";
+      updateTTTBoard();
+    }
 
-        tile.classList.add('correct');
-        tile.onclick = null;
-        currentTargetIndex++;
+    /* ========================================= */
+    /* GAME 4: MEMORY GAME CODE                  */
+    /* ========================================= */
+    const emojis = ['📚', '🎓', '🌴', '⚽', '📚', '🎓', '🌴', '⚽'];
+    let flippedCards = [];
+    let matchedPairs = 0;
 
-        if (currentTargetIndex < alphabet.length) {
-          document.getElementById('next-letter').innerText = alphabet[currentTargetIndex];
+    function resetMemoryGame() {
+      const grid = document.getElementById('memoryGrid');
+      grid.innerHTML = '';
+      flippedCards = [];
+      matchedPairs = 0;
+      document.getElementById('memoryStatus').innerText = "Find matching pairs!";
+
+      let shuffled = [...emojis].sort(() => 0.5 - Math.random());
+      shuffled.forEach((emoji, idx) => {
+        const card = document.createElement('div');
+        card.className = 'memory-card';
+        card.dataset.emoji = emoji;
+        card.dataset.id = idx;
+        card.innerText = '❓';
+        card.onclick = () => flipCard(card);
+        grid.appendChild(card);
+      });
+    }
+
+    function flipCard(card) {
+      if (flippedCards.length === 2 || card.classList.contains('flipped')) return;
+
+      card.innerText = card.dataset.emoji;
+      card.classList.add('flipped');
+      flippedCards.push(card);
+
+      if (flippedCards.length === 2) {
+        if (flippedCards[0].dataset.emoji === flippedCards[1].dataset.emoji) {
+          matchedPairs++;
+          flippedCards = [];
+          if (matchedPairs === 4) {
+            document.getElementById('memoryStatus').innerText = "🎉 Congratulations! You matched all pairs!";
+          }
         } else {
-          clearInterval(timerInterval);
-          const finalTime = ((Date.now() - startTime) / 1000).toFixed(2);
-          document.getElementById('next-letter').innerText = "DONE! 🎉";
-          alert(`🎉 Congratulations! You solved the A-Z Puzzle in ${finalTime} seconds!`);
+          setTimeout(() => {
+            flippedCards[0].innerText = '❓';
+            flippedCards[1].innerText = '❓';
+            flippedCards[0].classList.remove('flipped');
+            flippedCards[1].classList.remove('flipped');
+            flippedCards = [];
+          }, 800);
         }
       }
     }
 
-    // Auto start A-Z Game setup
-    startAZGame();
+    resetMemoryGame();
   </script>
-
 </body>
 </html>
