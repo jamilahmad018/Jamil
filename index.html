@@ -86,11 +86,8 @@
   ]
 }</script>
 
-  <!-- ========================================== -->
-  <!-- CUSTOM AI CHATBOT WIDGET STYLES (CSS)     -->
-  <!-- ========================================== -->
+  <!-- CUSTOM AI CHATBOT STYLES -->
   <style>
-    /* Chatbot Floating Icon */
     .ai-chat-btn {
       position: fixed;
       bottom: 25px;
@@ -114,8 +111,6 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(233, 30, 99, 0.6);
     }
-
-    /* Chat Box Window */
     .ai-chat-window {
       position: fixed;
       bottom: 85px;
@@ -135,8 +130,6 @@
     .ai-chat-window.active {
       display: flex;
     }
-
-    /* Header */
     .ai-chat-header {
       background: #1976D2;
       color: #ffffff;
@@ -158,8 +151,6 @@
       font-size: 1.2rem;
       cursor: pointer;
     }
-
-    /* Messages Body */
     .ai-chat-body {
       flex: 1;
       padding: 15px;
@@ -188,8 +179,6 @@
       color: #ffffff;
       align-self: flex-end;
     }
-
-    /* Input Area */
     .ai-chat-footer {
       display: flex;
       padding: 10px;
@@ -238,6 +227,7 @@
           <li><a href="experience.html">Experience</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
+          <li><a href="games.html" style="color: #E91E63; font-weight: bold;">Games 🎮</a></li>
           <li><a href="content.html">Content & Media</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -363,16 +353,11 @@
     </div>
   </footer>
 
-  <!-- ========================================== -->
-  <!-- CUSTOM AI CHATBOT WIDGET HTML & SCRIPT     -->
-  <!-- ========================================== -->
-
-  <!-- Floating Button -->
+  <!-- CUSTOM AI CHATBOT WIDGET -->
   <button class="ai-chat-btn" onclick="toggleAiChat()">
     <span>🤖 Ask Jamil's AI</span>
   </button>
 
-  <!-- Chat Window -->
   <div class="ai-chat-window" id="aiChatWindow">
     <div class="ai-chat-header">
       <h4>Jamil's Virtual Assistant</h4>
@@ -391,7 +376,6 @@
 
   <script src="js/main.js"></script>
 
-  <!-- Chatbot Logic (JS) -->
   <script>
     function toggleAiChat() {
       const win = document.getElementById('aiChatWindow');
@@ -409,11 +393,9 @@
       const msg = input.value.trim();
       if (!msg) return;
 
-      // Display User Message
       addMessage(msg, 'user');
       input.value = '';
 
-      // Generate Bot Response
       setTimeout(() => {
         const response = getBotResponse(msg.toLowerCase());
         addMessage(response, 'bot');
@@ -429,7 +411,6 @@
       body.scrollTop = body.scrollHeight;
     }
 
-    // Pre-configured Intelligent Responses
     function getBotResponse(q) {
       if (q.includes('research') || q.includes('thesis') || q.includes('asean') || q.includes('energy')) {
         return "Jamil ki main research ASEAN mumalik (2000-2023) mein Political Stability aur Renewable Energy Consumption ke taaluq par hai.";
