@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jamil Central — News, Knowledge & Entertainment Portal</title>
+  <title>Jamil Ahmad Shayaan — Official Web Portal</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     :root {
       --primary: #1976D2;
       --secondary: #E91E63;
-      --dark: #1e293b;
+      --dark: #0f172a;
       --light: #f8fafc;
       --card-bg: #ffffff;
     }
@@ -21,7 +21,7 @@
       color: #334155;
     }
 
-    /* Top Announcement Bar */
+    /* Top Announcement Ticker */
     .ticker-wrap {
       width: 100%;
       background: var(--dark);
@@ -41,7 +41,7 @@
       white-space: nowrap;
     }
 
-    /* Navigation */
+    /* Header Navigation */
     .portal-header {
       background: #ffffff;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -58,10 +58,11 @@
       padding: 15px 20px;
     }
     .brand-logo {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--primary);
       text-decoration: none;
+      letter-spacing: 0.5px;
     }
     .nav-links {
       display: flex;
@@ -80,26 +81,93 @@
       color: var(--primary);
     }
 
-    /* Hero Portal Section */
+    /* Hero Section with Photo */
     .hero-banner {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
       color: white;
-      padding: 60px 20px;
-      text-align: center;
+      padding: 50px 20px;
       border-bottom: 4px solid var(--secondary);
     }
-    .hero-banner h1 {
-      font-size: 2.8rem;
-      margin: 0 0 15px 0;
+    .hero-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
     }
-    .hero-banner p {
-      font-size: 1.2rem;
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      margin: 0 0 10px 0;
+      color: #ffffff;
+    }
+    .hero-text .subtitle {
+      font-size: 1.3rem;
+      color: #38bdf8;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .hero-text p {
+      font-size: 1.05rem;
       color: #cbd5e1;
-      max-width: 700px;
-      margin: 0 auto 25px auto;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--secondary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-primary:hover {
+      background: #d81b60;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.3);
     }
 
-    /* Portal Layout Container */
+    /* Hero Photo Card */
+    .hero-photo-wrapper {
+      position: relative;
+    }
+    .hero-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #ffffff;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+      transition: transform 0.3s ease;
+    }
+    .hero-photo:hover {
+      transform: scale(1.05);
+    }
+
+    /* Main Container Layout */
     .main-container {
       max-width: 1200px;
       margin: 40px auto;
@@ -113,9 +181,16 @@
       .main-container {
         grid-template-columns: 1fr;
       }
+      .hero-container {
+        justify-content: center;
+        text-align: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
     }
 
-    /* Card Styling */
+    /* Section Cards */
     .section-card {
       background: var(--card-bg);
       border-radius: 12px;
@@ -172,8 +247,7 @@
       font-size: 0.85rem;
     }
 
-    /* Sidebar Widgets */
-    /* Music Widget */
+    /* Music Player Widget */
     .music-widget {
       background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
       color: white;
@@ -219,13 +293,13 @@
   <!-- Top Breaking News Bar -->
   <div class="ticker-wrap">
     <span class="ticker-title">LIVE UPDATES</span>
-    <marquee style="margin-left: 15px;">Welcome to Jamil Central Portal — Daily News, Music, Research, Games, and Tech Updates in One Place!</marquee>
+    <marquee style="margin-left: 15px;">Welcome to Jamil Ahmad Shayaan's Official Portal — Daily Live News, Music Lounge, Research & Brain Games!</marquee>
   </div>
 
   <!-- Header Navigation -->
   <header class="portal-header">
     <div class="portal-nav">
-      <a href="index.html" class="brand-logo">JAMIL CENTRAL 🌐</a>
+      <a href="index.html" class="brand-logo">JAMIL AHMAD SHAYAAN 🌐</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="#news">Daily News</a></li>
@@ -237,13 +311,32 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Photo -->
   <section class="hero-banner">
-    <h1>Explore News, Ideas & Entertainment</h1>
-    <p>Your daily hub for real-time global news, music lounge, interactive brain games, and academic insights.</p>
+    <div class="hero-container">
+      
+      <!-- Profile Photo -->
+      <div class="hero-photo-wrapper">
+        <img src="jamil.jpg" alt="Jamil Ahmad Shayaan" class="hero-photo" onerror="this.src='https://via.placeholder.com/220?text=Jamil+Ahmad+Shayaan';">
+      </div>
+
+      <!-- Intro Text -->
+      <div class="hero-text">
+        <h1>Jamil Ahmad Shayaan</h1>
+        <div class="subtitle">Researcher • Educator • Web Portal Creator</div>
+        <p>Welcome to my digital space! Here you will find live global news updates, research insights, relaxing music lounge, and interactive brain games.</p>
+        
+        <div class="hero-buttons">
+          <a href="#news" class="btn-primary">Explore Live News 📰</a>
+          <a href="games.html" class="btn-secondary">Play Games 🎮</a>
+          <a href="about.html" class="btn-secondary">About Me 👤</a>
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <!-- Main Layout Grid -->
+  <!-- Main Content Layout -->
   <div class="main-container">
 
     <!-- LEFT COLUMN: News & Knowledge -->
@@ -252,69 +345,70 @@
       <!-- AUTOMATIC DAILY NEWS SECTION -->
       <div class="section-card" id="news">
         <div class="section-header">
-          <h2 class="section-title">📰 Automatic Live News Updates</h2>
-          <span style="font-size: 0.85rem; color: #64748b;">Auto-updated via RSS API</span>
+          <h2 class="section-title">📰 Automatic Live World News</h2>
+          <span style="font-size: 0.85rem; color: #64748b;">Auto-updated via Live Feed</span>
         </div>
         <div class="news-grid" id="newsFeedContainer">
-          <p>Loading live news updates...</p>
+          <p>Loading latest world news...</p>
         </div>
       </div>
 
       <!-- GENERAL KNOWLEDGE & INFORMATIONAL HUB -->
       <div class="section-card" id="knowledge">
         <div class="section-header">
-          <h2 class="section-title">💡 General Knowledge & Tech Hub</h2>
+          <h2 class="section-title">💡 Knowledge & Academic Hub</h2>
         </div>
         <div class="info-grid">
           <div class="info-card">
             <h4>🌱 Renewable Energy</h4>
-            <p style="font-size:0.85rem;">Discover latest research on sustainable finance & solar energy growth.</p>
+            <p style="font-size:0.85rem;">Discover research on sustainable finance & green energy growth.</p>
           </div>
           <div class="info-card">
             <h4>📈 Global Economics</h4>
-            <p style="font-size:0.85rem;">Insights on ASEAN market dynamics and emerging financial trends.</p>
+            <p style="font-size:0.85rem;">Insights on ASEAN markets and emerging financial trends.</p>
           </div>
           <div class="info-card">
-            <h4>💻 Technology Trends</h4>
-            <p style="font-size:0.85rem;">Exploring AI tools, web development, and digital innovation.</p>
+            <h4>💻 Tech & Innovation</h4>
+            <p style="font-size:0.85rem;">Exploring web tools, AI technologies, and modern development.</p>
           </div>
           <div class="info-card">
-            <h4>🎓 Academic Guides</h4>
-            <p style="font-size:0.85rem;">Tips on research methodology, thesis writing, and study abroad.</p>
+            <h4>🎓 Academic Research</h4>
+            <p style="font-size:0.85rem;">Methodology guides, publications, and higher education tips.</p>
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- RIGHT COLUMN: Sidebar (Music Player & Entertainment) -->
+    <!-- RIGHT COLUMN: Sidebar (Music Player & Games) -->
     <div class="sidebar">
 
       <!-- MUSIC PLAYER WIDGET -->
       <div class="music-widget">
-        <h3 style="margin-top:0;">🎵 Music Lounge</h3>
-        <p style="font-size: 0.85rem; color: #cbd5e1;">Enjoy relaxing background music while reading!</p>
+        <h3 style="margin-top:0;">🎵 Relaxing Music Lounge</h3>
+        <p style="font-size: 0.85rem; color: #cbd5e1;">Play background audio while browsing news!</p>
         
-        <!-- Online Royalty Free Stream / Spotify Embed -->
         <audio controls class="audio-player-custom">
-          <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+          Your browser does not support audio player.
         </audio>
       </div>
 
-      <!-- ENTERTAINMENT & GAMES BANNER -->
+      <!-- GAMES BANNER -->
       <div class="section-card" style="text-align: center; background: #fff5f5; border: 1px dashed var(--secondary);">
-        <h3 style="color: var(--secondary); margin-top:0;">🎮 Play Brain Games</h3>
-        <p style="font-size:0.9rem;">Feeling bored? Test your typing speed or unscramble words in our Game Zone.</p>
-        <a href="games.html" style="display:inline-block; background: var(--secondary); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">Launch Games Zone 🚀</a>
+        <h3 style="color: var(--secondary); margin-top:0;">🎮 Brain Games Zone</h3>
+        <p style="font-size:0.9rem;">Test your typing speed & solve word puzzles in our game zone.</p>
+        <a href="games.html" style="display:inline-block; background: var(--secondary); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">Play Games 🚀</a>
       </div>
 
-      <!-- QUICK LINKS / CONTACT -->
+      <!-- QUICK NAVIGATION -->
       <div class="section-card">
-        <h3>📌 Quick Categories</h3>
+        <h3>📌 Quick Links</h3>
         <ul style="padding-left: 20px; line-height: 2;">
           <li><a href="research.html">Research Papers</a></li>
           <li><a href="blog.html">Blog Articles</a></li>
-          <li><a href="about.html">Academic Profile</a></li>
+          <li><a href="about.html">About Profile</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
         </ul>
       </div>
 
@@ -324,12 +418,11 @@
 
   <!-- Footer -->
   <footer class="portal-footer">
-    <p>&copy; 2026 Jamil Central Web Portal. All rights reserved.</p>
+    <p>&copy; 2026 Jamil Ahmad Shayaan. All rights reserved.</p>
   </footer>
 
   <!-- SCRIPT FOR AUTOMATIC LIVE NEWS FETCHING -->
   <script>
-    // Live RSS Feed URL (Using RSS2JSON API)
     const newsApiUrl = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml";
 
     async function fetchLiveNews() {
@@ -339,9 +432,7 @@
         const data = await response.json();
         
         if (data.status === 'ok') {
-          container.innerHTML = ''; // Clear loading
-          
-          // Display Top 6 News Items
+          container.innerHTML = '';
           data.items.slice(0, 6).forEach(item => {
             const newsCard = document.createElement('div');
             newsCard.className = 'news-item';
@@ -360,7 +451,6 @@
       }
     }
 
-    // Auto-fetch on page load
     fetchLiveNews();
   </script>
 
