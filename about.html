@@ -3,224 +3,215 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Jamil Ahmad</title>
-  <meta name="description" content="About Jamil Ahmad — Pakistani educator, researcher, and sustainable finance professional with a background in banking and primary education.">
-  <link rel="canonical" href="https://jamilahmad.example/about.html">
-  <meta name="author" content="Jamil Ahmad">
-  <meta name="robots" content="index, follow">
-
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Jamil Ahmad">
-  <meta property="og:title" content="About | Jamil Ahmad">
-  <meta property="og:description" content="About Jamil Ahmad — Pakistani educator, researcher, and sustainable finance professional with a background in banking and primary education.">
-  <meta property="og:url" content="https://jamilahmad.example/about.html">
-  <meta property="og:image" content="https://jamilahmad.example/assets/og-image.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About | Jamil Ahmad">
-  <meta name="twitter:description" content="About Jamil Ahmad — Pakistani educator, researcher, and sustainable finance professional with a background in banking and primary education.">
-  <meta name="twitter:image" content="https://jamilahmad.example/assets/og-image.jpg">
-
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://jamilahmad.example/#person",
-  "name": "Jamil Ahmad",
-  "nationality": "Pakistani",
-  "jobTitle": [
-    "Primary School Teacher",
-    "Researcher",
-    "Sustainable Finance Professional"
-  ],
-  "alumniOf": [
-    {
-      "@type": "CollegeOrUniversity",
-      "name": "University of Swat"
-    },
-    {
-      "@type": "CollegeOrUniversity",
-      "name": "Universitas Islam Internasional Indonesia (UIII)"
+  <title>About Me — Jamil Ahmad Shayaan</title>
+  <style>
+    :root {
+      --primary: #1976D2;
+      --secondary: #E91E63;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --card-bg: #ffffff;
     }
-  ],
-  "knowsAbout": [
-    "Sustainable Finance",
-    "Renewable Energy",
-    "Political Stability and Economic Impact",
-    "Sustainable Development",
-    "Green Finance",
-    "Energy Transition",
-    "Financial Sustainability"
-  ],
-  "url": "https://jamilahmad.example",
-  "sameAs": []
-}</script>
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://jamilahmad.example/#website",
-  "url": "https://jamilahmad.example",
-  "name": "Jamil Ahmad",
-  "publisher": {
-    "@id": "https://jamilahmad.example/#person"
-  }
-}</script>
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://jamilahmad.example/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "About",
-      "item": "https://jamilahmad.example/about.html"
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f5f9;
+      color: #334155;
     }
-  ]
-}</script>
+
+    /* Top Utility Bar */
+    .top-utility-bar {
+      background: #020617;
+      color: #94a3b8;
+      padding: 6px 20px;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1e293b;
+    }
+    .live-badge {
+      background: #22c55e;
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Ticker Bar */
+    .ticker-wrap {
+      width: 100%;
+      background: var(--dark);
+      color: #fff;
+      padding: 8px 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      border-bottom: 3px solid var(--secondary);
+    }
+    .ticker-title {
+      background: var(--secondary);
+      padding: 4px 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-left: 15px;
+    }
+
+    /* Header Navigation */
+    .portal-header {
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .portal-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .brand-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #475569;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+
+    /* Inner Page Hero Header */
+    .page-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .page-hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    /* Content Layout */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .about-card {
+      background: white;
+      border-radius: 12px;
+      padding: 35px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .about-img {
+      width: 260px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    .about-text h2 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+    .about-text p {
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: #475569;
+    }
+
+    .portal-footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="wrap">
-      <a class="wordmark" href="index.html">Jamil Ahmad</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-        <span></span>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <ul>
+
+  <div class="top-utility-bar">
+    <div>
+      <span class="live-badge">LIVE</span>
+      <span id="liveClock">Loading Clock...</span>
+    </div>
+    <div><span>📍 Swat, Pakistan ➔ Depok, Indonesia</span></div>
+  </div>
+
+  <div class="ticker-wrap">
+    <span class="ticker-title">PORTAL</span>
+    <marquee style="margin-left: 15px;">Welcome to Jamil Ahmad Shayaan's Biography & Background Page</marquee>
+  </div>
+
+  <header class="portal-header">
+    <div class="portal-nav">
+      <a href="index.html" class="brand-logo">JAMIL AHMAD SHAYAAN 🌐</a>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="about.html" class="active">About Me</a></li>
         <li><a href="education.html">Education</a></li>
         <li><a href="experience.html">Experience</a></li>
         <li><a href="research.html">Research</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="content.html">Content & Media</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="games.html" style="color: var(--secondary);">Games 🎮</a></li>
         <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+      </ul>
     </div>
   </header>
 
-  <main id="main">
+  <section class="page-hero">
+    <h1>About Jamil Ahmad Shayaan</h1>
+  </section>
 
-    <div class="wrap">
-      <section class="ledger">
-        <div class="ledger-meta"><span class="label">About</span></div>
-        <div class="ledger-body">
-          <h1>About Jamil Ahmad</h1>
-          <p class="lede">I'm a Pakistani educator, researcher, and sustainable finance professional. My work sits at the intersection of banking, education, and the economics of the energy transition.</p>
-          <img class="about-photo" src="assets/profile-photo.jpg" alt="Jamil Ahmad" width="360" height="450" loading="lazy">
-        </div>
-      </section>
-
-      <section class="ledger">
-        <div class="ledger-meta"><span class="label">Background</span></div>
-        <div class="ledger-body">
-          <h2>Background</h2>
-          <p>I grew up and studied in Swat, Pakistan, and completed my Bachelor of Business Administration at the University of Swat in 2015, majoring in Human Resource Management with a CGPA of 3.50/4.00. From there my path went through banking, teaching, and now graduate research &mdash; three fields that have each shaped how I think about institutions, people, and long-term development.</p>
-        </div>
-      </section>
-
-      <section class="ledger">
-        <div class="ledger-meta"><span class="label">Banking</span></div>
-        <div class="ledger-body">
-          <h2>Banking experience</h2>
-          <p>I completed a six-month internship at the National Bank of Pakistan, followed by roughly four years at Meezan Bank Limited as a Branch Service Officer. That time gave me a close-up view of how financial institutions operate day to day, and it's part of why questions about financial and organizational sustainability stayed with me afterward.</p>
-        </div>
-      </section>
-
-      <section class="ledger">
-        <div class="ledger-meta"><span class="label">Teaching</span></div>
-        <div class="ledger-body">
-          <h2>Teaching career</h2>
-          <p>Since 2020, I've worked as a government primary school teacher in Pakistan. Teaching at the primary level keeps me grounded &mdash; it's a daily reminder that education and development work happen at the level of individual people, not just policy.</p>
-        </div>
-      </section>
-
-      <section class="ledger">
-        <div class="ledger-meta"><span class="label">Graduate study</span></div>
-        <div class="ledger-body">
-          <h2>Master's in Sustainable Finance</h2>
-          <p>I'm currently completing a Master's degree in Sustainable Finance at Universitas Islam Internasional Indonesia (UIII). My thesis examines the impact of political stability on renewable energy consumption across ASEAN countries &mdash; a question that sits right at the intersection of governance and the energy transition. You can read more about it on the <a href="research.html">research page</a>.</p>
-        </div>
-      </section>
-
-      <section class="ledger">
-        <div class="ledger-meta"><span class="label">Interests</span></div>
-        <div class="ledger-body">
-          <h2>Research interests</h2>
-          <p>Sustainable finance, renewable energy, political stability and its economic impact, sustainable development, green finance, energy transition, and organizational and financial sustainability.</p>
-        </div>
-      </section>
-
-      <section class="ledger">
-        <div class="ledger-meta"><span class="label">Beyond work</span></div>
-        <div class="ledger-body">
-          <h2>Entrepreneurship, content, and personal interests</h2>
-          <p>Outside of teaching and research, I'm interested in entrepreneurship, digital skills, online earning, content creation, and music production. I also enjoy travel and am generally curious about personal development. These interests will get their own space on the <a href="content.html">content &amp; media</a> and <a href="projects.html">projects</a> pages as they take shape.</p>
-        </div>
-      </section>
-      <section class="ledger" id="journey">
-        <div class="ledger-meta"><span class="label">My story</span></div>
-        <div class="ledger-body">
-          <h2>My Journey</h2>
-          <p class="lede">My journey has never been a straight line. It has been a journey of learning, challenges, change, and continuous growth.</p>
-          <p>I started with dreams and ambitions, but I did not always have a clear path to follow. Like many people, I faced uncertainty, difficult decisions, financial challenges, and moments when I questioned whether I was moving in the right direction. Over time, I learned that life does not always give you the answers first. You discover them by taking the next step.</p>
-          <p>My journey through education and professional life took me through different experiences, from banking and teaching to entrepreneurship and personal development. Each experience taught me something different and helped shape the person I am today.</p>
-          <p>One of the most transformative chapters of my life began when I came to Indonesia. Living in a different country allowed me to experience a new culture, meet people from different backgrounds, explore beautiful places, and see life from a completely different perspective. Exploring Indonesia, from its cities and beaches to its mountains, communities, food, traditions, and everyday life, became more than just travel. It became a journey of discovering myself.</p>
-          <p>During this chapter, I also started taking content creation more seriously. Creating videos, sharing my experiences, connecting with people, and gradually building a community of followers gave me a new form of confidence. What started as a simple interest became an important part of my personal growth.</p>
-          <p>Content creation taught me how to communicate better, express myself, connect with different people, and step outside my comfort zone. Meeting new people and experiencing a new environment also changed my personality. I became more open minded, confident, adaptable, and willing to try things that I once hesitated to do.</p>
-          <p>I have learned that growth is not always measured by degrees, jobs, money, or achievements. Sometimes, growth is simply the person you become along the way.</p>
-          <p>There are still many things I want to accomplish. I want to continue learning new skills, creating meaningful content, exploring the world, building new opportunities, and creating a better future for myself and my family.</p>
-          <p>I know I have not reached where I ultimately want to be yet, and that is okay.</p>
-          <p>I believe every chapter of life prepares us for the next one. My past has shaped me, my experiences have strengthened me, and my ambitions continue to push me forward.</p>
-          <p class="lede">This is my journey so far. The story is still being written, and I believe the best chapters are still ahead.</p>
-        </div>
-      </section>
-    </div>
-
-  </main>
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <h4>Jamil Ahmad</h4>
-          <p style="max-width:32ch;">Educator and researcher working on sustainable finance and the political economy of renewable energy.</p>
-        </div>
-        <div>
-          <h4>Navigate</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Elsewhere</h4>
-          <ul>
-            <li><a href="contact.html#linkedin">LinkedIn — <span class="placeholder">add link</span></a></li>
-            <li><a href="content.html#youtube">YouTube — <span class="placeholder">add link</span></a></li>
-            <li><a href="contact.html#scholar">Google Scholar — <span class="placeholder">add link</span></a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>Jamil Ahmad — Educator &middot; Researcher &middot; Sustainable Finance &middot; Content Creator</span>
-        <span>&copy; 2026 Jamil Ahmad. All rights reserved.</span>
+  <div class="container">
+    <div class="about-card">
+      <img src="jamil.jpg" alt="Jamil Ahmad Shayaan" class="about-img" onerror="this.src='https://via.placeholder.com/260x320?text=Jamil+Ahmad';">
+      <div class="about-text">
+        <h2>Educator, Researcher & Sustainable Finance Professional</h2>
+        <p>I am a Pakistani educator, researcher, and sustainable finance professional. My work sits at the intersection of banking, education, and the economics of the energy transition.</p>
+        <p>I believe every journey begins with a dream, but it is built through courage, learning, and persistence. My journey has taken me through education, professional experiences, new cultures, and unexpected challenges.</p>
       </div>
     </div>
+  </div>
+
+  <footer class="portal-footer">
+    <p>&copy; 2026 Jamil Ahmad Shayaan. All rights reserved.</p>
   </footer>
-  <script src="js/main.js"></script>
 
+  <script>
+    function updateLiveClock() {
+      const now = new Date();
+      document.getElementById('liveClock').innerText = now.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    }
+    setInterval(updateLiveClock, 1000);
+    updateLiveClock();
+  </script>
 </body>
 </html>
