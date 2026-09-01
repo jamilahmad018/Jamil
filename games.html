@@ -3,49 +3,279 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Games Zone — Jamil Ahmad</title>
+  <title>Interactive Games Zone | Jamil Ahmad Shayaan</title>
+  <meta name="description" content="Interactive brain games and typing speed tests on Jamil Ahmad Shayaan's web portal.">
+  <link rel="canonical" href="https://jamilahmad.example/games.html">
+  <meta name="author" content="Jamil Ahmad Shayaan">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jamil Ahmad Shayaan">
+  <meta property="og:title" content="Interactive Games Zone | Jamil Ahmad Shayaan">
+  <meta property="og:description" content="Interactive brain games and typing speed tests on Jamil Ahmad Shayaan's web portal.">
+  <meta property="og:url" content="https://jamilahmad.example/games.html">
+  <meta property="og:image" content="https://jamilahmad.example/assets/og-image.jpg">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+
   <style>
-    .games-container {
-      max-width: 900px;
+    :root {
+      --primary: #1976D2;
+      --secondary: #E91E63;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f5f9;
+      color: #334155;
+    }
+
+    /* Top Utility Bar */
+    .top-utility-bar {
+      background: #020617;
+      color: #94a3b8;
+      padding: 6px 20px;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1e293b;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .utility-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .live-badge {
+      background: #22c55e;
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    /* Ticker Bar */
+    .ticker-wrap {
+      width: 100%;
+      background: var(--dark);
+      color: #fff;
+      padding: 8px 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 3px solid var(--secondary);
+    }
+    .ticker-title {
+      background: var(--secondary);
+      padding: 4px 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-left: 15px;
+      white-space: nowrap;
+    }
+    .ticker-content {
+      margin-left: 15px;
+      white-space: nowrap;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    /* Header Navigation */
+    .portal-header {
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .portal-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .brand-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #475569;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+
+    /* Page Hero Banner */
+    .page-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .page-hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .page-hero p {
+      color: #a5b4fc;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      max-width: 750px;
+      margin: 10px auto 0 auto;
+    }
+
+    /* Layout Structure */
+    .main-container {
+      max-width: 1200px;
       margin: 40px auto;
       padding: 0 20px;
-      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-columns: 2.8fr 1.2fr;
+      grid-gap: 30px;
     }
+
+    @media (max-width: 900px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Game Cards Styling */
     .game-card {
       background: #ffffff;
       border-radius: 12px;
       padding: 25px;
       margin-bottom: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
     }
     .game-title {
-      color: #1976D2;
+      color: var(--primary);
       margin-top: 0;
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 10px;
     }
-    
-    /* Tic Tac Toe Styling */
+
+    /* Game 1: Word Unscramble */
+    .scramble-box {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 5px;
+      color: var(--secondary);
+      background: #f8fafc;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 15px 0;
+      border: 1px dashed #cbd5e1;
+    }
+    .game-input-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .game-input {
+      padding: 10px 15px;
+      font-size: 1rem;
+      border: 2px solid var(--primary);
+      border-radius: 6px;
+      outline: none;
+      width: 60%;
+      max-width: 300px;
+    }
+    .game-status {
+      font-weight: bold;
+      color: var(--secondary);
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    /* Game 2: Speed Typing */
+    .typing-text-display {
+      background: #f8fafc;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 15px 0;
+      font-weight: 500;
+      color: #334155;
+    }
+    .typing-textarea {
+      width: 100%;
+      height: 90px;
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      resize: none;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    .typing-textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    .typing-stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+      background: #e0f2fe;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    /* Game 3: Tic Tac Toe */
     .ttt-board {
       display: grid;
-      grid-template-columns: repeat(3, 90px);
+      grid-template-columns: repeat(3, 80px);
       grid-gap: 8px;
       margin: 20px 0;
       justify-content: center;
     }
     .ttt-cell {
-      width: 90px;
-      height: 90px;
-      background: #f0f4f8;
-      border: 2px solid #1976D2;
+      width: 80px;
+      height: 80px;
+      background: #f8fafc;
+      border: 2px solid var(--primary);
       border-radius: 8px;
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: bold;
-      color: #262b36;
+      color: #1e293b;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -53,17 +283,10 @@
       transition: background 0.2s;
     }
     .ttt-cell:hover {
-      background: #e3f2fd;
-    }
-    .game-status {
-      font-weight: bold;
-      color: #E91E63;
-      text-align: center;
-      margin-top: 10px;
-      font-size: 1.1rem;
+      background: #e0f2fe;
     }
 
-    /* Memory Game Styling */
+    /* Game 4: Emoji Memory */
     .memory-grid {
       display: grid;
       grid-template-columns: repeat(4, 70px);
@@ -74,7 +297,7 @@
     .memory-card {
       width: 70px;
       height: 70px;
-      background: #1976D2;
+      background: var(--primary);
       color: #fff;
       font-size: 1.8rem;
       display: flex;
@@ -87,75 +310,12 @@
     }
     .memory-card.flipped {
       background: #ffffff;
-      border: 2px solid #1976D2;
+      border: 2px solid var(--primary);
     }
 
-    /* Brainstorming Game Styling */
-    .scramble-box {
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 5px;
-      color: #E91E63;
-      background: #f0f4f8;
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      margin: 15px 0;
-    }
-    .game-input-group {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .game-input {
-      padding: 10px 15px;
-      font-size: 1rem;
-      border: 2px solid #1976D2;
-      border-radius: 6px;
-      outline: none;
-      width: 60%;
-      max-width: 300px;
-    }
-
-    /* Speed Typing Styling */
-    .typing-text-display {
-      background: #f8f9fa;
-      padding: 15px;
-      border-radius: 8px;
-      border-left: 4px solid #1976D2;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin: 15px 0;
-      font-weight: 500;
-      color: #333;
-    }
-    .typing-textarea {
-      width: 100%;
-      height: 90px;
-      padding: 12px;
-      font-size: 1rem;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      resize: none;
-      box-sizing: border-box;
-    }
-    .typing-textarea:focus {
-      border-color: #1976D2;
-      outline: none;
-    }
-    .typing-stats {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 15px;
-      background: #e3f2fd;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-
+    /* Buttons */
     .btn-action {
-      background: #1976D2;
+      background: var(--primary);
       color: white;
       border: none;
       padding: 10px 20px;
@@ -167,7 +327,7 @@
       background: #1565C0;
     }
     .btn-reset {
-      background: #E91E63;
+      background: var(--secondary);
       color: white;
       border: none;
       padding: 8px 18px;
@@ -180,108 +340,236 @@
     .btn-reset:hover {
       background: #d81b60;
     }
+
+    /* Sidebar Widgets */
+    .sidebar-widget {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+    }
+    .music-widget {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .audio-player-custom {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    /* Footer */
+    .portal-footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
+    }
   </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="wrap">
-      <a class="wordmark" href="index.html">Jamil Ahmad</a>
-      <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="education.html">Education</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="games.html" aria-current="page" style="color: #E91E63; font-weight: bold;">Games 🎮</a></li>
-          <li><a href="content.html">Content & Media</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+  <!-- Live Clock & Weather Bar -->
+  <div class="top-utility-bar">
+    <div class="utility-item">
+      <span class="live-badge">LIVE</span>
+      <span id="liveClock">Loading Clock...</span>
+    </div>
+    <div class="utility-item" id="weatherDisplay">
+      <span>🌤️ Weather: Loading...</span>
+    </div>
+  </div>
+
+  <!-- Live Crypto & Currency Rates Ticker Bar -->
+  <div class="ticker-wrap">
+    <span class="ticker-title">MARKETS</span>
+    <marquee class="ticker-content" id="marketTicker">
+      Loading Live Bitcoin, Ethereum, USD to PKR, and USD to IDR exchange rates...
+    </marquee>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="portal-header">
+    <div class="portal-nav">
+      <a href="index.html" class="brand-logo">JAMIL AHMAD SHAYAAN 🌐</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="content.html">Content & Media</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="games.html" class="active" style="color: var(--secondary);">Games 🎮</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
   </header>
 
-  <main class="games-container">
-    <h1 style="text-align: center; color: #1976D2; margin-bottom: 10px;">🎮 Interactive Game Zone</h1>
-    <p style="text-align: center; color: #666; margin-bottom: 30px;">Train your dimaag (brain) and typing speed with these fun challenges!</p>
+  <!-- Page Banner -->
+  <section class="page-hero">
+    <h1>🎮 Interactive Games Zone</h1>
+    <p>Train your brain and typing speed with these fun interactive challenges!</p>
+  </section>
 
-    <!-- GAME 1: Brainstorming Word Unscramble -->
-    <div class="game-card">
-      <h2 class="game-title">🧠 Brainstorming Word Challenge</h2>
-      <p>Letters ko dhyaan se dekhein aur sahi word guess karein!</p>
-      
-      <div class="scramble-box" id="scrambledWord">LOADING...</div>
-      <p style="text-align: center; color: #666; font-size: 0.9rem;" id="wordHint">Hint: Loading hint...</p>
-      
-      <div class="game-input-group">
-        <input type="text" id="userWordInput" class="game-input" placeholder="Type correct word here..." onkeypress="handleBrainstormEnter(event)">
-        <button class="btn-action" onclick="checkScrambledWord()">Submit</button>
+  <!-- Main Content Layout -->
+  <div class="main-container">
+
+    <!-- LEFT COLUMN: Interactive Games -->
+    <div class="left-content">
+
+      <!-- GAME 1: Brainstorming Word Unscramble -->
+      <div class="game-card">
+        <h2 class="game-title">🧠 Brainstorming Word Challenge</h2>
+        <p>Unscramble the letters to guess the correct academic or research term!</p>
+        
+        <div class="scramble-box" id="scrambledWord">LOADING...</div>
+        <p style="text-align: center; color: #64748b; font-size: 0.9rem;" id="wordHint">Hint: Loading hint...</p>
+        
+        <div class="game-input-group">
+          <input type="text" id="userWordInput" class="game-input" placeholder="Type correct word here..." onkeypress="handleBrainstormEnter(event)">
+          <button class="btn-action" onclick="checkScrambledWord()">Submit</button>
+        </div>
+        
+        <div class="game-status" id="brainstormStatus"></div>
+        <button class="btn-reset" onclick="nextBrainstormWord()">Next Word ➡</button>
       </div>
-      
-      <div class="game-status" id="brainstormStatus"></div>
-      <button class="btn-reset" onclick="nextBrainstormWord()">Next Word ➡</button>
-    </div>
 
-    <!-- GAME 2: Speed Typing Test -->
-    <div class="game-card">
-      <h2 class="game-title">⌨️ Keyboard Speed Typing Test</h2>
-      <p>Niche diye gaye sentence ko kitni jaldi aur sahi type kar sakte hain?</p>
-      
-      <div class="typing-text-display" id="sentenceDisplay">Loading text...</div>
-      
-      <textarea id="typingInput" class="typing-textarea" placeholder="Start typing here when ready..." oninput="startTypingTest()"></textarea>
-      
-      <div class="typing-stats">
-        <div>Time: <span id="typingTimer" style="color:#E91E63;">0s</span></div>
-        <div>Speed: <span id="typingWPM" style="color:#1976D2;">0 WPM</span></div>
-        <div>Accuracy: <span id="typingAccuracy" style="color:#4CAF50;">100%</span></div>
+      <!-- GAME 2: Speed Typing Test -->
+      <div class="game-card">
+        <h2 class="game-title">⌨️ Keyboard Speed Typing Test</h2>
+        <p>Test your typing speed and accuracy against the sentence below.</p>
+        
+        <div class="typing-text-display" id="sentenceDisplay">Loading text...</div>
+        
+        <textarea id="typingInput" class="typing-textarea" placeholder="Start typing here when ready..." oninput="startTypingTest()"></textarea>
+        
+        <div class="typing-stats">
+          <div>Time: <span id="typingTimer" style="color:var(--secondary);">0s</span></div>
+          <div>Speed: <span id="typingWPM" style="color:var(--primary);">0 WPM</span></div>
+          <div>Accuracy: <span id="typingAccuracy" style="color:#22c55e;">100%</span></div>
+        </div>
+        
+        <button class="btn-reset" onclick="resetTypingTest()">Try New Sentence 🔄</button>
       </div>
-      
-      <button class="btn-reset" onclick="resetTypingTest()">Try New Sentence 🔄</button>
-    </div>
 
-    <!-- GAME 3: Tic Tac Toe vs AI -->
-    <div class="game-card">
-      <h2 class="game-title">❌ Tic-Tac-Toe (vs AI) ⭕</h2>
-      <p>Play against the computer. Can you win?</p>
-      <div class="ttt-board" id="tttBoard">
-        <div class="ttt-cell" onclick="makeMove(0)"></div>
-        <div class="ttt-cell" onclick="makeMove(1)"></div>
-        <div class="ttt-cell" onclick="makeMove(2)"></div>
-        <div class="ttt-cell" onclick="makeMove(3)"></div>
-        <div class="ttt-cell" onclick="makeMove(4)"></div>
-        <div class="ttt-cell" onclick="makeMove(5)"></div>
-        <div class="ttt-cell" onclick="makeMove(6)"></div>
-        <div class="ttt-cell" onclick="makeMove(7)"></div>
-        <div class="ttt-cell" onclick="makeMove(8)"></div>
+      <!-- GAME 3: Tic Tac Toe vs AI -->
+      <div class="game-card">
+        <h2 class="game-title">❌ Tic-Tac-Toe (vs AI) ⭕</h2>
+        <p>Play a classic game against the computer algorithm.</p>
+        <div class="ttt-board" id="tttBoard">
+          <div class="ttt-cell" onclick="makeMove(0)"></div>
+          <div class="ttt-cell" onclick="makeMove(1)"></div>
+          <div class="ttt-cell" onclick="makeMove(2)"></div>
+          <div class="ttt-cell" onclick="makeMove(3)"></div>
+          <div class="ttt-cell" onclick="makeMove(4)"></div>
+          <div class="ttt-cell" onclick="makeMove(5)"></div>
+          <div class="ttt-cell" onclick="makeMove(6)"></div>
+          <div class="ttt-cell" onclick="makeMove(7)"></div>
+          <div class="ttt-cell" onclick="makeMove(8)"></div>
+        </div>
+        <div class="game-status" id="tttStatus">Your turn! (You are X)</div>
+        <button class="btn-reset" onclick="resetTTT()">Restart Game</button>
       </div>
-      <div class="game-status" id="tttStatus">Your turn! (You are X)</div>
-      <button class="btn-reset" onclick="resetTTT()">Restart Game</button>
-    </div>
 
-    <!-- GAME 4: Emoji Memory Match -->
-    <div class="game-card">
-      <h2 class="game-title">🃏 Emoji Memory Match</h2>
-      <p>Match all pairs of emojis in as few moves as possible.</p>
-      <div class="memory-grid" id="memoryGrid"></div>
-      <div class="game-status" id="memoryStatus">Find matching pairs!</div>
-      <button class="btn-reset" onclick="resetMemoryGame()">Reset Cards</button>
-    </div>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-bottom">
-        <span>&copy; 2026 Jamil Ahmad. All rights reserved.</span>
+      <!-- GAME 4: Emoji Memory Match -->
+      <div class="game-card">
+        <h2 class="game-title">🃏 Emoji Memory Match</h2>
+        <p>Find and match all matching emoji pairs.</p>
+        <div class="memory-grid" id="memoryGrid"></div>
+        <div class="game-status" id="memoryStatus">Find matching pairs!</div>
+        <button class="btn-reset" onclick="resetMemoryGame()">Reset Cards</button>
       </div>
+
     </div>
+
+    <!-- RIGHT COLUMN: Sidebar -->
+    <div class="sidebar">
+
+      <!-- MUSIC PLAYER WIDGET -->
+      <div class="music-widget">
+        <h3 style="margin-top:0;">🎵 Creative Lounge</h3>
+        <p style="font-size: 0.85rem; color: #cbd5e1;">Listen to background music while playing games.</p>
+        
+        <audio controls class="audio-player-custom">
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+          Your browser does not support audio player.
+        </audio>
+      </div>
+
+      <!-- QUICK LINKS WIDGET -->
+      <div class="sidebar-widget">
+        <h3 style="margin-top:0; color: var(--primary);">📍 Explore Portal</h3>
+        <ul style="padding-left: 20px; line-height: 2; margin-bottom:0;">
+          <li><a href="about.html">About Jamil Ahmad</a></li>
+          <li><a href="research.html">Sustainable Research</a></li>
+          <li><a href="content.html">Video Content & Vlogs</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="portal-footer">
+    <p>Jamil Ahmad Shayaan — Educator &middot; Researcher &middot; Sustainable Finance &middot; Content Creator</p>
+    <p>&copy; 2026 Jamil Ahmad Shayaan. All rights reserved.</p>
   </footer>
 
+  <!-- SCRIPT LOGIC -->
   <script>
+    /* ========================================= */
+    /* 1. LIVE UTILITY BAR & MARKET TICKER       */
+    /* ========================================= */
+    function updateLiveClock() {
+      const now = new Date();
+      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      document.getElementById('liveClock').innerText = now.toLocaleDateString('en-US', options);
+    }
+    setInterval(updateLiveClock, 1000);
+    updateLiveClock();
+
+    async function fetchLiveWeather() {
+      try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-6.4025&longitude=106.7942&current_weather=true');
+        const data = await res.json();
+        const temp = data.current_weather.temperature;
+        document.getElementById('weatherDisplay').innerHTML = `<span>🌤️ Location: Depok, West Java | Temp: <strong>${temp}°C</strong></span>`;
+      } catch (e) {
+        document.getElementById('weatherDisplay').innerHTML = `<span>🌤️ Live Weather Active</span>`;
+      }
+    }
+    fetchLiveWeather();
+
+    async function fetchLiveMarketRates() {
+      const tickerEl = document.getElementById('marketTicker');
+      try {
+        const cryptoRes = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
+        const cryptoData = await cryptoRes.json();
+        const forexRes = await fetch('https://open.er-api.com/v6/latest/USD');
+        const forexData = await forexRes.json();
+
+        const btc = cryptoData.bitcoin.usd.toLocaleString();
+        const eth = cryptoData.ethereum.usd.toLocaleString();
+        const pkr = forexData.rates.PKR ? forexData.rates.PKR.toFixed(2) : 'N/A';
+        const idr = forexData.rates.IDR ? forexData.rates.IDR.toFixed(0) : 'N/A';
+
+        tickerEl.innerHTML = `🪙 Bitcoin (BTC): <strong>$${btc}</strong> &nbsp;|&nbsp; 💎 Ethereum (ETH): <strong>$${eth}</strong> &nbsp;|&nbsp; 🇵🇰 USD to PKR: <strong>Rs ${pkr}</strong> &nbsp;|&nbsp; 🇮🇩 USD to IDR: <strong>Rp ${idr}</strong>`;
+      } catch (e) {
+        tickerEl.innerHTML = `🪙 BTC: Live Tracking &nbsp;|&nbsp; 🇵🇰 USD to PKR: Live Rates &nbsp;|&nbsp; 🇮🇩 USD to IDR: Live Rates`;
+      }
+    }
+    fetchLiveMarketRates();
+    setInterval(fetchLiveMarketRates, 60000);
+
     /* ========================================= */
     /* GAME 1: BRAINSTORMING WORD GAME           */
     /* ========================================= */
@@ -291,7 +579,7 @@
       { word: "RENEWABLE", hint: "Solar, wind, and sustainable energy" },
       { word: "STABILITY", hint: "Firmness and political balance" },
       { word: "EDUCATION", hint: "Learning and teaching in classroom" },
-      { word: "PAKISTAN", hint: "Beautiful home country" },
+      { word: "PAKISTAN", hint: "Home country" },
       { word: "INDONESIA", hint: "Land of ASEAN and UIII university" },
       { word: "TEACHER", hint: "Guide who helps students learn" }
     ];
@@ -316,10 +604,10 @@
     function checkScrambledWord() {
       const userInput = document.getElementById('userWordInput').value.trim().toUpperCase();
       if (userInput === currentWordObj.word) {
-        document.getElementById('brainstormStatus').innerText = "🎉 Shaabash! Perfect Answer!";
-        document.getElementById('brainstormStatus').style.color = "#4CAF50";
+        document.getElementById('brainstormStatus').innerText = "🎉 Excellent! Perfect Answer!";
+        document.getElementById('brainstormStatus').style.color = "#22c55e";
       } else {
-        document.getElementById('brainstormStatus').innerText = "❌ Sahi nahi hai, dobara try karein!";
+        document.getElementById('brainstormStatus').innerText = "❌ Try again!";
         document.getElementById('brainstormStatus').style.color = "#E91E63";
       }
     }
@@ -337,7 +625,7 @@
       "Sustainable finance promotes clean energy and green environment.",
       "Education is the most powerful weapon to change the world.",
       "Research shows political stability boosts renewable energy growth.",
-      "Jamil Ahmad is passionate about teaching and academic research.",
+      "Jamil Ahmad Shayaan is passionate about teaching and academic research.",
       "Practice typing daily to improve your speed and keyboard accuracy."
     ];
 
@@ -406,7 +694,7 @@
     resetTypingTest();
 
     /* ========================================= */
-    /* GAME 3: TIC TAC TOE CODE                  */
+    /* GAME 3: TIC TAC TOE                       */
     /* ========================================= */
     let board = ["", "", "", "", "", "", "", "", ""];
     let gameActive = true;
@@ -475,7 +763,7 @@
     }
 
     /* ========================================= */
-    /* GAME 4: MEMORY GAME CODE                  */
+    /* GAME 4: EMOJI MEMORY GAME                 */
     /* ========================================= */
     const emojis = ['📚', '🎓', '🌴', '⚽', '📚', '🎓', '🌴', '⚽'];
     let flippedCards = [];
@@ -528,5 +816,6 @@
 
     resetMemoryGame();
   </script>
+
 </body>
 </html>
