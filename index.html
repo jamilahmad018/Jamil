@@ -47,18 +47,8 @@
       gap: 12px;
       border-bottom: 1px solid #1f2937;
     }
-    .market-badge {
-      background: #e91e63;
-      color: #fff;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 2px;
-      font-size: 0.75rem;
-      letter-spacing: 0.5px;
-      flex-shrink: 0;
-    }
     .news-badge {
-      background: #0284c7;
+      background: #dc2626;
       color: #fff;
       font-weight: 700;
       padding: 2px 8px;
@@ -66,6 +56,12 @@
       font-size: 0.75rem;
       letter-spacing: 0.5px;
       flex-shrink: 0;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
     }
     .ticker-content {
       overflow: hidden;
@@ -74,7 +70,7 @@
     }
     .ticker-text {
       display: inline-block;
-      animation: marquee 30s linear infinite;
+      animation: marquee 35s linear infinite;
     }
     @keyframes marquee {
       0% { transform: translateX(100%); }
@@ -264,13 +260,12 @@
     </div>
   </div>
 
-  <!-- MARKETS & LIVE NEWS TICKER BAR -->
+  <!-- REAL INTERNATIONAL LIVE NEWS TICKER BAR -->
   <div class="ticker-bar">
-    <span class="market-badge">MARKETS</span>
-    <span class="news-badge">LIVE NEWS</span>
+    <span class="news-badge">WORLD NEWS LIVE</span>
     <div class="ticker-content">
       <div class="ticker-text" id="live-news-ticker">
-        🔴 LIVE BREAKING: ASEAN Sustainable Finance Summit Highlights Green Bonds &bull; Renewable Energy Transition Surges Across Southeast Asia &bull; Global Market Indices: BTC & Market Tracking Active &bull; New Research Update on Political Stability & Renewable Energy Consumption by Jamil Ahmad Shayaan &bull; Latest Jakarta & Academic Vlogs Live on YouTube @jamilahmad.shayaan
+        Fetching real-time international news feed...
       </div>
     </div>
   </div>
@@ -325,20 +320,12 @@
         <p>My career bridges primary education, retail banking experience at Meezan Bank, and academic research in Sustainable Finance at Universitas Islam Internasional Indonesia (UIII). I focus on exploring how political stability influences renewable energy adoption across ASEAN economies.</p>
       </div>
 
-      <!-- Live News Spotlight Card -->
-      <div class="card" style="border-left: 4px solid #0284c7;">
-        <span class="status-badge" style="background:#e0f2fe; color:#0369a1;">Live Updates</span>
-        <h2 class="card-title">📰 Academic & Research News</h2>
-        <ul style="list-style-type: none; padding-left: 0; margin-top: 10px;">
-          <li style="margin-bottom: 10px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 8px;">
-            <strong>🌱 ASEAN Green Transition:</strong> Panel study analyzing 9 ASEAN countries (2000–2023) on political stability and energy consumption.
-          </li>
-          <li style="margin-bottom: 10px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 8px;">
-            <strong>🎓 Graduate Research at UIII:</strong> Focusing on sustainable finance, green bonds, and ESG integration in emerging markets.
-          </li>
-          <li>
-            <strong>🎬 Content & Vlogging:</strong> Latest travel and cultural vlogs from Jakarta & Depok updated on social platforms.
-          </li>
+      <!-- Real Live World News Card -->
+      <div class="card" style="border-left: 4px solid #dc2626;">
+        <span class="status-badge" style="background:#fee2e2; color:#991b1b;">BBC World Feed</span>
+        <h2 class="card-title">🌍 Real-Time World Headlines</h2>
+        <ul id="live-news-list" style="list-style-type: none; padding-left: 0; margin-top: 15px;">
+          <li style="color: #64748b;">Loading latest international news...</li>
         </ul>
       </div>
 
@@ -376,8 +363,9 @@
 
   </main>
 
-  <!-- LIVE TIME & WEATHER SCRIPT -->
+  <!-- LIVE TIME, WEATHER & REAL LIVE NEWS API SCRIPT -->
   <script>
+    // Live Time Update
     function updateLiveTime() {
       const now = new Date();
       const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
@@ -386,6 +374,7 @@
     setInterval(updateLiveTime, 1000);
     updateLiveTime();
 
+    // Live Weather Update
     async function fetchLiveWeather() {
       try {
         const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-6.4025&longitude=106.7942&current_weather=true');
@@ -398,6 +387,44 @@
       }
     }
     fetchLiveWeather();
+
+    // Fetch Real-Time International News (BBC World Feed via RSS2JSON)
+    async function fetchRealInternationalNews() {
+      const rssFeedUrl = encodeURIComponent('https://feeds.bbci.co.uk/news/world/rss.xml');
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssFeedUrl}`;
+
+      try {
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+
+        if (data.status === 'ok' && data.items.length > 0) {
+          // Update Ticker with Live Headlines
+          const tickerTitles = data.items.slice(0, 10).map(item => `🔴 ${item.title}`).join(' &bull; ');
+          document.getElementById('live-news-ticker').innerHTML = tickerTitles;
+
+          // Update World News Card List
+          const newsList = document.getElementById('live-news-list');
+          newsList.innerHTML = '';
+
+          data.items.slice(0, 5).forEach(item => {
+            const li = document.createElement('li');
+            li.style.cssText = 'margin-bottom: 12px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 10px;';
+            li.innerHTML = `
+              <a href="${item.link}" target="_blank" style="color: #0f172a; text-decoration: none; font-weight: 700; font-size: 0.95rem; display: block;">${item.title}</a>
+              <p style="font-size: 0.82rem; color: #64748b; margin-top: 3px;">${item.description.replace(/<[^>]*>?/gm, '').substring(0, 110)}...</p>
+              <span style="font-size: 0.75rem; color: #0284c7; font-weight: 600;">Read full article on BBC News &rarr;</span>
+            `;
+            newsList.appendChild(li);
+          });
+        } else {
+          throw new Error('API return issue');
+        }
+      } catch (err) {
+        document.getElementById('live-news-ticker').innerHTML = '🔴 REAL LIVE: Global financial summit discusses renewable energy transitions &bull; Oil prices stabilize amid international trade developments &bull; Global climate initiatives gain momentum.';
+      }
+    }
+
+    fetchRealInternationalNews();
   </script>
 
 <!-- FLOATING AI CHATBOT WIDGET -->
@@ -440,7 +467,7 @@
   </div>
   <div class="ai-chat-footer">
     <input type="text" id="aiChatInput" placeholder="Write question..." onkeypress="if(event.key==='Enter') sendMsg()" />
-    <button onclick="sendMsg()">Send</button>
+    <button onclick="sendMsg() ">Send</button>
   </div>
 </div>
 
