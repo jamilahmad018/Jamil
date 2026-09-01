@@ -14,7 +14,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
 
-    /* Top Live Information Bar (Matching Screenshot Theme) */
+    /* Top Live Information Bar */
     .top-live-bar {
       background: #090d16;
       color: #e2e8f0;
@@ -36,12 +36,12 @@
     }
     .top-live-right { display: flex; gap: 15px; align-items: center; }
 
-    /* Ticker Bar (Markets & News) */
+    /* Live News & Markets Ticker Bar */
     .ticker-bar {
       background: #111827;
       color: #cbd5e1;
       font-size: 0.8rem;
-      padding: 4px 20px;
+      padding: 6px 20px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -55,6 +55,17 @@
       border-radius: 2px;
       font-size: 0.75rem;
       letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .news-badge {
+      background: #0284c7;
+      color: #fff;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 2px;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
     }
     .ticker-content {
       overflow: hidden;
@@ -63,14 +74,14 @@
     }
     .ticker-text {
       display: inline-block;
-      animation: marquee 25s linear infinite;
+      animation: marquee 30s linear infinite;
     }
     @keyframes marquee {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
 
-    /* Professional Navigation Bar (Aligned Across All Tabs) */
+    /* Professional Navigation Bar */
     .site-header {
       background: #ffffff;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -96,7 +107,6 @@
       align-items: center;
       gap: 8px;
     }
-    .brand-logo span { color: #0284c7; }
     .nav-menu {
       display: flex;
       list-style: none;
@@ -116,29 +126,56 @@
       border-bottom: 2px solid #0284c7;
     }
 
-    /* Hero Banner Section (Fixed Contrast Issue) */
+    /* Hero Banner Section with Image */
     .hero-banner {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
       color: #ffffff;
-      padding: 60px 20px;
-      text-align: center;
+      padding: 50px 20px;
     }
     .hero-banner-inner {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .hero-text-content {
+      flex: 1;
     }
     .hero-banner h1 {
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       font-weight: 800;
-      color: #ffffff; /* High contrast text */
+      color: #ffffff;
       margin-bottom: 15px;
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
     .hero-banner p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: #93c5fd;
-      max-width: 750px;
-      margin: 0 auto 25px;
+      margin-bottom: 25px;
+      max-width: 700px;
+    }
+    .hero-image-wrap {
+      flex-shrink: 0;
+    }
+    .hero-portrait-img {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #0284c7;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+    @media (max-width: 850px) {
+      .hero-banner-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-portrait-img {
+        width: 180px;
+        height: 180px;
+      }
     }
 
     /* Main Content Layout Grid */
@@ -218,7 +255,7 @@
   <div class="top-live-bar">
     <div>
       <span class="live-badge">LIVE</span>
-      <span id="live-datetime">Tue, Sep 1, 2026, 06:12:24 PM</span>
+      <span id="live-datetime">Loading date & time...</span>
     </div>
     <div class="top-live-right">
       <span>📍 Location: Depok, West Java</span>
@@ -227,12 +264,13 @@
     </div>
   </div>
 
-  <!-- MARKETS TICKER BAR -->
+  <!-- MARKETS & LIVE NEWS TICKER BAR -->
   <div class="ticker-bar">
     <span class="market-badge">MARKETS</span>
+    <span class="news-badge">LIVE NEWS</span>
     <div class="ticker-content">
-      <div class="ticker-text">
-        📈 BTC: Live Tracking &bull; PKR Updates &bull; Sustainable Finance News &bull; Renewable Energy Transitions in ASEAN Mumalik &bull; YouTube @jamilahmad.shayaan Vlogs Released!
+      <div class="ticker-text" id="live-news-ticker">
+        🔴 LIVE BREAKING: ASEAN Sustainable Finance Summit Highlights Green Bonds &bull; Renewable Energy Transition Surges Across Southeast Asia &bull; Global Market Indices: BTC & Market Tracking Active &bull; New Research Update on Political Stability & Renewable Energy Consumption by Jamil Ahmad Shayaan &bull; Latest Jakarta & Academic Vlogs Live on YouTube @jamilahmad.shayaan
       </div>
     </div>
   </div>
@@ -260,12 +298,17 @@
     </div>
   </header>
 
-  <!-- HERO BANNER SECTION -->
+  <!-- HERO BANNER SECTION WITH PORTRAIT -->
   <section class="hero-banner">
     <div class="hero-banner-inner">
-      <h1>Educator, Researcher & Sustainable Finance Professional</h1>
-      <p>Empowering minds through education, evaluating green energy transition across ASEAN economies, and sharing impactful multimedia content.</p>
-      <a href="about.html" class="btn-action">Explore My Journey &rarr;</a>
+      <div class="hero-text-content">
+        <h1>Educator, Researcher & Sustainable Finance Professional</h1>
+        <p>Empowering minds through education, evaluating green energy transition across ASEAN economies, and sharing impactful multimedia content.</p>
+        <a href="about.html" class="btn-action">Explore My Journey &rarr;</a>
+      </div>
+      <div class="hero-image-wrap">
+        <img src="assets/jamil.jpg" alt="Jamil Ahmad Shayaan" class="hero-portrait-img">
+      </div>
     </div>
   </section>
 
@@ -280,6 +323,23 @@
         <span class="status-badge">Active Scholar</span>
         <h2 class="card-title">Welcome to My Official Portfolio</h2>
         <p>My career bridges primary education, retail banking experience at Meezan Bank, and academic research in Sustainable Finance at Universitas Islam Internasional Indonesia (UIII). I focus on exploring how political stability influences renewable energy adoption across ASEAN economies.</p>
+      </div>
+
+      <!-- Live News Spotlight Card -->
+      <div class="card" style="border-left: 4px solid #0284c7;">
+        <span class="status-badge" style="background:#e0f2fe; color:#0369a1;">Live Updates</span>
+        <h2 class="card-title">📰 Academic & Research News</h2>
+        <ul style="list-style-type: none; padding-left: 0; margin-top: 10px;">
+          <li style="margin-bottom: 10px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 8px;">
+            <strong>🌱 ASEAN Green Transition:</strong> Panel study analyzing 9 ASEAN countries (2000–2023) on political stability and energy consumption.
+          </li>
+          <li style="margin-bottom: 10px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 8px;">
+            <strong>🎓 Graduate Research at UIII:</strong> Focusing on sustainable finance, green bonds, and ESG integration in emerging markets.
+          </li>
+          <li>
+            <strong>🎬 Content & Vlogging:</strong> Latest travel and cultural vlogs from Jakarta & Depok updated on social platforms.
+          </li>
+        </ul>
       </div>
 
       <!-- Research Spotlight Card -->
@@ -316,7 +376,7 @@
 
   </main>
 
-  <!-- LIVE SCRIPT FOR TIME & WEATHER -->
+  <!-- LIVE TIME & WEATHER SCRIPT -->
   <script>
     function updateLiveTime() {
       const now = new Date();
@@ -325,6 +385,19 @@
     }
     setInterval(updateLiveTime, 1000);
     updateLiveTime();
+
+    async function fetchLiveWeather() {
+      try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-6.4025&longitude=106.7942&current_weather=true');
+        const data = await res.json();
+        if (data && data.current_weather) {
+          document.getElementById('live-temp').textContent = `${data.current_weather.temperature}°C`;
+        }
+      } catch (e) {
+        document.getElementById('live-temp').textContent = '30.6°C';
+      }
+    }
+    fetchLiveWeather();
   </script>
 
 <!-- FLOATING AI CHATBOT WIDGET -->
