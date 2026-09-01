@@ -23,6 +23,57 @@
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Live Information Banner Bar */
+    .live-info-bar {
+      background: #111827;
+      color: #f9fafb;
+      padding: 10px 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #1f2937;
+    }
+    .live-info-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+    .live-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10b981;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .news-ticker-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 450px;
+      position: relative;
+    }
+    .news-ticker {
+      display: inline-block;
+      animation: ticker 25s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Person",
@@ -86,6 +137,24 @@
 }</script>
 </head>
 <body>
+  <!-- LIVE INFORMATION TOP BAR -->
+  <div class="live-info-bar">
+    <div class="wrap live-info-container">
+      <div class="live-item">
+        <span class="live-dot"></span>
+        <strong>Live Time:</strong> <span id="widget-date"></span> | <span id="widget-time">--:--:--</span>
+      </div>
+      <div class="live-item">
+        <strong>Weather (Depok):</strong> <span id="widget-weather">Loading weather...</span>
+      </div>
+      <div class="live-item news-ticker-wrap">
+        <div class="news-ticker" id="widget-news">
+          📢 Latest Updates: Sustainable Finance Research in ASEAN &bull; ASEAN Renewable Energy Transition Insights &bull; New Vlogs on Youtube @jamilahmad.shayaan
+        </div>
+      </div>
+    </div>
+  </div>
+
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
@@ -226,14 +295,33 @@
   </footer>
   <script src="js/main.js"></script>
 
-</body>
-</html>
+  <!-- LIVE WIDGETS SCRIPT (TIME, WEATHER, NEWS) -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('widget-time').textContent = now.toLocaleTimeString();
+      document.getElementById('widget-date').textContent = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    async function fetchWeather() {
+      try {
+        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-6.4025&longitude=106.7942&current_weather=true');
+        const data = await response.json();
+        const temp = data.current_weather.temperature;
+        document.getElementById('widget-weather').textContent = `${temp}°C (Depok, Indonesia)`;
+      } catch (e) {
+        document.getElementById('widget-weather').textContent = '28°C (Depok, ID)';
+      }
+    }
+    fetchWeather();
+  </script>
 
 <!-- ========================================== -->
 <!-- CUSTOM AI CHATBOT WIDGET FOR JAMIL AHMAD   -->
 <!-- ========================================== -->
 <style>
-  /* Chatbot Floating Icon */
   .ai-chat-btn {
     position: fixed;
     bottom: 25px;
@@ -258,7 +346,6 @@
     box-shadow: 0 6px 20px rgba(233, 30, 99, 0.6);
   }
 
-  /* Chat Box Window */
   .ai-chat-window {
     position: fixed;
     bottom: 85px;
@@ -279,7 +366,6 @@
     display: flex;
   }
 
-  /* Header */
   .ai-chat-header {
     background: #1976D2;
     color: #ffffff;
@@ -302,7 +388,6 @@
     cursor: pointer;
   }
 
-  /* Messages Body */
   .ai-chat-body {
     flex: 1;
     padding: 15px;
@@ -332,7 +417,6 @@
     align-self: flex-end;
   }
 
-  /* Input Area */
   .ai-chat-footer {
     display: flex;
     padding: 10px;
@@ -365,12 +449,10 @@
   }
 </style>
 
-<!-- Floating Button -->
 <button class="ai-chat-btn" onclick="toggleAiChat()">
   <span>🤖 Ask Jamil's AI</span>
 </button>
 
-<!-- Chat Window -->
 <div class="ai-chat-window" id="aiChatWindow">
   <div class="ai-chat-header">
     <h4>Jamil's Virtual Assistant</h4>
@@ -404,11 +486,9 @@
     const msg = input.value.trim();
     if (!msg) return;
 
-    // Display User Message
     addMessage(msg, 'user');
     input.value = '';
 
-    // Generate Bot Response
     setTimeout(() => {
       const response = getBotResponse(msg.toLowerCase());
       addMessage(response, 'bot');
@@ -424,7 +504,6 @@
     body.scrollTop = body.scrollHeight;
   }
 
-  // Pre-configured Intelligent Responses
   function getBotResponse(q) {
     if (q.includes('research') || q.includes('thesis') || q.includes('asean') || q.includes('energy')) {
       return "Jamil ki main research ASEAN mumalik (2000-2023) mein Political Stability aur Renewable Energy Consumption ke taaluq par hai.";
@@ -449,3 +528,6 @@
     }
   }
 </script>
+
+</body>
+</html>
