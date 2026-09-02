@@ -3,129 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jamil Ahmad Shayaan — Educator, Researcher & Sustainable Finance Professional</title>
-  <meta name="description" content="Official portfolio of Jamil Ahmad Shayaan — Educator, Researcher, and Sustainable Finance Professional.">
-  
+  <title>Home | Jamil Ahmad Shayaan</title>
+  <meta name="description" content="Official portfolio of Jamil Ahmad Shayaan: Educator, Researcher in Sustainable Finance at UIII, and content creator.">
+  <link rel="canonical" href="https://jamilahmad.example/index.html">
+  <meta name="author" content="Jamil Ahmad Shayaan">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jamil Ahmad Shayaan">
+  <meta property="og:title" content="Home | Jamil Ahmad Shayaan">
+  <meta property="og:description" content="Official portfolio of Jamil Ahmad Shayaan: Educator, Researcher in Sustainable Finance at UIII, and content creator.">
+  <meta property="og:url" content="https://jamilahmad.example/index.html">
+  <meta property="og:image" content="https://jamilahmad.example/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Home | Jamil Ahmad Shayaan">
+  <meta name="twitter:description" content="Official portfolio of Jamil Ahmad Shayaan: Educator, Researcher in Sustainable Finance at UIII, and content creator.">
+  <meta name="twitter:image" content="https://jamilahmad.example/assets/og-image.jpg">
+
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 
-  <style>
-    /* Global Reset & Design Tokens */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Jamil Ahmad Shayaan",
+      "jobTitle": ["Primary School Teacher", "Researcher", "Sustainable Finance Professional"],
+      "alumniOf": ["University of Swat", "Universitas Islam Internasional Indonesia (UIII)"],
+      "knowsAbout": ["Sustainable Finance", "Green Finance", "Education", "Renewable Energy Transition"]
+    }
+  }
+  </script>
 
-    /* Top Live Information Bar */
-    .top-live-bar {
-      background: #090d16;
-      color: #e2e8f0;
-      font-size: 0.82rem;
+  <style>
+    :root {
+      --primary: #1976D2;
+      --secondary: #E91E63;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f5f9;
+      color: #334155;
+    }
+
+    /* Top Utility Bar */
+    .top-utility-bar {
+      background: #020617;
+      color: #94a3b8;
       padding: 6px 20px;
+      font-size: 0.85rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #1e293b;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    .live-badge {
-      background: #10b981;
-      color: #000;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 0.72rem;
-      margin-right: 8px;
-    }
-    .top-live-right { display: flex; gap: 15px; align-items: center; }
-
-    /* Live News & Markets Ticker Bar */
-    .ticker-bar {
-      background: #111827;
-      color: #cbd5e1;
-      font-size: 0.8rem;
-      padding: 6px 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border-bottom: 1px solid #1f2937;
-    }
-    .news-badge {
-      background: #dc2626;
-      color: #fff;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 2px;
-      font-size: 0.75rem;
-      letter-spacing: 0.5px;
-      flex-shrink: 0;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
-    }
-    .ticker-content {
-      overflow: hidden;
-      white-space: nowrap;
-      width: 100%;
-    }
-    .ticker-text {
-      display: inline-block;
-      animation: marquee 35s linear infinite;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    /* Professional Navigation Bar */
-    .site-header {
-      background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    .nav-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .brand-logo {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #0056b3;
-      text-decoration: none;
-      letter-spacing: 0.5px;
+    .utility-item {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      gap: 18px;
-      align-items: center;
-    }
-    .nav-menu a {
-      text-decoration: none;
-      color: #334155;
-      font-size: 0.93rem;
-      font-weight: 600;
-      transition: color 0.2s ease;
-      padding: 5px 2px;
-    }
-    .nav-menu a:hover, .nav-menu a.active {
-      color: #0284c7;
-      border-bottom: 2px solid #0284c7;
+    .live-badge {
+      background: #22c55e;
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
     }
 
-    /* Hero Banner Section with Image */
+    /* Ticker Bar */
+    .ticker-wrap {
+      width: 100%;
+      background: var(--dark);
+      color: #fff;
+      padding: 8px 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 3px solid var(--secondary);
+    }
+    .ticker-title {
+      background: var(--secondary);
+      padding: 4px 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-left: 15px;
+      white-space: nowrap;
+    }
+    .ticker-content {
+      margin-left: 15px;
+      white-space: nowrap;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    /* Header Navigation */
+    .portal-header {
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .portal-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .brand-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #475569;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+
+    /* Hero Banner Section with Portrait */
     .hero-banner {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-      color: #ffffff;
+      color: white;
       padding: 50px 20px;
     }
     .hero-banner-inner {
@@ -140,27 +167,29 @@
       flex: 1;
     }
     .hero-banner h1 {
+      margin: 0;
       font-size: 2.3rem;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 15px;
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
     .hero-banner p {
+      color: #38bdf8;
       font-size: 1.1rem;
-      color: #93c5fd;
+      margin-top: 15px;
       margin-bottom: 25px;
       max-width: 700px;
+      line-height: 1.6;
     }
     .hero-image-wrap {
       flex-shrink: 0;
     }
     .hero-portrait-img {
-      width: 240px;
-      height: 240px;
+      width: 220px;
+      height: 220px;
       object-fit: cover;
       border-radius: 50%;
-      border: 4px solid #0284c7;
+      border: 4px solid var(--primary);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
     @media (max-width: 850px) {
@@ -174,33 +203,47 @@
       }
     }
 
-    /* Main Content Layout Grid */
+    /* Main Container Layout Grid */
     .main-container {
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 40px auto;
       padding: 0 20px;
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 30px;
-    }
-    @media (max-width: 900px) {
-      .main-container { grid-template-columns: 1fr; }
+      grid-template-columns: 2.8fr 1.2fr;
+      grid-gap: 30px;
     }
 
-    /* Content Cards */
-    .card {
-      background: #ffffff;
+    @media (max-width: 900px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Content Card Styling */
+    .about-card {
+      background: white;
       border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      border: 1px solid #e2e8f0;
+      padding: 30px;
       margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border-left: 6px solid var(--primary);
+      transition: transform 0.2s;
+      position: relative;
+    }
+    .about-card:hover {
+      transform: translateY(-3px);
     }
     .card-title {
-      font-size: 1.3rem;
-      color: #0f172a;
-      margin-bottom: 12px;
+      font-size: 1.4rem;
+      color: #1e293b;
+      margin-top: 0;
+      margin-bottom: 15px;
       font-weight: 700;
+    }
+    .card-text {
+      color: #475569;
+      line-height: 1.8;
+      font-size: 1rem;
     }
     .status-badge {
       background: #e0f2fe;
@@ -212,93 +255,107 @@
       float: right;
     }
 
-    /* Music & Games Lounge Side Widgets */
-    .widget-lounge {
-      background: #1e1b4b;
-      color: #ffffff;
+    /* Sidebar Widgets */
+    .sidebar-widget {
+      background: white;
       border-radius: 12px;
-      padding: 25px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+    }
+    .quick-info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      line-height: 2;
+      font-size: 0.95rem;
+    }
+    .quick-info-list strong {
+      color: #1e293b;
+    }
+    .music-widget {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
       margin-bottom: 25px;
     }
-    .widget-lounge h3 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .widget-lounge audio {
+    .audio-player-custom {
       width: 100%;
       margin-top: 15px;
     }
     .btn-action {
       display: inline-block;
-      background: #0284c7;
+      background: var(--primary);
       color: #ffffff;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
       margin-top: 15px;
       transition: background 0.2s;
     }
-    .btn-action:hover { background: #0369a1; }
+    .btn-action:hover {
+      background: #1565c0;
+    }
+
+    /* Footer */
+    .portal-footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- TOP LIVE TIME & LOCATION BAR -->
-  <div class="top-live-bar">
-    <div>
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="utility-item">
       <span class="live-badge">LIVE</span>
-      <span id="live-datetime">Loading date & time...</span>
+      <span id="liveClock">Loading Clock...</span>
     </div>
-    <div class="top-live-right">
-      <span>📍 Location: Depok, West Java</span>
-      <span>|</span>
-      <span>Temp: <strong id="live-temp">30.6°C</strong></span>
+    <div class="utility-item" id="weatherDisplay">
+      <span>🌤️ Weather: Loading...</span>
     </div>
   </div>
 
-  <!-- REAL INTERNATIONAL LIVE NEWS TICKER BAR -->
-  <div class="ticker-bar">
-    <span class="news-badge">WORLD NEWS LIVE</span>
-    <div class="ticker-content">
-      <div class="ticker-text" id="live-news-ticker">
-        Fetching real-time international news feed...
-      </div>
-    </div>
+  <!-- Ticker Bar -->
+  <div class="ticker-wrap">
+    <span class="ticker-title">MARKETS</span>
+    <marquee class="ticker-content" id="marketTicker">
+      Loading Live Bitcoin, Ethereum, USD to PKR, and USD to IDR exchange rates...
+    </marquee>
   </div>
 
-  <!-- STICKY NAVBAR HEADER -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-logo">
-        JAMIL AHMAD SHAYAAN
-      </a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="active">🌐 Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="education.html">Education</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="content.html">Content & Media</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="games.html">Games 🎮</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+  <!-- Header Navigation -->
+  <header class="portal-header">
+    <div class="portal-nav">
+      <a href="index.html" class="brand-logo">JAMIL AHMAD SHAYAAN 🌐</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="content.html">Content & Media</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="games.html" style="color: var(--secondary);">Games 🎮</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
   </header>
 
-  <!-- HERO BANNER SECTION WITH PORTRAIT -->
+  <!-- Hero Banner Section -->
   <section class="hero-banner">
     <div class="hero-banner-inner">
       <div class="hero-text-content">
         <h1>Educator, Researcher & Sustainable Finance Professional</h1>
-        <p>Empowering minds through education, evaluating green energy transition across ASEAN economies, and sharing impactful multimedia content.</p>
+        <p>Empowering minds through education, evaluating green energy transition across economies, and sharing impactful academic & multimedia insights.</p>
         <a href="about.html" class="btn-action">Explore My Journey &rarr;</a>
       </div>
       <div class="hero-image-wrap">
@@ -307,196 +364,202 @@
     </div>
   </section>
 
-  <!-- MAIN SECTION GRID -->
-  <main class="main-container">
-    
-    <!-- LEFT PRIMARY CONTENT -->
-    <section class="content-left">
-      
-      <!-- Profile Summary Card -->
-      <div class="card">
+  <!-- Main Layout Grid -->
+  <div class="main-container">
+
+    <div class="left-content">
+
+      <div class="about-card">
         <span class="status-badge">Active Scholar</span>
         <h2 class="card-title">Welcome to My Official Portfolio</h2>
-        <p>My career bridges primary education, retail banking experience at Meezan Bank, and academic research in Sustainable Finance at Universitas Islam Internasional Indonesia (UIII). I focus on exploring how political stability influences renewable energy adoption across ASEAN economies.</p>
+        <div class="card-text">
+          My career bridges primary education, retail banking experience at Meezan Bank, and academic research in Sustainable Finance at Universitas Islam Internasional Indonesia (UIII). I focus on exploring how financial mechanisms, governance, and political conditions influence renewable energy adoption and sustainable development.
+        </div>
       </div>
 
-      <!-- Real Live World News Card -->
-      <div class="card" style="border-left: 4px solid #dc2626;">
-        <span class="status-badge" style="background:#fee2e2; color:#991b1b;">BBC World Feed</span>
-        <h2 class="card-title">🌍 Real-Time World Headlines</h2>
-        <ul id="live-news-list" style="list-style-type: none; padding-left: 0; margin-top: 15px;">
-          <li style="color: #64748b;">Loading latest international news...</li>
+      <div class="about-card" style="border-left-color: #22c55e;">
+        <span class="status-badge" style="background: #dcfce7; color: #166534;">Research Spotlight</span>
+        <h2 class="card-title">ASEAN Energy Transition & Governance</h2>
+        <div class="card-text">
+          Conducting panel data analysis to assess the impact of political stability and economic frameworks on green investment and renewable energy transition across regional economies.
+        </div>
+        <a href="research.html" class="btn-action" style="background: #22c55e;">Read Research Overview &rarr;</a>
+      </div>
+
+      <div class="about-card" style="border-left-color: var(--secondary);">
+        <h2 class="card-title">🚀 Core Focus Areas</h2>
+        <div class="card-text">
+          Dedicated to bridging theoretical knowledge with practical applications in green finance, education, and digital media production to inspire students and young professionals.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="sidebar-widget">
+        <h3 style="margin-top:0; color: var(--primary);">📌 Quick Snapshot</h3>
+        <ul class="quick-info-list">
+          <li><strong>Full Name:</strong> Jamil Ahmad Shayaan</li>
+          <li><strong>Origin:</strong> Pakistan 🇵🇰</li>
+          <li><strong>Current Location:</strong> Depok, Indonesia 🇮🇩</li>
+          <li><strong>Focus:</strong> Sustainable Finance & ESG</li>
+          <li><strong>Role:</strong> Researcher & Educator</li>
         </ul>
       </div>
 
-      <!-- Research Spotlight Card -->
-      <div class="card">
-        <span class="status-badge">Research Focus</span>
-        <h2 class="card-title">ASEAN Energy Transition & Political Stability</h2>
-        <p>A comprehensive panel data study covering 9 ASEAN economies (2000–2023) to assess the impact of governance and political conditions on green investment and sustainable finance.</p>
-        <a href="research.html" class="btn-action" style="background: #10b981;">Read Research Overview &rarr;</a>
-      </div>
-
-    </section>
-
-    <!-- RIGHT WIDGETS SIDEBAR -->
-    <aside class="content-right">
-      
-      <!-- Music Lounge Widget -->
-      <div class="widget-lounge">
-        <h3>🎵 Relaxing Music Lounge</h3>
-        <p style="font-size: 0.85rem; color: #cbd5e1;">Play background instrumental music while exploring research records!</p>
-        <audio controls>
-          <source src="assets/relaxing-music.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
+      <div class="music-widget">
+        <h3 style="margin-top:0;">🎵 Relaxing Music Lounge</h3>
+        <p style="font-size: 0.85rem; color: #cbd5e1;">Play background music while exploring my portfolio!</p>
+        
+        <audio controls class="audio-player-custom">
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+          Your browser does not support audio player.
         </audio>
       </div>
 
-      <!-- Brain Games Widget -->
-      <div class="card" style="text-align: center; background: #fff0f6; border-color: #fbcfe8;">
-        <h3 style="color: #9d174d; font-size: 1.1rem; margin-bottom: 8px;">🎮 Brain Games Zone</h3>
-        <p style="font-size: 0.88rem; color: #831843;">Take a quick break and test your memory & logic skills.</p>
-        <a href="games.html" class="btn-action" style="background: #db2777; margin-top: 10px;">Play Now</a>
+      <div class="sidebar-widget" style="text-align: center; background: #fff5f5; border: 1px dashed var(--secondary);">
+        <h3 style="color: var(--secondary); margin-top:0;">🎮 Brain Games Zone</h3>
+        <p style="font-size:0.9rem;">Take a quick break and test your puzzle-solving skills.</p>
+        <a href="games.html" style="display:inline-block; background: var(--secondary); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 10px;">Play Games 🚀</a>
       </div>
 
-    </aside>
+      <div class="sidebar-widget">
+        <h3 style="margin-top:0; color: var(--primary);">🌐 Connect With Me</h3>
+        <ul style="padding-left: 20px; line-height: 2; margin-bottom:0;">
+          <li><a href="about.html">About My Background</a></li>
+          <li><a href="research.html">Published Research</a></li>
+          <li><a href="content.html#youtube">YouTube Channel</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </div>
 
-  </main>
+    </div>
 
-  <!-- LIVE TIME, WEATHER & REAL LIVE NEWS API SCRIPT -->
-  <script>
-    // Live Time Update
-    function updateLiveTime() {
-      const now = new Date();
-      const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-      document.getElementById('live-datetime').textContent = now.toLocaleDateString('en-US', options);
+  </div>
+
+  <footer class="portal-footer">
+    <p>Jamil Ahmad Shayaan — Educator &middot; Researcher &middot; Sustainable Finance &middot; Content Creator</p>
+    <p>&copy; 2026 Jamil Ahmad Shayaan. All rights reserved.</p>
+  </footer>
+
+  <!-- FLOATING AI CHATBOT WIDGET -->
+  <style>
+    .ai-chat-btn {
+      position: fixed; bottom: 25px; right: 25px;
+      background: linear-gradient(135deg, #1976D2, #E91E63);
+      color: #fff; border: none; border-radius: 50px;
+      padding: 12px 20px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4); z-index: 1000;
     }
-    setInterval(updateLiveTime, 1000);
-    updateLiveTime();
+    .ai-chat-window {
+      position: fixed; bottom: 85px; right: 25px;
+      width: 350px; max-width: 90vw; height: 450px;
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15); display: none;
+      flex-direction: column; overflow: hidden; z-index: 1000;
+      border: 1px solid #cbd5e1;
+    }
+    .ai-chat-window.active { display: flex; }
+    .ai-chat-header { background: #1976D2; color: #fff; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; }
+    .ai-chat-body { flex: 1; padding: 12px; overflow-y: auto; background: #f8fafc; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; }
+    .chat-msg { padding: 8px 12px; border-radius: 8px; max-width: 85%; }
+    .chat-msg.bot { background: #fff; color: #0f172a; border-left: 3px solid #1976D2; align-self: flex-start; }
+    .chat-msg.user { background: #1976D2; color: #fff; align-self: flex-end; }
+    .ai-chat-footer { display: flex; padding: 8px; background: #fff; border-top: 1px solid #e2e8f0; }
+    .ai-chat-footer input { flex: 1; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; outline: none; }
+    .ai-chat-footer button { background: #1976D2; color: #fff; border: none; padding: 8px 12px; margin-left: 5px; border-radius: 4px; cursor: pointer; }
+  </style>
 
-    // Live Weather Update
+  <button class="ai-chat-btn" onclick="toggleAiChat()">🤖 Ask Jamil's AI</button>
+
+  <div class="ai-chat-window" id="aiChatWindow">
+    <div class="ai-chat-header">
+      <strong>Jamil's Virtual Assistant</strong>
+      <span style="cursor:pointer;" onclick="toggleAiChat()">&times;</span>
+    </div>
+    <div class="ai-chat-body" id="aiChatBody">
+      <div class="chat-msg bot">Salam! Main Jamil Ahmad ka Virtual Assistant hoon. Aap Unki Research, Education, Games ya Content ke baare mein pooch sakte hain.</div>
+    </div>
+    <div class="ai-chat-footer">
+      <input type="text" id="aiChatInput" placeholder="Write question..." onkeypress="if(event.key==='Enter') sendMsg()" />
+      <button onclick="sendMsg()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    /* 1. LIVE CLOCK */
+    function updateLiveClock() {
+      const now = new Date();
+      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      document.getElementById('liveClock').innerText = now.toLocaleDateString('en-US', options);
+    }
+    setInterval(updateLiveClock, 1000);
+    updateLiveClock();
+
+    /* 2. LIVE WEATHER */
     async function fetchLiveWeather() {
       try {
         const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-6.4025&longitude=106.7942&current_weather=true');
         const data = await res.json();
-        if (data && data.current_weather) {
-          document.getElementById('live-temp').textContent = `${data.current_weather.temperature}°C`;
-        }
+        const temp = data.current_weather.temperature;
+        document.getElementById('weatherDisplay').innerHTML = `<span>🌤️ Location: Depok, West Java | Temp: <strong>${temp}°C</strong></span>`;
       } catch (e) {
-        document.getElementById('live-temp').textContent = '30.6°C';
+        document.getElementById('weatherDisplay').innerHTML = `<span>🌤️ Live Weather Active</span>`;
       }
     }
     fetchLiveWeather();
 
-    // Fetch Real-Time International News (BBC World Feed via RSS2JSON)
-    async function fetchRealInternationalNews() {
-      const rssFeedUrl = encodeURIComponent('https://feeds.bbci.co.uk/news/world/rss.xml');
-      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssFeedUrl}`;
-
+    /* 3. LIVE MARKET RATES */
+    async function fetchLiveMarketRates() {
+      const tickerEl = document.getElementById('marketTicker');
       try {
-        const res = await fetch(apiUrl);
-        const data = await res.json();
+        const cryptoRes = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
+        const cryptoData = await cryptoRes.json();
+        const forexRes = await fetch('https://open.er-api.com/v6/latest/USD');
+        const forexData = await forexRes.json();
 
-        if (data.status === 'ok' && data.items.length > 0) {
-          // Update Ticker with Live Headlines
-          const tickerTitles = data.items.slice(0, 10).map(item => `🔴 ${item.title}`).join(' &bull; ');
-          document.getElementById('live-news-ticker').innerHTML = tickerTitles;
+        const btc = cryptoData.bitcoin.usd.toLocaleString();
+        const eth = cryptoData.ethereum.usd.toLocaleString();
+        const pkr = forexData.rates.PKR ? forexData.rates.PKR.toFixed(2) : 'N/A';
+        const idr = forexData.rates.IDR ? forexData.rates.IDR.toFixed(0) : 'N/A';
 
-          // Update World News Card List
-          const newsList = document.getElementById('live-news-list');
-          newsList.innerHTML = '';
-
-          data.items.slice(0, 5).forEach(item => {
-            const li = document.createElement('li');
-            li.style.cssText = 'margin-bottom: 12px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 10px;';
-            li.innerHTML = `
-              <a href="${item.link}" target="_blank" style="color: #0f172a; text-decoration: none; font-weight: 700; font-size: 0.95rem; display: block;">${item.title}</a>
-              <p style="font-size: 0.82rem; color: #64748b; margin-top: 3px;">${item.description.replace(/<[^>]*>?/gm, '').substring(0, 110)}...</p>
-              <span style="font-size: 0.75rem; color: #0284c7; font-weight: 600;">Read full article on BBC News &rarr;</span>
-            `;
-            newsList.appendChild(li);
-          });
-        } else {
-          throw new Error('API return issue');
-        }
-      } catch (err) {
-        document.getElementById('live-news-ticker').innerHTML = '🔴 REAL LIVE: Global financial summit discusses renewable energy transitions &bull; Oil prices stabilize amid international trade developments &bull; Global climate initiatives gain momentum.';
+        tickerEl.innerHTML = `🪙 Bitcoin (BTC): <strong>$${btc}</strong> &nbsp;|&nbsp; 💎 Ethereum (ETH): <strong>$${eth}</strong> &nbsp;|&nbsp; 🇵🇰 USD to PKR: <strong>Rs ${pkr}</strong> &nbsp;|&nbsp; 🇮🇩 USD to IDR: <strong>Rp ${idr}</strong>`;
+      } catch (e) {
+        tickerEl.innerHTML = `🪙 BTC: Live Tracking &nbsp;|&nbsp; 🇵🇰 USD to PKR: Live Rates &nbsp;|&nbsp; 🇮🇩 USD to IDR: Live Rates`;
       }
     }
+    fetchLiveMarketRates();
+    setInterval(fetchLiveMarketRates, 60000);
 
-    fetchRealInternationalNews();
+    /* 4. AI CHATBOT LOGIC */
+    function toggleAiChat() { 
+      document.getElementById('aiChatWindow').classList.toggle('active'); 
+    }
+    function sendMsg() {
+      const input = document.getElementById('aiChatInput');
+      const txt = input.value.trim();
+      if(!txt) return;
+      addMsg(txt, 'user');
+      input.value = '';
+      setTimeout(() => {
+        let resp = "Aap ki enquiry ke liye shukriya! Mazeed jankari ke liye Contact tab par visit karein.";
+        const q = txt.toLowerCase();
+        if(q.includes('research')||q.includes('energy')) resp = "Jamil ki main research ASEAN countries me Renewable Energy aur Political Stability par hai.";
+        else if(q.includes('education')||q.includes('study')) resp = "Jamil ne BBA University of Swat se aur MS Sustainable Finance UIII Indonesia se kiya hai.";
+        else if(q.includes('game')||q.includes('games')) resp = "Aap Games tab 🎮 par ja kar interactive memory and quiz games khel sakte hain!";
+        addMsg(resp, 'bot');
+      }, 400);
+    }
+    function addMsg(text, sender) {
+      const body = document.getElementById('aiChatBody');
+      const div = document.createElement('div');
+      div.className = `chat-msg ${sender}`;
+      div.textContent = text;
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+    }
   </script>
-
-<!-- FLOATING AI CHATBOT WIDGET -->
-<style>
-  .ai-chat-btn {
-    position: fixed; bottom: 25px; right: 25px;
-    background: linear-gradient(135deg, #0284c7, #e91e63);
-    color: #fff; border: none; border-radius: 50px;
-    padding: 12px 20px; font-weight: 700; cursor: pointer;
-    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4); z-index: 1000;
-  }
-  .ai-chat-window {
-    position: fixed; bottom: 85px; right: 25px;
-    width: 350px; max-width: 90vw; height: 450px;
-    background: #fff; border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15); display: none;
-    flex-direction: column; overflow: hidden; z-index: 1000;
-    border: 1px solid #cbd5e1;
-  }
-  .ai-chat-window.active { display: flex; }
-  .ai-chat-header { background: #0284c7; color: #fff; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; }
-  .ai-chat-body { flex: 1; padding: 12px; overflow-y: auto; background: #f8fafc; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; }
-  .chat-msg { padding: 8px 12px; border-radius: 8px; max-width: 85%; }
-  .chat-msg.bot { background: #fff; color: #0f172a; border-left: 3px solid #0284c7; align-self: flex-start; }
-  .chat-msg.user { background: #0284c7; color: #fff; align-self: flex-end; }
-  .ai-chat-footer { display: flex; padding: 8px; background: #fff; border-top: 1px solid #e2e8f0; }
-  .ai-chat-footer input { flex: 1; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; outline: none; }
-  .ai-chat-footer button { background: #0284c7; color: #fff; border: none; padding: 8px 12px; margin-left: 5px; border-radius: 4px; cursor: pointer; }
-</style>
-
-<button class="ai-chat-btn" onclick="toggleAiChat()">🤖 Ask Jamil's AI</button>
-
-<div class="ai-chat-window" id="aiChatWindow">
-  <div class="ai-chat-header">
-    <strong>Jamil's Virtual Assistant</strong>
-    <span style="cursor:pointer;" onclick="toggleAiChat()">&times;</span>
-  </div>
-  <div class="ai-chat-body" id="aiChatBody">
-    <div class="chat-msg bot">Salam! Main Jamil Ahmad ka Virtual Assistant hoon. Aap Unki Research, Education, Games ya Content ke baare mein pooch sakte hain.</div>
-  </div>
-  <div class="ai-chat-footer">
-    <input type="text" id="aiChatInput" placeholder="Write question..." onkeypress="if(event.key==='Enter') sendMsg()" />
-    <button onclick="sendMsg() ">Send</button>
-  </div>
-</div>
-
-<script>
-  function toggleAiChat() { document.getElementById('aiChatWindow').classList.toggle('active'); }
-  function sendMsg() {
-    const input = document.getElementById('aiChatInput');
-    const txt = input.value.trim();
-    if(!txt) return;
-    addMsg(txt, 'user');
-    input.value = '';
-    setTimeout(() => {
-      let resp = "Aap ki enquiry ke liye shukriya! Mazeed jankari ke liye Contact tab par visit karein.";
-      const q = txt.toLowerCase();
-      if(q.includes('research')||q.includes('energy')) resp = "Jamil ki main research ASEAN countries me Renewable Energy aur Political Stability par hai.";
-      else if(q.includes('education')||q.includes('study')) resp = "Jamil ne BBA University of Swat se aur MS Sustainable Finance UIII Indonesia se kiya hai.";
-      else if(q.includes('game')||q.includes('games')) resp = "Aap Games tab 🎮 par ja kar interactive memory and quiz games khel sakte hain!";
-      addMsg(resp, 'bot');
-    }, 400);
-  }
-  function addMsg(text, sender) {
-    const body = document.getElementById('aiChatBody');
-    const div = document.createElement('div');
-    div.className = `chat-msg ${sender}`;
-    div.textContent = text;
-    body.appendChild(div);
-    body.scrollTop = body.scrollHeight;
-  }
-</script>
 
 </body>
 </html>
