@@ -264,10 +264,12 @@
       flex-direction: column;
       justify-content: space-between;
       border-left: 4px solid var(--primary);
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
     }
     .blog-card:hover {
       transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     .draft-badge {
       display: inline-block;
@@ -281,6 +283,10 @@
       margin-bottom: 12px;
       text-transform: uppercase;
     }
+    .published-badge {
+      background: #dcfce7;
+      color: #15803d;
+    }
     .blog-card h3 {
       margin: 0 0 10px 0;
       color: #1e293b;
@@ -292,6 +298,13 @@
       font-weight: 600;
       font-size: 0.85rem;
       margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .read-now-link {
+      color: var(--primary);
+      font-weight: 700;
     }
 
     /* Sidebar Widgets */
@@ -313,6 +326,71 @@
     .audio-player-custom {
       width: 100%;
       margin-top: 15px;
+    }
+
+    /* ARTICLE POPUP MODAL STYLING */
+    .blog-modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      padding: 20px;
+    }
+    .blog-modal-content {
+      background: #ffffff;
+      width: 100%;
+      max-width: 820px;
+      max-height: 88vh;
+      border-radius: 16px;
+      padding: 40px;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    .blog-modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: #f1f5f9;
+      border: none;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .blog-modal-close:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .article-body-text h2 {
+      color: #0f172a;
+      margin: 28px 0 12px;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 6px;
+    }
+    .article-body-text p {
+      margin-bottom: 16px;
+      color: #334155;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    .article-body-text ul {
+      margin: 15px 0 20px 25px;
+      line-height: 1.8;
+      color: #334155;
+    }
+    .article-body-text ul li {
+      margin-bottom: 8px;
     }
 
     /* Footer */
@@ -374,27 +452,30 @@
   <!-- Main Content Layout -->
   <div class="main-container">
 
-    <!-- LEFT COLUMN: Upcoming / Draft Articles -->
+    <!-- LEFT COLUMN: Articles Grid -->
     <div class="left-content">
 
-      <h2 class="section-title">📝 Upcoming & Draft Articles</h2>
-      <p style="margin-bottom: 25px; color: #64748b;">Below are preview drafts of upcoming posts and topics currently in preparation.</p>
+      <h2 class="section-title">📝 Articles & Insights</h2>
+      <p style="margin-bottom: 25px; color: #64748b;">Click on any published article card below to read the full post.</p>
 
       <div class="blog-grid">
 
-        <!-- Card 1 -->
-        <div class="blog-card" style="border-left-color: #22c55e;">
+        <!-- Card 1 (PUBLISHED ARTICLE WITH FULL CONTENT) -->
+        <div class="blog-card" onclick="openBlogModal('post1')" style="border-left-color: #22c55e;">
           <div>
-            <span class="draft-badge">Draft — Sample Title</span>
+            <span class="draft-badge published-badge">Read Full Article</span>
             <h3>What political stability actually means for a country's energy transition</h3>
           </div>
-          <span class="category-tag">🌱 Sustainable Finance</span>
+          <div class="category-tag">
+            <span>🌱 Sustainable Finance</span>
+            <span class="read-now-link">Read →</span>
+          </div>
         </div>
 
         <!-- Card 2 -->
         <div class="blog-card" style="border-left-color: var(--primary);">
           <div>
-            <span class="draft-badge">Draft — Sample Title</span>
+            <span class="draft-badge">Draft — Preview</span>
             <h3>Notes from four years on a bank branch floor</h3>
           </div>
           <span class="category-tag">💼 Career Development</span>
@@ -403,7 +484,7 @@
         <!-- Card 3 -->
         <div class="blog-card" style="border-left-color: #f59e0b;">
           <div>
-            <span class="draft-badge">Draft — Sample Title</span>
+            <span class="draft-badge">Draft — Preview</span>
             <h3>Teaching primary school while finishing a Master's thesis</h3>
           </div>
           <span class="category-tag">🎓 Education</span>
@@ -412,7 +493,7 @@
         <!-- Card 4 -->
         <div class="blog-card" style="border-left-color: #8b5cf6;">
           <div>
-            <span class="draft-badge">Draft — Sample Title</span>
+            <span class="draft-badge">Draft — Preview</span>
             <h3>Reading the World Governance Indicators for the first time</h3>
           </div>
           <span class="category-tag">📊 Research Methods</span>
@@ -421,7 +502,7 @@
         <!-- Card 5 -->
         <div class="blog-card" style="border-left-color: var(--secondary);">
           <div>
-            <span class="draft-badge">Draft — Sample Title</span>
+            <span class="draft-badge">Draft — Preview</span>
             <h3>Moving from Swat to Depok for graduate school</h3>
           </div>
           <span class="category-tag">✈️ Travel & Life</span>
@@ -430,7 +511,7 @@
         <!-- Card 6 -->
         <div class="blog-card" style="border-left-color: #06b6d4;">
           <div>
-            <span class="draft-badge">Draft — Sample Title</span>
+            <span class="draft-badge">Draft — Preview</span>
             <h3>What green finance means outside the headlines</h3>
           </div>
           <span class="category-tag">🌱 Sustainable Finance</span>
@@ -476,14 +557,121 @@
 
   </div>
 
+  <!-- ARTICLE MODAL POPUP WRAPPER -->
+  <div class="blog-modal-overlay" id="blogModal">
+    <div class="blog-modal-content">
+      <button class="blog-modal-close" onclick="closeBlogModal()">&times;</button>
+      <div class="article-body-text" id="blogModalBody">
+        <!-- Dynamic Blog Content Injected Here -->
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="portal-footer">
     <p>Jamil Ahmad Shayaan — Educator &middot; Researcher &middot; Sustainable Finance &middot; Content Creator</p>
     <p>&copy; 2026 Jamil Ahmad Shayaan. All rights reserved.</p>
   </footer>
 
-  <!-- AUTOMATIC LIVE SCRIPTS -->
+  <!-- AUTOMATIC LIVE SCRIPTS & MODAL LOGIC -->
   <script>
+    /* BLOG ARTICLES CONTENT DATABASE */
+    const blogArticles = {
+      post1: {
+        category: "🌱 Sustainable Finance",
+        title: "What Political Stability Actually Means for a Country’s Energy Transition",
+        date: "September 2, 2026",
+        author: "Jamil Ahmad Shayaan",
+        content: `
+          <p>When we talk about the transition toward renewable energy, we often focus on technology, investment, natural resources, and government policies. But there is another factor that can quietly determine whether an energy transition succeeds or struggles: <strong>political stability</strong>.</p>
+          
+          <p>Political stability does not simply mean that a country has the same government for a long period of time. It is much broader than that. It refers to the ability of a country's political and institutional system to provide predictability, continuity, effective governance, and a relatively stable environment for long-term decision-making.</p>
+          
+          <p>This matters greatly for the energy sector because energy transitions do not happen overnight. Building solar farms, wind projects, hydropower facilities, modern electricity grids, and other clean-energy infrastructure requires years of planning, investment, and policy commitment.</p>
+
+          <h2>Why Does Political Stability Matter?</h2>
+          <p>Energy projects are usually long-term investments. An investor building a renewable energy project may expect the project to operate for 20 or 30 years. Therefore, investors need confidence that government policies, regulations, taxation systems, and investment rules will remain reasonably predictable.</p>
+          <p>When political institutions are stable, governments are generally better positioned to develop long-term energy strategies and implement them consistently.</p>
+          <p>For example, a country may introduce incentives for solar and wind energy, establish renewable-energy targets, improve electricity infrastructure, and create regulations that encourage private investment. If these policies remain relatively consistent, businesses and investors have greater confidence to commit their capital.</p>
+          <p>Political instability can create the opposite situation. Frequent changes in governments, policy uncertainty, political conflict, corruption, or institutional weaknesses can make investors more cautious. Even when a country has excellent renewable-energy resources, uncertainty may prevent those resources from being fully developed.</p>
+
+          <h2>Political Stability Is More Than the Absence of Conflict</h2>
+          <p>It is important to understand that political stability does not necessarily mean that a country has no political disagreements. Democratic societies naturally experience political competition, changes in leadership, and public debates. These are not automatically signs of instability.</p>
+          <p>What matters is whether political institutions are strong enough to manage these changes without seriously disrupting economic and energy policies. A stable political system allows governments to change while maintaining a certain level of institutional continuity.</p>
+          <p>For the energy transition, this continuity is extremely valuable. A renewable-energy project should not become financially risky simply because a new administration comes into power. Investors need to believe that contracts will be respected, regulations will be enforced, and major energy policies will not change unpredictably.</p>
+
+          <h2>The Connection Between Stability and Investment</h2>
+          <p>One of the biggest requirements for an energy transition is capital. Renewable-energy infrastructure can require significant upfront investment. Solar panels, wind turbines, transmission networks, energy-storage systems, and modern electricity grids all require substantial financial resources.</p>
+          <p>Political stability can reduce some of the risks associated with these investments. When investors perceive a country as politically stable, they may be more willing to provide financing because they have greater confidence in the country's institutions and future economic environment.</p>
+          <p>On the other hand, political uncertainty can increase perceived risk. Investors may demand higher returns, delay projects, or choose to invest in other countries instead. This means political stability can influence the energy transition indirectly: stable institutions can help create an environment in which renewable-energy investment becomes more attractive.</p>
+
+          <h2>Policy Continuity Is Critical</h2>
+          <p>Energy transitions require consistency. A government may announce ambitious renewable-energy targets, but targets alone are not enough. Countries need policies that turn those targets into actual projects.</p>
+          <p>This can include:</p>
+          <ul>
+            <li>Renewable-energy incentives</li>
+            <li>Clear regulations</li>
+            <li>Competitive electricity markets</li>
+            <li>Stable investment rules</li>
+            <li>Efficient licensing procedures</li>
+            <li>Reliable energy infrastructure</li>
+            <li>Transparent government institutions</li>
+            <li>Long-term energy planning</li>
+          </ul>
+          <p>When these systems remain consistent, companies can plan with greater confidence. But when policies frequently change, renewable-energy developers may face uncertainty about their expected revenues, costs, taxes, permits, or access to electricity markets. Therefore, political stability can help transform energy policy from a political promise into a long-term national strategy.</p>
+
+          <h2>Developing Countries Face an Even Bigger Challenge</h2>
+          <p>For developing economies, the relationship between political stability and energy transition can be particularly important. Many developing countries have enormous renewable-energy potential but face challenges such as limited infrastructure, restricted access to finance, weak institutions, and political uncertainty.</p>
+          <p>A country may have abundant sunlight, strong wind resources, rivers, or geothermal potential. However, natural resources alone cannot guarantee a successful energy transition. The country also needs institutions capable of converting those resources into reliable energy systems. This is why energy transition should not be viewed only as a technological challenge. It is also an institutional and political challenge.</p>
+
+          <h2>Does Political Stability Always Increase Renewable Energy?</h2>
+          <p>Not necessarily. This is where the relationship becomes more interesting. Political stability can create a favorable environment for investment and long-term planning, but it does not automatically guarantee greater renewable-energy consumption.</p>
+          <p>A politically stable country may still depend heavily on coal, oil, or natural gas because of its existing infrastructure, economic interests, energy prices, or government priorities. Similarly, a country experiencing political challenges may sometimes rapidly expand renewable energy because of energy-security concerns, international commitments, technological improvements, or economic necessity.</p>
+          <p>Therefore, political stability should be understood as one important factor among many, rather than a single explanation for renewable-energy development.</p>
+
+          <h2>Stability Creates the Conditions for Long-Term Thinking</h2>
+          <p>Perhaps the most important contribution of political stability to the energy transition is its ability to encourage long-term thinking. Energy policy requires decisions today for benefits that may appear decades later.</p>
+          <p>A government focused only on short-term political survival may prioritize immediate economic or political objectives. In contrast, stable institutions can make it easier to develop strategies that extend beyond a single political cycle.</p>
+          <p>This is especially important for renewable energy because the transition involves transforming entire energy systems—not simply replacing one power plant with another. It requires changes in transportation, electricity generation, industrial production, infrastructure, financing, and consumer behavior. Such transformation requires patience, consistency, and institutional commitment.</p>
+
+          <h2>The Bigger Picture</h2>
+          <p>The global energy transition is often presented as a race to develop better technologies. Technology is certainly essential, but technology alone cannot build a sustainable energy future. A country may have advanced solar panels, modern wind turbines, and access to international climate finance. Yet without effective institutions, predictable policies, and long-term planning, the transition can remain slow.</p>
+          <p>Political stability helps create the environment in which these technological and financial resources can be used effectively. Ultimately, a successful energy transition depends on more than sunlight, wind, money, or technology. It depends on whether a country can create stable institutions capable of supporting long-term sustainable development.</p>
+
+          <h2>Final Thought</h2>
+          <p>The energy transition is a journey that can take decades. Governments may change, political priorities may evolve, and economic conditions may fluctuate—but the need for a reliable and sustainable energy system remains.</p>
+          <p>The countries most capable of managing this long-term transformation will not necessarily be those with the most natural resources. They may be the countries that can combine stable institutions, consistent policies, financial investment, technological innovation, and a clear long-term vision. That is where political stability becomes more than a measure of political conditions. It becomes part of the foundation for a country's sustainable energy future.</p>
+        `
+      }
+    };
+
+    /* MODAL DISPLAY LOGIC */
+    function openBlogModal(postId) {
+      const article = blogArticles[postId];
+      if (article) {
+        document.getElementById('blogModalBody').innerHTML = `
+          <span style="background: #e0f2fe; color: #0284c7; font-size: 0.8rem; font-weight:700; padding: 4px 12px; border-radius: 12px; display: inline-block; margin-bottom: 10px;">${article.category}</span>
+          <h1 style="font-size: 1.9rem; color: #0f172a; margin: 10px 0 12px; line-height: 1.3;">${article.title}</h1>
+          <p style="font-size: 0.88rem; color: #64748b; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 25px;">
+            Published: <strong>${article.date}</strong> &middot; By <strong>${article.author}</strong>
+          </p>
+          <div>${article.content}</div>
+        `;
+        document.getElementById('blogModal').style.display = 'flex';
+      }
+    }
+
+    function closeBlogModal() {
+      document.getElementById('blogModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('blogModal');
+      if (event.target === modal) {
+        closeBlogModal();
+      }
+    };
+
     /* 1. LIVE CLOCK */
     function updateLiveClock() {
       const now = new Date();
