@@ -9,7 +9,6 @@
   <meta name="author" content="Jamil Ahmad Shayaan">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Jamil Ahmad Shayaan">
   <meta property="og:title" content="Blog | Jamil Ahmad Shayaan">
@@ -25,7 +24,6 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Schema.org Markups -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -405,7 +403,6 @@
 </head>
 <body>
 
-  <!-- Live Clock & Weather Bar -->
   <div class="top-utility-bar">
     <div class="utility-item">
       <span class="live-badge">LIVE</span>
@@ -416,7 +413,6 @@
     </div>
   </div>
 
-  <!-- Live Crypto & Currency Rates Ticker Bar -->
   <div class="ticker-wrap">
     <span class="ticker-title">MARKETS</span>
     <marquee class="ticker-content" id="marketTicker">
@@ -424,7 +420,6 @@
     </marquee>
   </div>
 
-  <!-- Header Navigation -->
   <header class="portal-header">
     <div class="portal-nav">
       <a href="index.html" class="brand-logo">JAMIL AHMAD SHAYAAN 🌐</a>
@@ -443,16 +438,13 @@
     </div>
   </header>
 
-  <!-- Page Banner -->
   <section class="page-hero">
     <h1>Blog & Perspectives</h1>
     <p>Articles on sustainable finance, renewable energy, education, career growth, digital skills, travel, and research methods.</p>
   </section>
 
-  <!-- Main Content Layout -->
   <div class="main-container">
 
-    <!-- LEFT COLUMN: Articles Grid -->
     <div class="left-content">
 
       <h2 class="section-title">📝 Articles & Insights</h2>
@@ -460,7 +452,6 @@
 
       <div class="blog-grid">
 
-        <!-- Card 1 (PUBLISHED ARTICLE WITH FULL CONTENT) -->
         <div class="blog-card" onclick="openBlogModal('post1')" style="border-left-color: #22c55e;">
           <div>
             <span class="draft-badge published-badge">Read Full Article</span>
@@ -472,7 +463,6 @@
           </div>
         </div>
 
-        <!-- Card 2 (PUBLISHED ARTICLE WITH FULL CONTENT) -->
         <div class="blog-card" onclick="openBlogModal('post2')" style="border-left-color: var(--primary);">
           <div>
             <span class="draft-badge published-badge">Read Full Article</span>
@@ -484,34 +474,39 @@
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="blog-card" style="border-left-color: #f59e0b;">
+        <div class="blog-card" onclick="openBlogModal('post3')" style="border-left-color: #f59e0b;">
           <div>
-            <span class="draft-badge">Draft — Preview</span>
-            <h3>Teaching primary school while finishing a Master's thesis</h3>
+            <span class="draft-badge published-badge">Read Full Article</span>
+            <h3>From a Primary School Teacher to a Master’s Graduate in Indonesia</h3>
           </div>
-          <span class="category-tag">🎓 Education</span>
+          <div class="category-tag">
+            <span>🎓 Education & Life</span>
+            <span class="read-now-link">Read →</span>
+          </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="blog-card" style="border-left-color: #8b5cf6;">
+        <div class="blog-card" onclick="openBlogModal('post4')" style="border-left-color: #8b5cf6;">
           <div>
-            <span class="draft-badge">Draft — Preview</span>
-            <h3>Reading the World Governance Indicators for the first time</h3>
+            <span class="draft-badge published-badge">Read Full Article</span>
+            <h3>My Musical Journey</h3>
           </div>
-          <span class="category-tag">📊 Research Methods</span>
+          <div class="category-tag">
+            <span>🎵 Music & Creativity</span>
+            <span class="read-now-link">Read →</span>
+          </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="blog-card" style="border-left-color: var(--secondary);">
+        <div class="blog-card" onclick="openBlogModal('post5')" style="border-left-color: var(--secondary);">
           <div>
-            <span class="draft-badge">Draft — Preview</span>
-            <h3>Moving from Swat to Depok for graduate school</h3>
+            <span class="draft-badge published-badge">Read Full Article</span>
+            <h3>Moving from Swat to Indonesia for Graduate School</h3>
           </div>
-          <span class="category-tag">✈️ Travel & Life</span>
+          <div class="category-tag">
+            <span>✈️ Travel & Life</span>
+            <span class="read-now-link">Read →</span>
+          </div>
         </div>
 
-        <!-- Card 6 -->
         <div class="blog-card" style="border-left-color: #06b6d4;">
           <div>
             <span class="draft-badge">Draft — Preview</span>
@@ -524,10 +519,8 @@
 
     </div>
 
-    <!-- RIGHT COLUMN: Sidebar -->
     <div class="sidebar">
 
-      <!-- MUSIC PLAYER WIDGET -->
       <div class="music-widget">
         <h3 style="margin-top:0;">🎵 Creative Lounge</h3>
         <p style="font-size: 0.85rem; color: #cbd5e1;">Listen to background tunes while reading the latest draft topics.</p>
@@ -538,14 +531,12 @@
         </audio>
       </div>
 
-      <!-- GAMES BANNER -->
       <div class="sidebar-widget" style="text-align: center; background: #fff5f5; border: 1px dashed var(--secondary);">
         <h3 style="color: var(--secondary); margin-top:0;">🎮 Interactive Games</h3>
         <p style="font-size:0.9rem;">Take a quick break and play browser games.</p>
         <a href="games.html" style="display:inline-block; background: var(--secondary); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">Play Games 🚀</a>
       </div>
 
-      <!-- QUICK TOPICS -->
       <div class="sidebar-widget">
         <h3 style="margin-top:0; color: var(--primary);">🏷️ Key Categories</h3>
         <ul style="padding-left: 20px; line-height: 2; margin-bottom:0;">
@@ -560,23 +551,19 @@
 
   </div>
 
-  <!-- ARTICLE MODAL POPUP WRAPPER -->
   <div class="blog-modal-overlay" id="blogModal">
     <div class="blog-modal-content">
       <button class="blog-modal-close" onclick="closeBlogModal()">&times;</button>
       <div class="article-body-text" id="blogModalBody">
-        <!-- Dynamic Blog Content Injected Here -->
-      </div>
+        </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="portal-footer">
-    <p>Jamil Ahmad Shayaan — Educator &middot; Researcher &middot; Sustainable Finance &middot; Content Creator</p>
+    <p>Jamil Ahmad Shayaan &mdash; Educator &middot; Researcher &middot; Sustainable Finance &middot; Content Creator</p>
     <p>&copy; 2026 Jamil Ahmad Shayaan. All rights reserved.</p>
   </footer>
 
-  <!-- AUTOMATIC LIVE SCRIPTS & MODAL LOGIC -->
   <script>
     /* BLOG ARTICLES CONTENT DATABASE */
     const blogArticles = {
@@ -587,9 +574,7 @@
         author: "Jamil Ahmad Shayaan",
         content: `
           <p>When we talk about the transition toward renewable energy, we often focus on technology, investment, natural resources, and government policies. But there is another factor that can quietly determine whether an energy transition succeeds or struggles: <strong>political stability</strong>.</p>
-          
           <p>Political stability does not simply mean that a country has the same government for a long period of time. It is much broader than that. It refers to the ability of a country's political and institutional system to provide predictability, continuity, effective governance, and a relatively stable environment for long-term decision-making.</p>
-          
           <p>This matters greatly for the energy sector because energy transitions do not happen overnight. Building solar farms, wind projects, hydropower facilities, modern electricity grids, and other clean-energy infrastructure requires years of planning, investment, and policy commitment.</p>
 
           <h2>Why Does Political Stability Matter?</h2>
@@ -694,6 +679,172 @@
           <p>Looking back, I don't remember every transaction I processed or every form I completed. I remember people: the conversations, the stressful days, the funny moments, the difficult customers, the colleagues who helped me, and the small experiences that slowly changed the way I communicate and think.</p>
           <p>Four years on a bank branch floor taught me that professional life is not only about earning a salary or building a career. It is also about understanding people, handling pressure, taking responsibility, and learning from ordinary days.</p>
           <p>A job may eventually end, but the lessons you collect from it stay with you. And sometimes, you only realize how much you learned after you have already moved on.</p>
+        `
+      },
+      post3: {
+        category: "🎓 Education & Life",
+        title: "From a Primary School Teacher to a Master’s Graduate in Indonesia",
+        date: "September 2, 2026",
+        author: "Jamil Ahmad Shayaan",
+        content: `
+          <p>A few years ago, I was teaching in a primary school in Pakistan. I had a regular routine. I went to school, taught my students, came home, and tried to manage everything that came with work and family life.</p>
+          <p>I never imagined that one day I would be sitting in a classroom in Indonesia, working toward a Master's degree. But life has a funny way of taking you places you never planned for.</p>
+
+          <h2>It Started With a Simple Decision</h2>
+          <p>I always wanted to continue my education, but wanting something and actually making it happen are two different things.</p>
+          <p>There were responsibilities, work, family, finances, and plenty of reasons to keep things as they were. Still, I decided to take a chance. I applied for a Master's scholarship in Indonesia.</p>
+          <p>When I received the opportunity to study at Universitas Islam Internasional Indonesia, it felt exciting, but honestly, it was also a little scary. Moving to another country for education sounds great when you talk about it. Actually doing it is different.</p>
+
+          <h2>Leaving Familiar Things Behind</h2>
+          <p>Pakistan was home. My family, my work, my friends, my language, my food, and the environment I had grown up with were all familiar.</p>
+          <p>Indonesia was completely different. New country. New culture. New language. New university. New people. Even simple things could become an adjustment.</p>
+          <p>Sometimes you miss the food you are used to. Sometimes you struggle to communicate. Sometimes you simply miss being around people who understand your background without you having to explain everything. But slowly, Indonesia started becoming familiar too.</p>
+
+          <h2>Being a Teacher and Becoming a Student Again</h2>
+          <p>There was something interesting about being a teacher and then becoming a student again. As a teacher, I was used to standing in front of a classroom and explaining things. In Indonesia, I was sitting on the other side.</p>
+          <p>I had assignments, presentations, research papers, deadlines, exams, and eventually a thesis.</p>
+          <p>It reminded me of something I had sometimes told my own students: You never really stop learning. You just change classrooms.</p>
+
+          <h2>Studying Sustainable Finance</h2>
+          <p>My Master's journey was in Sustainable Finance. At first, many of the concepts were challenging. Finance itself requires a certain level of discipline, and combining it with sustainability brought another dimension to the learning process.</p>
+          <p>But gradually, things started making sense. I began looking at finance differently. Money is not only about profit. Financial decisions can influence businesses, societies, energy systems, and the environment. That made the subject much more interesting for me.</p>
+
+          <h2>The Thesis Journey</h2>
+          <p>Then came the part that almost every Master's student eventually has to face: the thesis.</p>
+          <p>My research focused on the relationship between political stability and renewable energy consumption in ASEAN countries. It involved collecting data, reading research papers, working with statistical methods, dealing with revisions, and spending a lot of time trying to make sense of numbers.</p>
+          <p>There were days when everything seemed to be going well. There were also days when I seriously wondered why I had chosen to do a Master's degree. But that is probably part of the journey. You keep going.</p>
+
+          <h2>Indonesia Gave Me More Than a Degree</h2>
+          <p>When I look back, I realize that the most valuable part of studying abroad was not just the degree. It was the experience.</p>
+          <p>I met people from different backgrounds. I experienced a different culture. I learned to communicate with people who did not share the same language or upbringing. I became more independent. And I started looking at my own country and the world around me from a slightly different perspective.</p>
+          <p>Living abroad makes you notice things you might not notice when you stay in the same place your whole life.</p>
+
+          <h2>From One Classroom to Another</h2>
+          <p>There is a strange connection between teaching and studying. As a primary school teacher, I spent my days trying to help children learn something new. As a Master's student, I found myself learning something new almost every day.</p>
+          <p>The roles were different, but the idea was the same: Keep learning. Keep asking questions. Keep improving.</p>
+
+          <h2>What Comes Next?</h2>
+          <p>I don't know exactly where this journey will take me. Maybe back to teaching. Maybe into another field. Maybe to another country. Maybe somewhere I haven't even considered yet.</p>
+          <p>But I have learned not to worry too much about having every step figured out. Sometimes you just need to take the next step.</p>
+          <p>A primary school teacher from Pakistan ended up becoming a Master's graduate in Indonesia. It wasn't a straight road. There were doubts, difficult days, homesickness, deadlines, financial worries, and plenty of uncertainty. But there was also curiosity, growth, friendship, and a lot of learning.</p>
+          <p>And perhaps that is what education is really supposed to do: not just give you a degree, but give you the courage to imagine a bigger life.</p>
+        `
+      },
+      post4: {
+        category: "🎵 Music & Creativity",
+        title: "My Musical Journey",
+        date: "September 2, 2026",
+        author: "Jamil Ahmad Shayaan",
+        content: `
+          <p>Music has been a part of my life for many years, long before I ever imagined that people from different places would listen to something I created.</p>
+          <p>My musical journey did not begin in a professional studio or with expensive equipment. It started with a simple harmonium and a friend who became my teacher.</p>
+
+          <h2>Where It All Started</h2>
+          <p>Many years ago, I had a friend named Naseem who was also my Ustad. He introduced me to the harmonium and patiently taught me the basics of music.</p>
+          <p>At that time, I was not thinking about building a musical career or getting millions of views. I was simply enjoying music.</p>
+          <p>Sometimes, I would get together with my friends in my hometown and we would play classic Pashto music. I would play music, sing, and enjoy those simple moments with friends.</p>
+          <p>Those days were not about numbers, followers, or algorithms. They were simply about the love of music.</p>
+          <p>Looking back now, I realize that those small moments were actually the beginning of something much bigger.</p>
+
+          <h2>Learning on My Own</h2>
+          <p>As time passed, my curiosity about music grew.</p>
+          <p>I started exploring digital music and slowly began teaching myself how to create music using technology.</p>
+          <p>There was no perfect formula. I experimented, made mistakes, tried different sounds, learned new techniques, and kept improving.</p>
+          <p>Sometimes a track would sound great to me. Sometimes it would not. But I kept making music.</p>
+          <p>That became one of the most important lessons of my journey: you don't always need to know exactly where you are going. Sometimes you just need to keep learning and keep creating.</p>
+
+          <h2>From a Hobby to Something People Enjoyed</h2>
+          <p>Eventually, I started sharing my music online.</p>
+          <p>Some of my tracks received much more attention than I expected. People started listening, sharing, and responding to my work.</p>
+          <p>Some tracks reached hundreds of thousands of views, and some were seen by millions of people across different platforms.</p>
+          <p>That feeling was difficult to explain. Something that had started as a personal passion was now reaching people I had never met.</p>
+          <p>It reminded me that you never really know where your work can take you. You just have to put it out there.</p>
+
+          <h2>Finding My Own Sound</h2>
+          <p>Over time, I became interested in many different types of music.</p>
+          <p>Today, I run my own musical channel on YouTube where I share instrumental music and explore different styles, including Arabic, Pakistani, Indian, and other musical influences.</p>
+          <p>I enjoy experimenting with different sounds because music does not have to fit into one box.</p>
+          <p>Sometimes I want to create something traditional. Sometimes something modern. Sometimes something completely different.</p>
+          <p>The freedom to experiment is one of the things I enjoy most about creating music.</p>
+
+          <h2>Three Songs, One More Step</h2>
+          <p>I have also recorded three songs of my own and shared them across different social media platforms.</p>
+          <p>The response from people has been incredibly encouraging. When someone listens to something you created and says they enjoyed it, there is a different kind of satisfaction in that.</p>
+          <p>It is not just about the views. It is about knowing that something that came from your own thoughts and effort connected with another person.</p>
+          <p>For me, that is one of the most beautiful things about music.</p>
+
+          <h2>What Music Has Taught Me</h2>
+          <p>My musical journey has taught me that talent is only one part of the story.</p>
+          <p>Curiosity matters. Practice matters. Patience matters. And perhaps most importantly, consistency matters.</p>
+          <p>I started with a harmonium. Then I moved toward experimenting with digital music. Today, I create and share music online.</p>
+          <p>The journey did not happen in one big moment. It happened through many small steps taken over many years. That is how most meaningful journeys work.</p>
+
+          <h2>Keep Creating</h2>
+          <p>I sometimes think about that younger version of myself playing harmonium with friends in my hometown. He had no idea where music would eventually take him.</p>
+          <p>And maybe that is the point. We don't always need to know the destination before we begin.</p>
+          <p>Sometimes a simple interest can become a skill. A skill can become a passion. A passion can become something that inspires other people. And something that started quietly can eventually reach millions.</p>
+          <p>My musical journey is still going. I am still learning. Still experimenting. Still creating. And I still believe that the best part of the journey may be somewhere ahead.</p>
+          <p>If there is one thing I have learned from music, it is this: don't wait until you have everything you need to start creating. Start with what you have, learn along the way, and keep going. You never know how far your passion can take you.</p>
+        `
+      },
+      post5: {
+        category: "✈️ Travel & Life",
+        title: "Moving from Swat to Indonesia for Graduate School",
+        date: "September 2, 2026",
+        author: "Jamil Ahmad Shayaan",
+        content: `
+          <p>Leaving your hometown is never just about changing your location.</p>
+          <p>Sometimes, it means leaving behind familiar streets, familiar faces, familiar food, and a life you have known for years.</p>
+          <p>For me, that journey started in Swat, Pakistan, and eventually took me to Indonesia for graduate school.</p>
+          <p>I never imagined that my education would take me so far from home.</p>
+
+          <h2>From the Mountains of Swat</h2>
+          <p>Swat is where I grew up.</p>
+          <p>It is a place of mountains, rivers, beautiful landscapes, and a strong sense of community. Like many people who grow up in a smaller town, I was familiar with the people and environment around me.</p>
+          <p>Life felt predictable.</p>
+          <p>Then came the decision to study abroad.</p>
+          <p>The idea was exciting, but it also came with a lot of questions.</p>
+          <p>Would I be able to adjust? Would I understand the culture? Would I be comfortable living so far from home? Would I be able to keep up academically?</p>
+          <p>You can think about these questions for a long time, but eventually, you have to take the step.</p>
+
+          <h2>Arriving in Indonesia</h2>
+          <p>Moving from Pakistan to Indonesia was a completely new experience.</p>
+          <p>The language was different. The food was different. The culture was different. Even some of the simplest daily activities felt unfamiliar at first.</p>
+          <p>But that is also what makes living abroad interesting.</p>
+          <p>You start noticing things that you never thought about before. You learn how people communicate differently. You discover new foods. You meet people from different backgrounds. And slowly, what once felt unfamiliar starts becoming normal.</p>
+
+          <h2>Becoming Comfortable With Being Uncomfortable</h2>
+          <p>One of the biggest lessons I learned was that growth usually happens outside your comfort zone.</p>
+          <p>In Swat, I knew how things worked. In Indonesia, I had to figure things out again.</p>
+          <p>University life, daily communication, transportation, food, friendships, academic work and countless small things all required adjustment.</p>
+          <p>At times, it was challenging. But every challenge made the next one a little easier.</p>
+          <p>You become more independent when you have to solve problems yourself. You become more confident when you realize that you can handle situations you once thought were difficult.</p>
+
+          <h2>Studying With People From Different Backgrounds</h2>
+          <p>Graduate school also gave me an opportunity to meet people with different experiences and perspectives.</p>
+          <p>Everyone brings their own story to a classroom.</p>
+          <p>Discussing ideas with people from different backgrounds made me realize that there is rarely only one way to look at a problem.</p>
+          <p>Education is not only about books and assignments. Sometimes, your classmates can teach you just as much as your professors.</p>
+
+          <h2>More Than a Degree</h2>
+          <p>When I left Swat, I thought I was mainly going to Indonesia to earn a graduate degree.</p>
+          <p>But the experience became much bigger than that.</p>
+          <p>I learned how to live independently. I learned to communicate across cultural differences. I learned to adapt.</p>
+          <p>I learned that being far from home can be difficult, but it can also make you stronger.</p>
+          <p>Most importantly, I started seeing the world from a wider perspective. Sometimes you need to leave the place you know to understand how big the world actually is.</p>
+
+          <h2>Looking Back</h2>
+          <p>When I think about the journey from Swat to Indonesia, the distance is not the most important part.</p>
+          <p>The important part is everything that happened in between.</p>
+          <p>The doubts before leaving. The excitement of arriving somewhere new. The challenges of adjusting. The people I met. The things I learned. And the person I became through the experience.</p>
+          <p>Swat will always be home. Indonesia became an important chapter of my life.</p>
+          <p>And somewhere between the two, I discovered that home can be a place you come from, while growth often happens in places you have never been before.</p>
+
+          <h2>Keep Moving</h2>
+          <p>Moving abroad does not magically make life easier. It simply gives you a different set of challenges and opportunities.</p>
+          <p>But if you are willing to learn, adapt, and keep moving forward, those challenges can change you in ways you never expected.</p>
+          <p>My journey from Swat to Indonesia started with a decision to study. It became a journey of education, independence, discovery, and personal growth.</p>
+          <p>And perhaps the most important lesson I took from it is simple: don't wait until you have everything figured out—sometimes, you have to travel far from where you started to discover how far you can actually go.</p>
         `
       }
     };
