@@ -3,13 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog & Insights | Jamil Ahmad Shayaan</title>
-  <meta name="description" content="Official Blog of Jamil Ahmad Shayaan: Thoughts on Sustainable Finance, Education, Personal Growth, and Research.">
+  <title>Blog | Jamil Ahmad Shayaan</title>
+  <meta name="description" content="Jamil Ahmad Shayaan's blog on sustainable finance, renewable energy, education, career development, and digital skills.">
   <link rel="canonical" href="https://jamilahmad.example/blog.html">
   <meta name="author" content="Jamil Ahmad Shayaan">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jamil Ahmad Shayaan">
+  <meta property="og:title" content="Blog | Jamil Ahmad Shayaan">
+  <meta property="og:description" content="Jamil Ahmad Shayaan's blog on sustainable finance, renewable energy, education, career development, and digital skills.">
+  <meta property="og:url" content="https://jamilahmad.example/blog.html">
+  <meta property="og:image" content="https://jamilahmad.example/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog | Jamil Ahmad Shayaan">
+  <meta name="twitter:description" content="Jamil Ahmad Shayaan's blog on sustainable finance, renewable energy, education, career development, and digital skills.">
+  <meta name="twitter:image" content="https://jamilahmad.example/assets/og-image.jpg">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://jamilahmad.example/#person",
+    "name": "Jamil Ahmad Shayaan",
+    "nationality": "Pakistani",
+    "jobTitle": [
+      "Primary School Teacher",
+      "Researcher",
+      "Sustainable Finance Professional"
+    ],
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Swat"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Universitas Islam Internasional Indonesia (UIII)"
+      }
+    ],
+    "knowsAbout": [
+      "Sustainable Finance",
+      "Renewable Energy",
+      "Political Stability and Economic Impact",
+      "Sustainable Development",
+      "Green Finance",
+      "Energy Transition",
+      "Financial Sustainability"
+    ],
+    "url": "https://jamilahmad.example",
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://jamilahmad.example/#website",
+    "url": "https://jamilahmad.example",
+    "name": "Jamil Ahmad Shayaan",
+    "publisher": {
+      "@id": "https://jamilahmad.example/#person"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://jamilahmad.example/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://jamilahmad.example/blog.html"
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -55,7 +136,7 @@
       text-transform: uppercase;
     }
 
-    /* Market Ticker */
+    /* Ticker Bar */
     .ticker-wrap {
       width: 100%;
       background: var(--dark);
@@ -122,26 +203,26 @@
       color: var(--primary);
     }
 
-    /* Page Title Banner */
-    .blog-header-banner {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    /* Page Hero Banner */
+    .page-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
       color: white;
       padding: 40px 20px;
       text-align: center;
     }
-    .blog-header-banner h1 {
+    .page-hero h1 {
       margin: 0;
-      font-size: 2.2rem;
-      font-weight: 800;
+      font-size: 2.5rem;
     }
-    .blog-header-banner p {
-      color: #38bdf8;
+    .page-hero p {
+      color: #a5b4fc;
       font-size: 1.1rem;
       margin-top: 10px;
-      margin-bottom: 0;
+      max-width: 750px;
+      margin: 10px auto 0 auto;
     }
 
-    /* Main Grid Layout */
+    /* Layout Structure */
     .main-container {
       max-width: 1200px;
       margin: 40px auto;
@@ -157,46 +238,71 @@
       }
     }
 
-    /* Post Card Styling */
+    /* Section Headings */
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 20px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+    }
+
+    /* Blog Cards Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
     .blog-card {
       background: white;
       border-radius: 12px;
-      padding: 30px;
-      margin-bottom: 30px;
+      padding: 22px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      border-left: 6px solid var(--primary);
-      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 4px solid var(--primary);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
     }
     .blog-card:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
-    .status-badge {
-      background: #e0f2fe;
-      color: #0369a1;
+    .draft-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: #fef3c7;
+      color: #92400e;
       font-size: 0.75rem;
       font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
-      float: right;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
-    .card-title {
-      font-size: 1.5rem;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-weight: 800;
+    .published-badge {
+      background: #dcfce7;
+      color: #15803d;
     }
-    .post-meta {
-      font-size: 0.88rem;
-      color: #64748b;
-      margin-bottom: 18px;
-      border-bottom: 1px solid #f1f5f9;
-      padding-bottom: 12px;
+    .blog-card h3 {
+      margin: 0 0 10px 0;
+      color: #1e293b;
+      font-size: 1.15rem;
+      line-height: 1.4;
     }
-    .card-text {
-      color: #334155;
-      line-height: 1.8;
-      font-size: 1rem;
+    .category-tag {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .read-now-link {
+      color: var(--primary);
+      font-weight: 700;
     }
 
     /* Sidebar Widgets */
@@ -220,6 +326,71 @@
       margin-top: 15px;
     }
 
+    /* ARTICLE POPUP MODAL STYLING */
+    .blog-modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      padding: 20px;
+    }
+    .blog-modal-content {
+      background: #ffffff;
+      width: 100%;
+      max-width: 820px;
+      max-height: 88vh;
+      border-radius: 16px;
+      padding: 40px;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    .blog-modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: #f1f5f9;
+      border: none;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .blog-modal-close:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .article-body-text h2 {
+      color: #0f172a;
+      margin: 28px 0 12px;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 6px;
+    }
+    .article-body-text p {
+      margin-bottom: 16px;
+      color: #334155;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    .article-body-text ul {
+      margin: 15px 0 20px 25px;
+      line-height: 1.8;
+      color: #334155;
+    }
+    .article-body-text ul li {
+      margin-bottom: 8px;
+    }
+
     /* Footer */
     .portal-footer {
       background: var(--dark);
@@ -232,7 +403,6 @@
 </head>
 <body>
 
-  <!-- Top Utility Bar -->
   <div class="top-utility-bar">
     <div class="utility-item">
       <span class="live-badge">LIVE</span>
@@ -243,7 +413,6 @@
     </div>
   </div>
 
-  <!-- Ticker Bar -->
   <div class="ticker-wrap">
     <span class="ticker-title">MARKETS</span>
     <marquee class="ticker-content" id="marketTicker">
@@ -251,7 +420,6 @@
     </marquee>
   </div>
 
-  <!-- Header Navigation -->
   <header class="portal-header">
     <div class="portal-nav">
       <a href="index.html" class="brand-logo">JAMIL AHMAD SHAYAAN 🌐</a>
@@ -270,186 +438,125 @@
     </div>
   </header>
 
-  <!-- Blog Banner -->
-  <section class="blog-header-banner">
-    <h1>Blog & Articles Section</h1>
-    <p>Perspectives on Sustainable Finance, Academic Research, Education & Personal Leadership</p>
+  <section class="page-hero">
+    <h1>Blog & Perspectives</h1>
+    <p>Articles on sustainable finance, renewable energy, education, career growth, digital skills, travel, and research methods.</p>
   </section>
 
-  <!-- Main Container Grid -->
   <div class="main-container">
 
-    <!-- LEFT COLUMN: ALL 6 BLOG POSTS -->
     <div class="left-content">
 
-      <!-- POST 1 -->
-      <article class="blog-card" id="post-1">
-        <span class="status-badge">Post 1 &bull; Sustainable Finance</span>
-        <h2 class="card-title">Sustainable Finance & Green Energy Transition in ASEAN</h2>
-        <div class="post-meta">By <strong>Jamil Ahmad Shayaan</strong> &bull; Economic Policy &amp; Energy Governance</div>
-        <div class="card-text">
-          <p>The ASEAN region stands at a critical juncture between rapid economic expansion and environmental sustainability. Accelerating the green energy transition requires strategic capital allocation, robust ESG regulatory frameworks, and political stability to instill confidence in international investors.</p>
-          <p>Examining panel data across Southeast Asian economies reveals that institutional quality and targeted green bonds play a decisive role in reducing dependence on fossil fuels.</p>
-        </div>
-      </article>
+      <h2 class="section-title">📝 Articles & Insights</h2>
+      <p style="margin-bottom: 25px; color: #64748b;">Click on any published article card below to read the full post.</p>
 
-      <!-- POST 2 -->
-      <article class="blog-card" id="post-2" style="border-left-color: #22c55e;">
-        <span class="status-badge" style="background: #dcfce7; color: #166534;">Post 2 &bull; Pedagogy</span>
-        <h2 class="card-title">Integrating Financial Literacy into Early Education</h2>
-        <div class="post-meta">By <strong>Jamil Ahmad Shayaan</strong> &bull; Primary Education &amp; Student Mentorship</div>
-        <div class="card-text">
-          <p>Building a financially responsible generation starts in primary school classrooms. Teaching fundamental concepts such as saving, budgeting, and value creation helps young learners navigate an increasingly complex economic world.</p>
-          <p>As educators, shifting our teaching models toward interactive problem-solving fosters critical thinking skills early in a student's academic journey.</p>
-        </div>
-      </article>
+      <div class="blog-grid">
 
-      <!-- POST 3 -->
-      <article class="blog-card" id="post-3" style="border-left-color: #0284c7;">
-        <span class="status-badge" style="background: #e0f2fe; color: #0369a1;">Post 3 &bull; Banking</span>
-        <h2 class="card-title">Islamic Banking Principles & Ethical Finance Practices</h2>
-        <div class="post-meta">By <strong>Jamil Ahmad Shayaan</strong> &bull; Banking &amp; Financial Institutions</div>
-        <div class="card-text">
-          <p>Ethical finance systems focus on risk-sharing, tangible asset backing, and social equity. Experience within Islamic retail banking environments underscores the growing global appeal of transparent financial governance.</p>
-          <p>Combining traditional Islamic financial instruments with modern fintech solutions presents promising avenues for expanding financial inclusion across developing markets.</p>
-        </div>
-      </article>
-
-      <!-- POST 4 -->
-      <article class="blog-card" id="post-4" style="border-left-color: #9333ea;">
-        <span class="status-badge" style="background: #f3e8ff; color: #6b21a8;">Post 4 &bull; Digital Media</span>
-        <h2 class="card-title">Digital Media & Storytelling: Engaging Modern Audiences</h2>
-        <div class="post-meta">By <strong>Jamil Ahmad Shayaan</strong> &bull; Media Production &amp; Content Strategy</div>
-        <div class="card-text">
-          <p>Creating impactful visual content—whether short-form video stories or long-form academic discussions—requires clarity, intentional lighting, and authentic engagement with the viewer.</p>
-          <p>Filming culinary experiences and daily vlogs in Jakarta provided valuable insights into how cultural narratives connect people globally across social platforms.</p>
-        </div>
-      </article>
-
-      <!-- POST 5 -->
-      <article class="blog-card" id="post-5" style="border-left-color: #f59e0b;">
-        <span class="status-badge" style="background: #fef3c7; color: #92400e;">Post 5 &bull; Analytics</span>
-        <h2 class="card-title">Empirical Methodologies for Cross-Country Econometric Studies</h2>
-        <div class="post-meta">By <strong>Jamil Ahmad Shayaan</strong> &bull; Quantitative Methods</div>
-        <div class="card-text">
-          <p>Reliable policy insights depend heavily on rigorous econometrics. Utilizing fixed-effects panel models and robust standard error estimations allows researchers to control for unobserved country-level heterogeneity.</p>
-          <p>Ensuring methodology precision ensures that recommendations regarding environmental policy and capital investment are grounded in verifiable data.</p>
-        </div>
-      </article>
-
-      <!-- POST 6: FULL REFINED ARTICLE -->
-      <article class="blog-card" id="post-6" style="border-left: 6px solid #1976D2; padding: 35px;">
-        
-        <header style="margin-bottom: 25px; border-bottom: 2px solid #f1f5f9; padding-bottom: 18px;">
-          <span class="status-badge" style="background: #e0f2fe; color: #0369a1; font-size: 0.78rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; float: right;">Post 6 &bull; Motivation &amp; Growth</span>
-          <h2 class="card-title" style="font-size: 1.75rem; color: #0f172a; margin-top: 0; margin-bottom: 10px; font-weight: 800; line-height: 1.3;">Your Background Does Not Define Your Future</h2>
-          <p style="font-size: 0.9rem; color: #64748b; margin: 0;">By <strong>Jamil Ahmad Shayaan</strong> &bull; Student Guidance &amp; Personal Development</p>
-        </header>
-
-        <div class="card-text" style="color: #334155; line-height: 1.85; font-size: 1.02rem;">
-          
-          <p style="margin-bottom: 16px;">Where you come from matters. It shapes your experiences, your opportunities, your thinking, and sometimes even the way you see yourself. But it does not have to decide where you are going. I have always believed that a person's starting point and destination are two different things.</p>
-          
-          <p style="margin-bottom: 24px;">You may come from a small town. You may not have grown up with many resources. You may not know the right people. You may have made mistakes in the past. You may even feel that other people are already far ahead of you. None of these things means that your story is already written.</p>
-
-          <h3 style="font-size: 1.25rem; color: #1976D2; margin-top: 30px; margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            <span>🌟</span> Your Starting Point Is Not Your Limit
-          </h3>
-          <p style="margin-bottom: 16px;">Students often compare their lives with people who seem to have everything figured out. Someone has better grades. Someone speaks better English. Someone has more money. Someone has travelled to more countries. Someone already has a successful career. And you start thinking, <em>"Maybe I am behind."</em></p>
-          <p style="margin-bottom: 24px;">But life is not a race where everyone starts from the same place. Some people start with advantages. Others have to build everything slowly. What matters is not only where you start, but what you do with the opportunities you have.</p>
-
-          <h3 style="font-size: 1.25rem; color: #1976D2; margin-top: 30px; margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            <span>🚀</span> You Don't Need a Perfect Beginning
-          </h3>
-          <p style="margin-bottom: 16px;">Many students wait for the perfect situation before taking action. They think they need more money, better skills, better English, more confidence, or better connections. The truth is, you will probably never feel completely ready.</p>
-          <p style="margin-bottom: 24px;">You learn by starting. You become confident by doing things that initially make you uncomfortable. You develop skills by practicing them. You build connections by talking to people. You discover opportunities by looking for them. Your first step does not have to be perfect. It just has to happen.</p>
-
-          <h3 style="font-size: 1.25rem; color: #1976D2; margin-top: 30px; margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            <span>🎓</span> Education Can Change Your Perspective
-          </h3>
-          <p style="margin-bottom: 16px;">Education is not simply about getting a degree. A good education can change the way you think. It can introduce you to ideas, people, cultures, and possibilities that you may never have encountered before.</p>
-          <p style="margin-bottom: 24px;">Sometimes the biggest benefit of education is not the certificate you receive at the end. It is the confidence you develop along the way. You begin to realize that there is more than one path in life. You start asking better questions. You become more comfortable with uncertainty. And you begin to imagine possibilities that once seemed unrealistic.</p>
-
-          <h3 style="font-size: 1.25rem; color: #1976D2; margin-top: 30px; margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            <span>🔄</span> Don't Let Your Past Become Your Identity
-          </h3>
-          <p style="margin-bottom: 16px;">Maybe you failed an exam. Maybe you chose the wrong career. Maybe you wasted some years. Maybe you made decisions that you regret. It happens.</p>
-          <p style="margin-bottom: 24px;">Your past is part of your story, but it is not the whole story. One bad result does not make you a failure. One rejection does not mean you are not capable. One difficult year does not determine the rest of your life. Learn from what happened, accept it, and keep moving. There is no rule saying that your future has to look like your past.</p>
-
-          <h3 style="font-size: 1.25rem; color: #1976D2; margin-top: 30px; margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            <span>🧱</span> Build Yourself Slowly
-          </h3>
-          <p style="margin-bottom: 16px;">You do not have to transform your entire life in one year. Learn one useful skill. Improve your communication. Read something valuable. Meet new people. Try something outside your comfort zone. Apply for an opportunity. Learn from your mistakes. Then do it again.</p>
-          <p style="margin-bottom: 24px;">Small improvements may not feel important in the beginning, but they can completely change your life over time. The person you become five years from now is being built by the decisions you make today.</p>
-
-          <h3 style="font-size: 1.25rem; color: #1976D2; margin-top: 30px; margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            <span>🤝</span> Your Connections Matter Too
-          </h3>
-          <p style="margin-bottom: 16px;">Success is not only about what you know. It is also about who you learn from and who you build relationships with. Talk to your teachers. Respect your classmates. Meet people from different backgrounds. Ask questions. Listen to people who have more experience than you.</p>
-          <p style="margin-bottom: 24px;">A simple conversation can sometimes introduce you to an opportunity you never knew existed. You do not need thousands of connections. You need genuine relationships with people who respect, support, and challenge you to grow.</p>
-
-          <h3 style="font-size: 1.25rem; color: #1976D2; margin-top: 30px; margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            <span>🌍</span> Don't Be Afraid to Dream Beyond Your Environment
-          </h3>
-          <p style="margin-bottom: 16px;">Sometimes our surroundings quietly teach us what we should or should not expect from life. If nobody around you has studied abroad, you may think studying abroad is not for people like you. If nobody in your family has started a business, you may think entrepreneurship is not for you. If people around you have never explored certain careers, those careers may not even appear on your radar.</p>
-          <p style="margin-bottom: 24px;">But the world is much bigger than the environment you grew up in. Explore it. Search for opportunities. Learn about scholarships. Develop your skills. Talk to people who have taken different paths. You might discover that there are possibilities you never knew existed.</p>
-
-          <h3 style="font-size: 1.25rem; color: #1976D2; margin-top: 30px; margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            <span>📈</span> Believe in Progress, Not Perfection
-          </h3>
-          <p style="margin-bottom: 16px;">You will have setbacks. You will sometimes feel lost. You will compare yourself with others. You will make mistakes. That is normal. Do not expect yourself to have everything figured out at twenty, twenty-five, or even thirty.</p>
-          <p style="margin-bottom: 24px;">Life does not follow one fixed timeline. Some people find their direction early. Others take longer. Some change careers. Some move to another country. Some start again after years. There is nothing wrong with taking your own route.</p>
-
-          <div style="background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border-left: 5px solid #E91E63; padding: 20px 24px; margin: 30px 0; border-radius: 0 10px 10px 0;">
-            <h4 style="margin: 0 0 10px 0; color: #E91E63; font-size: 1.1rem; font-weight: 700;">✨ Your Story Is Still Being Written</h4>
-            <p style="margin: 0; color: #1e293b; font-style: italic; line-height: 1.75;">
-              "Your hometown does not decide your future. Your family's financial situation does not decide your future. Your past mistakes do not decide your future. Your current circumstances do not have to decide your future either. They are simply part of where you are starting from. What you learn, the choices you make, the people you meet, the risks you take, and the effort you put in can change the direction of your life."
-            </p>
+        <div class="blog-card" onclick="openBlogModal('post1')" style="border-left-color: #22c55e;">
+          <div>
+            <span class="draft-badge published-badge">Read Full Article</span>
+            <h3>What political stability actually means for a country's energy transition</h3>
           </div>
-
-          <p style="margin-bottom: 14px; font-weight: 600; color: #0f172a;">So if you are a student reading this and you feel that you are starting from behind, remember one thing:</p>
-          <p style="margin-bottom: 8px; font-size: 1.08rem;">You do not need to have the best starting point. You just need to keep moving forward.</p>
-          <p style="margin-bottom: 8px; font-size: 1.08rem;">Your background explains where you came from. It does not define where you can go.</p>
-          <p style="margin-bottom: 0; font-size: 1.15rem; font-weight: 800; color: #1976D2;">And your future is still yours to build.</p>
-
+          <div class="category-tag">
+            <span>🌱 Sustainable Finance</span>
+            <span class="read-now-link">Read →</span>
+          </div>
         </div>
 
-      </article>
+        <div class="blog-card" onclick="openBlogModal('post2')" style="border-left-color: var(--primary);">
+          <div>
+            <span class="draft-badge published-badge">Read Full Article</span>
+            <h3>Notes from four years on a bank branch floor</h3>
+          </div>
+          <div class="category-tag">
+            <span>💼 Career Development</span>
+            <span class="read-now-link">Read →</span>
+          </div>
+        </div>
+
+        <div class="blog-card" onclick="openBlogModal('post3')" style="border-left-color: #f59e0b;">
+          <div>
+            <span class="draft-badge published-badge">Read Full Article</span>
+            <h3>From a Primary School Teacher to a Master’s Graduate in Indonesia</h3>
+          </div>
+          <div class="category-tag">
+            <span>🎓 Education & Life</span>
+            <span class="read-now-link">Read →</span>
+          </div>
+        </div>
+
+        <div class="blog-card" onclick="openBlogModal('post4')" style="border-left-color: #8b5cf6;">
+          <div>
+            <span class="draft-badge published-badge">Read Full Article</span>
+            <h3>My Musical Journey</h3>
+          </div>
+          <div class="category-tag">
+            <span>🎵 Music & Creativity</span>
+            <span class="read-now-link">Read →</span>
+          </div>
+        </div>
+
+        <div class="blog-card" onclick="openBlogModal('post5')" style="border-left-color: var(--secondary);">
+          <div>
+            <span class="draft-badge published-badge">Read Full Article</span>
+            <h3>Moving from Swat to Indonesia for Graduate School</h3>
+          </div>
+          <div class="category-tag">
+            <span>✈️ Travel & Life</span>
+            <span class="read-now-link">Read →</span>
+          </div>
+        </div>
+
+        <div class="blog-card" style="border-left-color: #06b6d4;">
+          <div>
+            <span class="draft-badge">Draft — Preview</span>
+            <h3>Your Background Does Not Define Your Future</h3>
+          </div>
+          <span class="category-tag">🌱 Motivation</span>
+        </div>
+
+      </div>
 
     </div>
 
-    <!-- RIGHT SIDEBAR -->
     <div class="sidebar">
 
-      <div class="sidebar-widget">
-        <h3 style="margin-top:0; color: var(--primary);">📚 Article Directory</h3>
-        <ul style="padding-left: 18px; line-height: 2; margin-bottom: 0;">
-          <li><a href="#post-1">Post 1: Sustainable Finance ASEAN</a></li>
-          <li><a href="#post-2">Post 2: Early Financial Literacy</a></li>
-          <li><a href="#post-3">Post 3: Islamic Banking Ethical Finance</a></li>
-          <li><a href="#post-4">Post 4: Digital Storytelling Jakarta</a></li>
-          <li><a href="#post-5">Post 5: Econometric Panel Methods</a></li>
-          <li><a href="#post-6" style="font-weight: bold; color: var(--secondary);">Post 6: Background &amp; Future</a></li>
-        </ul>
-      </div>
-
       <div class="music-widget">
-        <h3 style="margin-top:0;">🎵 Relaxing Lounge</h3>
-        <p style="font-size: 0.85rem; color: #cbd5e1;">Enjoy soothing background audio while reading articles!</p>
+        <h3 style="margin-top:0;">🎵 Creative Lounge</h3>
+        <p style="font-size: 0.85rem; color: #cbd5e1;">Listen to background tunes while reading the latest draft topics.</p>
+        
         <audio controls class="audio-player-custom">
           <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-          Your browser does not support audio playback.
+          Your browser does not support audio player.
         </audio>
       </div>
 
       <div class="sidebar-widget" style="text-align: center; background: #fff5f5; border: 1px dashed var(--secondary);">
-        <h3 style="color: var(--secondary); margin-top:0;">🎮 Brain Games</h3>
-        <p style="font-size:0.9rem;">Take a quick mental break with puzzle games.</p>
-        <a href="games.html" style="display:inline-block; background: var(--secondary); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 5px;">Play Games 🚀</a>
+        <h3 style="color: var(--secondary); margin-top:0;">🎮 Interactive Games</h3>
+        <p style="font-size:0.9rem;">Take a quick break and play browser games.</p>
+        <a href="games.html" style="display:inline-block; background: var(--secondary); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">Play Games 🚀</a>
+      </div>
+
+      <div class="sidebar-widget">
+        <h3 style="margin-top:0; color: var(--primary);">🏷️ Key Categories</h3>
+        <ul style="padding-left: 20px; line-height: 2; margin-bottom:0;">
+          <li><a href="research.html">Sustainable Finance & Energy</a></li>
+          <li><a href="experience.html">Banking & Teaching Experience</a></li>
+          <li><a href="content.html">Digital Content & Media</a></li>
+          <li><a href="projects.html">Upcoming Projects</a></li>
+        </ul>
       </div>
 
     </div>
 
+  </div>
+
+  <div class="blog-modal-overlay" id="blogModal">
+    <div class="blog-modal-content">
+      <button class="blog-modal-close" onclick="closeBlogModal()">&times;</button>
+      <div class="article-body-text" id="blogModalBody">
+        </div>
+    </div>
   </div>
 
   <footer class="portal-footer">
@@ -457,52 +564,323 @@
     <p>&copy; 2026 Jamil Ahmad Shayaan. All rights reserved.</p>
   </footer>
 
-  <!-- FLOATING AI CHATBOT WIDGET -->
-  <style>
-    .ai-chat-btn {
-      position: fixed; bottom: 25px; right: 25px;
-      background: linear-gradient(135deg, #1976D2, #E91E63);
-      color: #fff; border: none; border-radius: 50px;
-      padding: 12px 20px; font-weight: 700; cursor: pointer;
-      box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4); z-index: 1000;
-    }
-    .ai-chat-window {
-      position: fixed; bottom: 85px; right: 25px;
-      width: 350px; max-width: 90vw; height: 450px;
-      background: #fff; border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15); display: none;
-      flex-direction: column; overflow: hidden; z-index: 1000;
-      border: 1px solid #cbd5e1;
-    }
-    .ai-chat-window.active { display: flex; }
-    .ai-chat-header { background: #1976D2; color: #fff; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; }
-    .ai-chat-body { flex: 1; padding: 12px; overflow-y: auto; background: #f8fafc; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; }
-    .chat-msg { padding: 8px 12px; border-radius: 8px; max-width: 85%; }
-    .chat-msg.bot { background: #fff; color: #0f172a; border-left: 3px solid #1976D2; align-self: flex-start; }
-    .chat-msg.user { background: #1976D2; color: #fff; align-self: flex-end; }
-    .ai-chat-footer { display: flex; padding: 8px; background: #fff; border-top: 1px solid #e2e8f0; }
-    .ai-chat-footer input { flex: 1; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; outline: none; }
-    .ai-chat-footer button { background: #1976D2; color: #fff; border: none; padding: 8px 12px; margin-left: 5px; border-radius: 4px; cursor: pointer; }
-  </style>
+  <script>
+    /* BLOG ARTICLES CONTENT DATABASE */
+    const blogArticles = {
+      post1: {
+        category: "🌱 Sustainable Finance",
+        title: "What Political Stability Actually Means for a Country’s Energy Transition",
+        date: "September 2, 2026",
+        author: "Jamil Ahmad Shayaan",
+        content: `
+          <p>When we talk about the transition toward renewable energy, we often focus on technology, investment, natural resources, and government policies. But there is another factor that can quietly determine whether an energy transition succeeds or struggles: <strong>political stability</strong>.</p>
+          <p>Political stability does not simply mean that a country has the same government for a long period of time. It is much broader than that. It refers to the ability of a country's political and institutional system to provide predictability, continuity, effective governance, and a relatively stable environment for long-term decision-making.</p>
+          <p>This matters greatly for the energy sector because energy transitions do not happen overnight. Building solar farms, wind projects, hydropower facilities, modern electricity grids, and other clean-energy infrastructure requires years of planning, investment, and policy commitment.</p>
 
-  <button class="ai-chat-btn" onclick="toggleAiChat()">🤖 Ask Jamil's AI</button>
+          <h2>Why Does Political Stability Matter?</h2>
+          <p>Energy projects are usually long-term investments. An investor building a renewable energy project may expect the project to operate for 20 or 30 years. Therefore, investors need confidence that government policies, regulations, taxation systems, and investment rules will remain reasonably predictable.</p>
+          <p>When political institutions are stable, governments are generally better positioned to develop long-term energy strategies and implement them consistently.</p>
+          <p>For example, a country may introduce incentives for solar and wind energy, establish renewable-energy targets, improve electricity infrastructure, and create regulations that encourage private investment. If these policies remain relatively consistent, businesses and investors have greater confidence to commit their capital.</p>
+          <p>Political instability can create the opposite situation. Frequent changes in governments, policy uncertainty, political conflict, corruption, or institutional weaknesses can make investors more cautious. Even when a country has excellent renewable-energy resources, uncertainty may prevent those resources from being fully developed.</p>
 
-  <div class="ai-chat-window" id="aiChatWindow">
-    <div class="ai-chat-header">
-      <strong>Jamil's Virtual Assistant</strong>
-      <span style="cursor:pointer;" onclick="toggleAiChat()">&times;</span>
-    </div>
-    <div class="ai-chat-body" id="aiChatBody">
-      <div class="chat-msg bot">Salam! Aap blog posts ya general guidance ke baare mein kuch bhi pooch sakte hain.</div>
-    </div>
-    <div class="ai-chat-footer">
-      <input type="text" id="aiChatInput" placeholder="Ask question..." onkeypress="if(event.key==='Enter') sendMsg()" />
-      <button onclick="sendMsg()">Send</button>
-    </div>
+          <h2>Political Stability Is More Than the Absence of Conflict</h2>
+          <p>It is important to understand that political stability does not necessarily mean that a country has no political disagreements. Democratic societies naturally experience political competition, changes in leadership, and public debates. These are not automatically signs of instability.</p>
+          <p>What matters is whether political institutions are strong enough to manage these changes without seriously disrupting economic and energy policies. A stable political system allows governments to change while maintaining a certain level of institutional continuity.</p>
+          <p>For the energy transition, this continuity is extremely valuable. A renewable-energy project should not become financially risky simply because a new administration comes into power. Investors need to believe that contracts will be respected, regulations will be enforced, and major energy policies will not change unpredictably.</p>
+
+          <h2>The Connection Between Stability and Investment</h2>
+          <p>One of the biggest requirements for an energy transition is capital. Renewable-energy infrastructure can require significant upfront investment. Solar panels, wind turbines, transmission networks, energy-storage systems, and modern electricity grids all require substantial financial resources.</p>
+          <p>Political stability can reduce some of the risks associated with these investments. When investors perceive a country as politically stable, they may be more willing to provide financing because they have greater confidence in the country's institutions and future economic environment.</p>
+          <p>On the other hand, political uncertainty can increase perceived risk. Investors may demand higher returns, delay projects, or choose to invest in other countries instead. This means political stability can influence the energy transition indirectly: stable institutions can help create an environment in which renewable-energy investment becomes more attractive.</p>
+
+          <h2>Policy Continuity Is Critical</h2>
+          <p>Energy transitions require consistency. A government may announce ambitious renewable-energy targets, but targets alone are not enough. Countries need policies that turn those targets into actual projects.</p>
+          <p>This can include:</p>
+          <ul>
+            <li>Renewable-energy incentives</li>
+            <li>Clear regulations</li>
+            <li>Competitive electricity markets</li>
+            <li>Stable investment rules</li>
+            <li>Efficient licensing procedures</li>
+            <li>Reliable energy infrastructure</li>
+            <li>Transparent government institutions</li>
+            <li>Long-term energy planning</li>
+          </ul>
+          <p>When these systems remain consistent, companies can plan with greater confidence. But when policies frequently change, renewable-energy developers may face uncertainty about their expected revenues, costs, taxes, permits, or access to electricity markets. Therefore, political stability can help transform energy policy from a political promise into a long-term national strategy.</p>
+
+          <h2>Developing Countries Face an Even Bigger Challenge</h2>
+          <p>For developing economies, the relationship between political stability and energy transition can be particularly important. Many developing countries have enormous renewable-energy potential but face challenges such as limited infrastructure, restricted access to finance, weak institutions, and political uncertainty.</p>
+          <p>A country may have abundant sunlight, strong wind resources, rivers, or geothermal potential. However, natural resources alone cannot guarantee a successful energy transition. The country also needs institutions capable of converting those resources into reliable energy systems. This is why energy transition should not be viewed only as a technological challenge. It is also an institutional and political challenge.</p>
+
+          <h2>Does Political Stability Always Increase Renewable Energy?</h2>
+          <p>Not necessarily. This is where the relationship becomes more interesting. Political stability can create a favorable environment for investment and long-term planning, but it does not automatically guarantee greater renewable-energy consumption.</p>
+          <p>A politically stable country may still depend heavily on coal, oil, or natural gas because of its existing infrastructure, economic interests, energy prices, or government priorities. Similarly, a country experiencing political challenges may sometimes rapidly expand renewable energy because of energy-security concerns, international commitments, technological improvements, or economic necessity.</p>
+          <p>Therefore, political stability should be understood as one important factor among many, rather than a single explanation for renewable-energy development.</p>
+
+          <h2>Stability Creates the Conditions for Long-Term Thinking</h2>
+          <p>Perhaps the most important contribution of political stability to the energy transition is its ability to encourage long-term thinking. Energy policy requires decisions today for benefits that may appear decades later.</p>
+          <p>A government focused only on short-term political survival may prioritize immediate economic or political objectives. In contrast, stable institutions can make it easier to develop strategies that extend beyond a single political cycle.</p>
+          <p>This is especially important for renewable energy because the transition involves transforming entire energy systems—not simply replacing one power plant with another. It requires changes in transportation, electricity generation, industrial production, infrastructure, financing, and consumer behavior. Such transformation requires patience, consistency, and institutional commitment.</p>
+
+          <h2>The Bigger Picture</h2>
+          <p>The global energy transition is often presented as a race to develop better technologies. Technology is certainly essential, but technology alone cannot build a sustainable energy future. A country may have advanced solar panels, modern wind turbines, and access to international climate finance. Yet without effective institutions, predictable policies, and long-term planning, the transition can remain slow.</p>
+          <p>Political stability helps create the environment in which these technological and financial resources can be used effectively. Ultimately, a successful energy transition depends on more than sunlight, wind, money, or technology. It depends on whether a country can create stable institutions capable of supporting long-term sustainable development.</p>
+
+          <h2>Final Thought</h2>
+          <p>The energy transition is a journey that can take decades. Governments may change, political priorities may evolve, and economic conditions may fluctuate—but the need for a reliable and sustainable energy system remains.</p>
+          <p>The countries most capable of managing this long-term transformation will not necessarily be those with the most natural resources. They may be the countries that can combine stable institutions, consistent policies, financial investment, technological innovation, and a clear long-term vision. That is where political stability becomes more than a measure of political conditions. It becomes part of the foundation for a country's sustainable energy future.</p>
+        `
+      },
+      post2: {
+        category: "💼 Career Development",
+        title: "Notes from Four Years on a Bank Branch Floor",
+        date: "September 2, 2026",
+        author: "Jamil Ahmad Shayaan",
+        content: `
+          <p>Four years in a bank branch teaches you a lot. Not just about banking, money, accounts, or customers. It teaches you about people.</p>
+          <p>When I first started working at a bank, I thought the job would mostly be about transactions, paperwork, customer service, and following procedures. And yes, all of those things were part of it. But after spending years behind that counter, I realized that a bank branch is actually a small picture of society.</p>
+          <p>Every day, you meet different kinds of people. Some walk in confidently, some are confused, some are angry, some are in a hurry, and some simply want someone to listen to their problem. And sometimes, the person standing in front of you is carrying a lot more than the documents in their hands.</p>
+
+          <h2>Money Is Rarely Just About Money</h2>
+          <p>One of the biggest things I learned is that money usually has a story behind it.</p>
+          <p>A customer depositing a large amount may be running a business. Someone withdrawing a small amount may need it for their child's school fees. Someone opening a new account may be starting their first job.</p>
+          <p>You cannot always know someone's situation just by looking at their balance.</p>
+          <p>There were days when customers would come to the branch frustrated about something that seemed very small from our side. But for them, it could be extremely important. That taught me something simple: never underestimate what something means to another person.</p>
+
+          <h2>People Remember How You Treat Them</h2>
+          <p>Banking has many rules and procedures. Sometimes you have to say no. Sometimes a transaction cannot be processed. Sometimes a customer has to bring another document or complete another requirement.</p>
+          <p>You cannot always give people the answer they want, but you can control how you give that answer. A respectful explanation can completely change the situation.</p>
+          <p>I learned that customer service is not always about solving the problem. Sometimes it is simply about making the person feel that their problem was taken seriously.</p>
+          <p>People may forget what you told them, but they often remember how you made them feel.</p>
+
+          <h2>The Branch Can Get Crazy</h2>
+          <p>There are days when everything is calm. And then there are days when the branch feels like everyone in the city decided to come at exactly the same time.</p>
+          <p>The queue gets longer, the phone keeps ringing, customers are waiting, colleagues are asking questions, and somehow everyone wants their work done immediately.</p>
+          <p>You learn to stay calm. At least, you try to.</p>
+          <p>Banking taught me how important it is to keep your mind clear when things around you become stressful. Making a mistake while rushing can create a much bigger problem than simply taking a few extra seconds.</p>
+          <p>Sometimes the best skill is not working faster. It is knowing when to slow down.</p>
+
+          <h2>You Learn to Read People</h2>
+          <p>After dealing with hundreds and eventually thousands of customers, you start noticing small things: the way someone explains a problem, the way they react when you ask a question, whether they are genuinely confused or simply frustrated.</p>
+          <p>You also learn that everyone communicates differently. Some people want detailed explanations. Others just want the answer. Some customers need patience. Some need reassurance.</p>
+          <p>This experience helped me outside the bank too. Communication is not just about speaking well. It is about understanding who you are speaking to.</p>
+
+          <h2>Banking Also Teaches You About Trust</h2>
+          <p>People trust banks with something very personal: their money. That responsibility is not small.</p>
+          <p>A customer's account balance may represent years of savings, a business, a family's future, or an emergency fund. Working in banking made me understand why accuracy and responsibility matter so much.</p>
+          <p>A small mistake on a computer screen may look insignificant, but behind that number there can be a real person's life. That changes the way you look at your work.</p>
+
+          <h2>Not Every Lesson Comes From a Manager</h2>
+          <p>Some of the most useful lessons I learned did not come from training sessions. They came from colleagues.</p>
+          <p>From watching experienced employees handle difficult customers. From seeing someone remain calm during a stressful situation. From making my own mistakes and learning not to repeat them.</p>
+          <p>Every workplace has people who teach you something without realizing they are teaching you. Sometimes you learn what to do. Sometimes you learn what not to do. Both are valuable.</p>
+
+          <h2>Four Years Later</h2>
+          <p>Looking back, I don't remember every transaction I processed or every form I completed. I remember people: the conversations, the stressful days, the funny moments, the difficult customers, the colleagues who helped me, and the small experiences that slowly changed the way I communicate and think.</p>
+          <p>Four years on a bank branch floor taught me that professional life is not only about earning a salary or building a career. It is also about understanding people, handling pressure, taking responsibility, and learning from ordinary days.</p>
+          <p>A job may eventually end, but the lessons you collect from it stay with you. And sometimes, you only realize how much you learned after you have already moved on.</p>
+        `
+      },
+      post3: {
+        category: "🎓 Education & Life",
+        title: "From a Primary School Teacher to a Master’s Graduate in Indonesia",
+        date: "September 2, 2026",
+        author: "Jamil Ahmad Shayaan",
+        content: `
+          <p>A few years ago, I was teaching in a primary school in Pakistan. I had a regular routine. I went to school, taught my students, came home, and tried to manage everything that came with work and family life.</p>
+          <p>I never imagined that one day I would be sitting in a classroom in Indonesia, working toward a Master's degree. But life has a funny way of taking you places you never planned for.</p>
+
+          <h2>It Started With a Simple Decision</h2>
+          <p>I always wanted to continue my education, but wanting something and actually making it happen are two different things.</p>
+          <p>There were responsibilities, work, family, finances, and plenty of reasons to keep things as they were. Still, I decided to take a chance. I applied for a Master's scholarship in Indonesia.</p>
+          <p>When I received the opportunity to study at Universitas Islam Internasional Indonesia, it felt exciting, but honestly, it was also a little scary. Moving to another country for education sounds great when you talk about it. Actually doing it is different.</p>
+
+          <h2>Leaving Familiar Things Behind</h2>
+          <p>Pakistan was home. My family, my work, my friends, my language, my food, and the environment I had grown up with were all familiar.</p>
+          <p>Indonesia was completely different. New country. New culture. New language. New university. New people. Even simple things could become an adjustment.</p>
+          <p>Sometimes you miss the food you are used to. Sometimes you struggle to communicate. Sometimes you simply miss being around people who understand your background without you having to explain everything. But slowly, Indonesia started becoming familiar too.</p>
+
+          <h2>Being a Teacher and Becoming a Student Again</h2>
+          <p>There was something interesting about being a teacher and then becoming a student again. As a teacher, I was used to standing in front of a classroom and explaining things. In Indonesia, I was sitting on the other side.</p>
+          <p>I had assignments, presentations, research papers, deadlines, exams, and eventually a thesis.</p>
+          <p>It reminded me of something I had sometimes told my own students: You never really stop learning. You just change classrooms.</p>
+
+          <h2>Studying Sustainable Finance</h2>
+          <p>My Master's journey was in Sustainable Finance. At first, many of the concepts were challenging. Finance itself requires a certain level of discipline, and combining it with sustainability brought another dimension to the learning process.</p>
+          <p>But gradually, things started making sense. I began looking at finance differently. Money is not only about profit. Financial decisions can influence businesses, societies, energy systems, and the environment. That made the subject much more interesting for me.</p>
+
+          <h2>The Thesis Journey</h2>
+          <p>Then came the part that almost every Master's student eventually has to face: the thesis.</p>
+          <p>My research focused on the relationship between political stability and renewable energy consumption in ASEAN countries. It involved collecting data, reading research papers, working with statistical methods, dealing with revisions, and spending a lot of time trying to make sense of numbers.</p>
+          <p>There were days when everything seemed to be going well. There were also days when I seriously wondered why I had chosen to do a Master's degree. But that is probably part of the journey. You keep going.</p>
+
+          <h2>Indonesia Gave Me More Than a Degree</h2>
+          <p>When I look back, I realize that the most valuable part of studying abroad was not just the degree. It was the experience.</p>
+          <p>I met people from different backgrounds. I experienced a different culture. I learned to communicate with people who did not share the same language or upbringing. I became more independent. And I started looking at my own country and the world around me from a slightly different perspective.</p>
+          <p>Living abroad makes you notice things you might not notice when you stay in the same place your whole life.</p>
+
+          <h2>From One Classroom to Another</h2>
+          <p>There is a strange connection between teaching and studying. As a primary school teacher, I spent my days trying to help children learn something new. As a Master's student, I found myself learning something new almost every day.</p>
+          <p>The roles were different, but the idea was the same: Keep learning. Keep asking questions. Keep improving.</p>
+
+          <h2>What Comes Next?</h2>
+          <p>I don't know exactly where this journey will take me. Maybe back to teaching. Maybe into another field. Maybe to another country. Maybe somewhere I haven't even considered yet.</p>
+          <p>But I have learned not to worry too much about having every step figured out. Sometimes you just need to take the next step.</p>
+          <p>A primary school teacher from Pakistan ended up becoming a Master's graduate in Indonesia. It wasn't a straight road. There were doubts, difficult days, homesickness, deadlines, financial worries, and plenty of uncertainty. But there was also curiosity, growth, friendship, and a lot of learning.</p>
+          <p>And perhaps that is what education is really supposed to do: not just give you a degree, but give you the courage to imagine a bigger life.</p>
+        `
+      },
+      post4: {
+        category: "🎵 Music & Creativity",
+        title: "My Musical Journey",
+        date: "September 2, 2026",
+        author: "Jamil Ahmad Shayaan",
+        content: `
+          <p>Music has been a part of my life for many years, long before I ever imagined that people from different places would listen to something I created.</p>
+          <p>My musical journey did not begin in a professional studio or with expensive equipment. It started with a simple harmonium and a friend who became my teacher.</p>
+
+          <h2>Where It All Started</h2>
+          <p>Many years ago, I had a friend named Naseem who was also my Ustad. He introduced me to the harmonium and patiently taught me the basics of music.</p>
+          <p>At that time, I was not thinking about building a musical career or getting millions of views. I was simply enjoying music.</p>
+          <p>Sometimes, I would get together with my friends in my hometown and we would play classic Pashto music. I would play music, sing, and enjoy those simple moments with friends.</p>
+          <p>Those days were not about numbers, followers, or algorithms. They were simply about the love of music.</p>
+          <p>Looking back now, I realize that those small moments were actually the beginning of something much bigger.</p>
+
+          <h2>Learning on My Own</h2>
+          <p>As time passed, my curiosity about music grew.</p>
+          <p>I started exploring digital music and slowly began teaching myself how to create music using technology.</p>
+          <p>There was no perfect formula. I experimented, made mistakes, tried different sounds, learned new techniques, and kept improving.</p>
+          <p>Sometimes a track would sound great to me. Sometimes it would not. But I kept making music.</p>
+          <p>That became one of the most important lessons of my journey: you don't always need to know exactly where you are going. Sometimes you just need to keep learning and keep creating.</p>
+
+          <h2>From a Hobby to Something People Enjoyed</h2>
+          <p>Eventually, I started sharing my music online.</p>
+          <p>Some of my tracks received much more attention than I expected. People started listening, sharing, and responding to my work.</p>
+          <p>Some tracks reached hundreds of thousands of views, and some were seen by millions of people across different platforms.</p>
+          <p>That feeling was difficult to explain. Something that had started as a personal passion was now reaching people I had never met.</p>
+          <p>It reminded me that you never really know where your work can take you. You just have to put it out there.</p>
+
+          <h2>Finding My Own Sound</h2>
+          <p>Over time, I became interested in many different types of music.</p>
+          <p>Today, I run my own musical channel on YouTube where I share instrumental music and explore different styles, including Arabic, Pakistani, Indian, and other musical influences.</p>
+          <p>I enjoy experimenting with different sounds because music does not have to fit into one box.</p>
+          <p>Sometimes I want to create something traditional. Sometimes something modern. Sometimes something completely different.</p>
+          <p>The freedom to experiment is one of the things I enjoy most about creating music.</p>
+
+          <h2>Three Songs, One More Step</h2>
+          <p>I have also recorded three songs of my own and shared them across different social media platforms.</p>
+          <p>The response from people has been incredibly encouraging. When someone listens to something you created and says they enjoyed it, there is a different kind of satisfaction in that.</p>
+          <p>It is not just about the views. It is about knowing that something that came from your own thoughts and effort connected with another person.</p>
+          <p>For me, that is one of the most beautiful things about music.</p>
+
+          <h2>What Music Has Taught Me</h2>
+          <p>My musical journey has taught me that talent is only one part of the story.</p>
+          <p>Curiosity matters. Practice matters. Patience matters. And perhaps most importantly, consistency matters.</p>
+          <p>I started with a harmonium. Then I moved toward experimenting with digital music. Today, I create and share music online.</p>
+          <p>The journey did not happen in one big moment. It happened through many small steps taken over many years. That is how most meaningful journeys work.</p>
+
+          <h2>Keep Creating</h2>
+          <p>I sometimes think about that younger version of myself playing harmonium with friends in my hometown. He had no idea where music would eventually take him.</p>
+          <p>And maybe that is the point. We don't always need to know the destination before we begin.</p>
+          <p>Sometimes a simple interest can become a skill. A skill can become a passion. A passion can become something that inspires other people. And something that started quietly can eventually reach millions.</p>
+          <p>My musical journey is still going. I am still learning. Still experimenting. Still creating. And I still believe that the best part of the journey may be somewhere ahead.</p>
+          <p>If there is one thing I have learned from music, it is this: don't wait until you have everything you need to start creating. Start with what you have, learn along the way, and keep going. You never know how far your passion can take you.</p>
+        `
+      },
+      post5: {
+        category: "✈️ Travel & Life",
+        title: "Moving from Swat to Indonesia for Graduate School",
+        date: "September 2, 2026",
+        author: "Jamil Ahmad Shayaan",
+        content: `
+          <p>Leaving your hometown is never just about changing your location.</p>
+          <p>Sometimes, it means leaving behind familiar streets, familiar faces, familiar food, and a life you have known for years.</p>
+          <p>For me, that journey started in Swat, Pakistan, and eventually took me to Indonesia for graduate school.</p>
+          <p>I never imagined that my education would take me so far from home.</p>
+
+          <h2>From the Mountains of Swat</h2>
+          <p>Swat is where I grew up.</p>
+          <p>It is a place of mountains, rivers, beautiful landscapes, and a strong sense of community. Like many people who grow up in a smaller town, I was familiar with the people and environment around me.</p>
+          <p>Life felt predictable.</p>
+          <p>Then came the decision to study abroad.</p>
+          <p>The idea was exciting, but it also came with a lot of questions.</p>
+          <p>Would I be able to adjust? Would I understand the culture? Would I be comfortable living so far from home? Would I be able to keep up academically?</p>
+          <p>You can think about these questions for a long time, but eventually, you have to take the step.</p>
+
+          <h2>Arriving in Indonesia</h2>
+          <p>Moving from Pakistan to Indonesia was a completely new experience.</p>
+          <p>The language was different. The food was different. The culture was different. Even some of the simplest daily activities felt unfamiliar at first.</p>
+          <p>But that is also what makes living abroad interesting.</p>
+          <p>You start noticing things that you never thought about before. You learn how people communicate differently. You discover new foods. You meet people from different backgrounds. And slowly, what once felt unfamiliar starts becoming normal.</p>
+
+          <h2>Becoming Comfortable With Being Uncomfortable</h2>
+          <p>One of the biggest lessons I learned was that growth usually happens outside your comfort zone.</p>
+          <p>In Swat, I knew how things worked. In Indonesia, I had to figure things out again.</p>
+          <p>University life, daily communication, transportation, food, friendships, academic work and countless small things all required adjustment.</p>
+          <p>At times, it was challenging. But every challenge made the next one a little easier.</p>
+          <p>You become more independent when you have to solve problems yourself. You become more confident when you realize that you can handle situations you once thought were difficult.</p>
+
+          <h2>Studying With People From Different Backgrounds</h2>
+          <p>Graduate school also gave me an opportunity to meet people with different experiences and perspectives.</p>
+          <p>Everyone brings their own story to a classroom.</p>
+          <p>Discussing ideas with people from different backgrounds made me realize that there is rarely only one way to look at a problem.</p>
+          <p>Education is not only about books and assignments. Sometimes, your classmates can teach you just as much as your professors.</p>
+
+          <h2>More Than a Degree</h2>
+          <p>When I left Swat, I thought I was mainly going to Indonesia to earn a graduate degree.</p>
+          <p>But the experience became much bigger than that.</p>
+          <p>I learned how to live independently. I learned to communicate across cultural differences. I learned to adapt.</p>
+          <p>I learned that being far from home can be difficult, but it can also make you stronger.</p>
+          <p>Most importantly, I started seeing the world from a wider perspective. Sometimes you need to leave the place you know to understand how big the world actually is.</p>
+
+          <h2>Looking Back</h2>
+          <p>When I think about the journey from Swat to Indonesia, the distance is not the most important part.</p>
+          <p>The important part is everything that happened in between.</p>
+          <p>The doubts before leaving. The excitement of arriving somewhere new. The challenges of adjusting. The people I met. The things I learned. And the person I became through the experience.</p>
+          <p>Swat will always be home. Indonesia became an important chapter of my life.</p>
+          <p>And somewhere between the two, I discovered that home can be a place you come from, while growth often happens in places you have never been before.</p>
+
+          <h2>Keep Moving</h2>
+          <p>Moving abroad does not magically make life easier. It simply gives you a different set of challenges and opportunities.</p>
+          <p>But if you are willing to learn, adapt, and keep moving forward, those challenges can change you in ways you never expected.</p>
+          <p>My journey from Swat to Indonesia started with a decision to study. It became a journey of education, independence, discovery, and personal growth.</p>
+          <p>And perhaps the most important lesson I took from it is simple: don't wait until you have everything figured out—sometimes, you have to travel far from where you started to discover how far you can actually go.</p>
+        `
+      }
+    };
+
   </div>
 
-  <script>
-    /* LIVE CLOCK */
+</article>
+
+    /* MODAL DISPLAY LOGIC */
+    function openBlogModal(postId) {
+      const article = blogArticles[postId];
+      if (article) {
+        document.getElementById('blogModalBody').innerHTML = `
+          <span style="background: #e0f2fe; color: #0284c7; font-size: 0.8rem; font-weight:700; padding: 4px 12px; border-radius: 12px; display: inline-block; margin-bottom: 10px;">${article.category}</span>
+          <h1 style="font-size: 1.9rem; color: #0f172a; margin: 10px 0 12px; line-height: 1.3;">${article.title}</h1>
+          <p style="font-size: 0.88rem; color: #64748b; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 25px;">
+            Published: <strong>${article.date}</strong> &middot; By <strong>${article.author}</strong>
+          </p>
+          <div>${article.content}</div>
+        `;
+        document.getElementById('blogModal').style.display = 'flex';
+      }
+    }
+
+    function closeBlogModal() {
+      document.getElementById('blogModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('blogModal');
+      if (event.target === modal) {
+        closeBlogModal();
+      }
+    };
+
+    /* 1. LIVE CLOCK */
     function updateLiveClock() {
       const now = new Date();
       const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
@@ -511,20 +889,20 @@
     setInterval(updateLiveClock, 1000);
     updateLiveClock();
 
-    /* LIVE WEATHER */
+    /* 2. LIVE WEATHER */
     async function fetchLiveWeather() {
       try {
         const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-6.4025&longitude=106.7942&current_weather=true');
         const data = await res.json();
         const temp = data.current_weather.temperature;
-        document.getElementById('weatherDisplay').innerHTML = `<span>🌤️ Location: Depok | Temp: <strong>${temp}°C</strong></span>`;
+        document.getElementById('weatherDisplay').innerHTML = `<span>🌤️ Location: Depok, West Java | Temp: <strong>${temp}°C</strong></span>`;
       } catch (e) {
         document.getElementById('weatherDisplay').innerHTML = `<span>🌤️ Live Weather Active</span>`;
       }
     }
     fetchLiveWeather();
 
-    /* LIVE MARKET RATES */
+    /* 3. LIVE MARKET RATES */
     async function fetchLiveMarketRates() {
       const tickerEl = document.getElementById('marketTicker');
       try {
@@ -538,40 +916,13 @@
         const pkr = forexData.rates.PKR ? forexData.rates.PKR.toFixed(2) : 'N/A';
         const idr = forexData.rates.IDR ? forexData.rates.IDR.toFixed(0) : 'N/A';
 
-        tickerEl.innerHTML = `🪙 BTC: <strong>$${btc}</strong> &nbsp;|&nbsp; 💎 ETH: <strong>$${eth}</strong> &nbsp;|&nbsp; 🇵🇰 USD/PKR: <strong>Rs ${pkr}</strong> &nbsp;|&nbsp; 🇮🇩 USD/IDR: <strong>Rp ${idr}</strong>`;
+        tickerEl.innerHTML = `🪙 Bitcoin (BTC): <strong>$${btc}</strong> &nbsp;|&nbsp; 💎 Ethereum (ETH): <strong>$${eth}</strong> &nbsp;|&nbsp; 🇵🇰 USD to PKR: <strong>Rs ${pkr}</strong> &nbsp;|&nbsp; 🇮🇩 USD to IDR: <strong>Rp ${idr}</strong>`;
       } catch (e) {
-        tickerEl.innerHTML = `🪙 BTC: Live Tracking &nbsp;|&nbsp; 🇵🇰 USD/PKR: Live Rates &nbsp;|&nbsp; 🇮🇩 USD/IDR: Live Rates`;
+        tickerEl.innerHTML = `🪙 BTC: Live Tracking &nbsp;|&nbsp; 🇵🇰 USD to PKR: Live Rates &nbsp;|&nbsp; 🇮🇩 USD to IDR: Live Rates`;
       }
     }
     fetchLiveMarketRates();
     setInterval(fetchLiveMarketRates, 60000);
-
-    /* AI CHATBOT LOGIC */
-    function toggleAiChat() { 
-      document.getElementById('aiChatWindow').classList.toggle('active'); 
-    }
-    function sendMsg() {
-      const input = document.getElementById('aiChatInput');
-      const txt = input.value.trim();
-      if(!txt) return;
-      addMsg(txt, 'user');
-      input.value = '';
-      setTimeout(() => {
-        let resp = "Post 6 students ki self-development aur growth ke hawale se ek inspiring article hai. Mazeed sawalaat ke liye poochhein!";
-        const q = txt.toLowerCase();
-        if(q.includes('post 6') || q.includes('future') || q.includes('background')) resp = "Post 6 ka main message hai ke aap ka background aap ka future decide nahi karta!";
-        else if(q.includes('research') || q.includes('finance')) resp = "Blog Post 1 & 5 Sustainable Finance aur ASEAN Energy Transition ke baray mein hain.";
-        addMsg(resp, 'bot');
-      }, 400);
-    }
-    function addMsg(text, sender) {
-      const body = document.getElementById('aiChatBody');
-      const div = document.createElement('div');
-      div.className = `chat-msg ${sender}`;
-      div.textContent = text;
-      body.appendChild(div);
-      body.scrollTop = body.scrollHeight;
-    }
   </script>
 
 </body>
